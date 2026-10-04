@@ -115,6 +115,11 @@ createOrReplace
 			formatString: #,0 €
 			displayFolder: Prix
 
+		/// Prix médian au m² de l'ensemble de la Bretagne, même type de bien et même période. Ignore les filtres de département et de commune. Sert de ligne de référence.
+		measure 'Prix médian m² Bretagne' = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_commune ) )
+			formatString: #,0 €
+			displayFolder: Prix
+
 		/// Variation du nombre de ventes par rapport à la même période de l'année précédente. Vide si moins de 10 ventes l'année précédente.
 		measure 'Évol. ventes %' =
 				VAR ventesN1 = [Ventes N-1]
@@ -300,6 +305,18 @@ createOrReplace
 				VAR evolution = [Évol. prix m² %]
 				RETURN
 					SWITCH ( TRUE (), ISBLANK ( evolution ), "#616E7C", evolution > 0, "#B5401A", evolution < 0, "#1565A8", "#616E7C" )
+			displayFolder: Mise en forme
+
+		/// Couleur des colonnes de la distribution des prix au m² : la tranche qui contient le prix médian est foncée, les autres claires.
+		measure 'Couleur tranche médiane' =
+				VAR mediane = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( fct_ventes[tranche_prix_m2], fct_ventes[tranche_prix_m2_ordre] ) )
+				VAR debutTranche = SELECTEDVALUE ( fct_ventes[tranche_prix_m2_ordre] )
+				RETURN
+					IF (
+						NOT ISBLANK ( mediane ) && mediane >= debutTranche && ( mediane < debutTranche + 250 || debutTranche = 8000 ),
+						"#12464C",
+						"#6FA8A6"
+					)
 			displayFolder: Mise en forme
 
 		/// Couleur de mise en forme conditionnelle de l'écart au département : vermillon au-dessus, bleu en dessous, gris si vide.

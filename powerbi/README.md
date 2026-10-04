@@ -182,7 +182,7 @@ Enregistrer (**Ctrl+S**). Dans le dépôt, `git status` doit faire apparaître
 
 ## 12. Mesures DAX
 
-Les 30 mesures sont définies dans [`measures.tmdl`](measures.tmdl), avec leur formule, leur
+Les 32 mesures sont définies dans [`measures.tmdl`](measures.tmdl), avec leur formule, leur
 description (reprise du dictionnaire des KPI), leur format et leur dossier d'affichage.
 Elles s'installent en une fois par la vue TMDL de Power BI Desktop.
 

@@ -268,7 +268,7 @@ individuellement (surface, nombre de pièces).
 Exemple de titre : « Vannes, appartements en 2025 : 3 450 €/m², 18 % au-dessus du Morbihan ».
 
 Page masquée dans la navigation, atteinte par drill-through sur une commune (champ
-`dim_commune[code_commune_insee]`), en conservant tous les filtres. Bouton retour en
+`dim_commune[libelle_commune]`, présent dans tous les visuels de communes et clé de la carte), en conservant tous les filtres. Bouton retour en
 haut à gauche.
 
 ```
@@ -283,8 +283,8 @@ haut à gauche.
 │    commune vs département           │    2021 → 2025                         │
 │    (2 courbes)                      │                                        │
 ├─────────────────────────────────────┴────────────────────────────────────────┤
-│ D  Commune vs département : chaque KPI en ligne,                             │
-│    colonnes Commune · Département · Écart                                    │
+│ D  La commune en chiffres : un indicateur par ligne, prix au m²              │
+│    de la commune et du département, écart                                    │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -293,7 +293,7 @@ haut à gauche.
 | A | Carte multi-valeurs | `Ventes` et `Évol. ventes %` ; `Prix médian m²` et `Évol. prix m² %` ; `Prix médian bien type` ; `Écart vs département %` | Répond d'emblée à « combien, et est-ce cher pour le secteur ? ». |
 | B | Courbes | `Prix médian m²` de la commune et `Prix médian m² département`, par année | Grain **annuel** et non trimestriel : à l'échelle d'une commune, un trimestre compte trop peu de ventes. Une année sous le seuil laisse un trou dans la courbe plutôt qu'un point trompeur. |
 | C | Colonnes | `Ventes` par année | Montre la profondeur du marché local et éclaire la fiabilité des prix. |
-| D | Tableau (mesures en lignes) | Ventes, prix médian au m², prix du bien type, part des maisons : commune, département, écart | La comparaison terme à terme, en bas du Z. |
+| D | Matrice (mesures en lignes) | Ventes et évolution, prix médian au m² de la commune et du département, écart, prix du bien type, part des maisons | La comparaison terme à terme, en bas du Z. Seul le prix au m² a une variante départementale : chaque indicateur occupe une ligne (voir docs/powerbi-pages.md). |
 
 ### 10.6 Page 5 : Méthodologie
 
