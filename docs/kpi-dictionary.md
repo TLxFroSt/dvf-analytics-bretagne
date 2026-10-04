@@ -167,8 +167,12 @@ affiche une mention explicite (« Moins de 10 ventes »), jamais un chiffre frag
 - **Format** : nombres au format français (1 234 ; 2 766 €/m² ; +3,2 %). Évolutions
   arrondies à 0,1 point, prix à l'euro près.
 
-Les **noms de mesures DAX** sont ceux de la table de mesures Power BI. La **description
-Power BI** est le texte affiché en info-bulle dans la liste des champs.
+Les **noms de mesures DAX** sont ceux de la table de mesures Power BI
+([`powerbi/measures.tmdl`](../powerbi/measures.tmdl)). La **description Power BI** est le
+texte affiché en info-bulle dans la liste des champs. Outre les dossiers Volumes, Prix et
+Évolutions, la table contient des mesures de présentation : titres dynamiques et mentions
+(dossier Titres), couleurs de mise en forme conditionnelle (Mise en forme) et seuils de
+volume (Paramètres), pour que chaque seuil ne soit défini qu'une fois.
 
 ---
 
@@ -321,5 +325,5 @@ Power BI** est le texte affiché en info-bulle dans la liste des champs.
 | **Filtres** | Une année et un seul type de bien sélectionnés. Le classement s'effectue parmi les communes des départements filtrés. |
 | **Lecture** | Repère les secteurs en tension ou en repli. À lire avec le nombre de ventes (affiché) : un fort mouvement sur 20 ventes est moins certain que sur 200. |
 | **Piège** | Les classements d'évolutions surreprésentent mécaniquement les petites communes, les plus volatiles : c'est la raison du seuil de 20 ventes. |
-| **Mesure DAX** | `Commune éligible top` (dossier Évolutions), utilisée en filtre de visuel avec un filtre Top N sur `Évol. prix m² %` |
-| **Description Power BI** | Vaut 1 si la commune compte au moins 20 ventes avec prix l'année sélectionnée et l'année précédente, sinon vide. |
+| **Mesures DAX** | `Commune éligible top`, `Rang hausse prix`, `Rang baisse prix` (dossier Évolutions). Chaque visuel est filtré sur un rang ≤ 10. Un rang plutôt que le filtre Top N natif : ce dernier classe les valeurs vides en bas et remplirait le top des baisses de communes non éligibles. Deux évolutions strictement égales partagent le même rang. |
+| **Description Power BI** | `Commune éligible top` : vaut 1 si la commune compte au moins 20 ventes avec prix l'année sélectionnée et l'année précédente, sinon vide. Rangs : position de la commune parmi les communes éligibles, de la plus forte hausse (ou baisse) au rang 1. |

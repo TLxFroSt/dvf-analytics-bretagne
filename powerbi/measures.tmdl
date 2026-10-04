@@ -1,0 +1,310 @@
+createOrReplace
+
+	ref table Mesures
+
+		/// Nombre minimal de ventes pour afficher un indicateur de prix ou une évolution (dictionnaire des KPI, section 2).
+		measure 'Seuil ventes' = 10
+			formatString: 0
+			displayFolder: Paramètres
+
+		/// Nombre minimal de ventes avec prix, en N et en N-1, pour qu'une commune entre dans les tops 10 des hausses et des baisses.
+		measure 'Seuil top' = 20
+			formatString: 0
+			displayFolder: Paramètres
+
+		/// Nombre de ventes de maisons ou d'appartements (actes de vente, hors VEFA et hors ventes avec local professionnel).
+		measure Ventes = COUNTROWS ( fct_ventes )
+			formatString: #,0
+			displayFolder: Volumes
+
+		/// Nombre de ventes sur la même période de l'année précédente.
+		measure 'Ventes N-1' = CALCULATE ( [Ventes], SAMEPERIODLASTYEAR ( dim_date[date_jour] ) )
+			formatString: #,0
+			displayFolder: Volumes
+
+		/// Part des maisons dans le nombre de ventes de logement. Ignore le filtre de type de bien. Vide si moins de 10 ventes.
+		measure 'Part maisons %' =
+				VAR ventesTousTypes = CALCULATE ( [Ventes], REMOVEFILTERS ( dim_type_bien ) )
+				VAR ventesMaisons = CALCULATE ( [Ventes], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 1 )
+				RETURN
+					IF ( ventesTousTypes >= [Seuil ventes], DIVIDE ( COALESCE ( ventesMaisons, 0 ), ventesTousTypes ) )
+			formatString: 0 %
+			displayFolder: Volumes
+
+		/// Nombre de ventes d'un seul logement retenues pour les indicateurs de prix, après exclusion des valeurs aberrantes.
+		measure 'Ventes avec prix' = CALCULATE ( [Ventes], fct_ventes[est_population_prix] = TRUE () )
+			formatString: #,0
+			displayFolder: Volumes
+
+		/// Médiane du prix au m² bâti des ventes d'un seul logement, hors valeurs aberrantes. Vide si moins de 10 ventes ou si maisons et appartements sont mélangés.
+		measure 'Prix médian m²' =
+				VAR nbTypes = CALCULATE ( DISTINCTCOUNT ( fct_ventes[type_bien_key] ), fct_ventes[est_population_prix] = TRUE () )
+				VAR nbVentes = [Ventes avec prix]
+				RETURN
+					IF (
+						nbTypes = 1 && nbVentes >= [Seuil ventes],
+						CALCULATE ( MEDIAN ( fct_ventes[prix_m2] ), fct_ventes[est_population_prix] = TRUE () )
+					)
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Prix médian au m² des appartements, quel que soit le filtre de type de bien. Vide si moins de 10 ventes.
+		measure 'Prix médian m² appartements' = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 2 )
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Prix médian au m² des maisons, quel que soit le filtre de type de bien. Vide si moins de 10 ventes.
+		measure 'Prix médian m² maisons' = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 1 )
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Prix médian au m² sur la même période de l'année précédente.
+		measure 'Prix médian m² N-1' = CALCULATE ( [Prix médian m²], SAMEPERIODLASTYEAR ( dim_date[date_jour] ) )
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Prix médian de vente d'un appartement de 3 pièces, hors frais de notaire et hors valeurs aberrantes. Vide si moins de 10 ventes.
+		measure 'Prix médian T3' =
+				VAR nbVentes = CALCULATE ( [Ventes avec prix], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 2, fct_ventes[nb_pieces] = 3 )
+				RETURN
+					IF (
+						nbVentes >= [Seuil ventes],
+						CALCULATE (
+							MEDIAN ( fct_ventes[valeur_fonciere] ),
+							REMOVEFILTERS ( dim_type_bien ),
+							dim_type_bien[code_type_bien] = 2,
+							fct_ventes[nb_pieces] = 3,
+							fct_ventes[est_population_prix] = TRUE ()
+						)
+					)
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Prix médian de vente d'une maison de 4 ou 5 pièces, hors frais de notaire et hors valeurs aberrantes. Vide si moins de 10 ventes.
+		measure 'Prix médian maison 4-5 p.' =
+				VAR nbVentes = CALCULATE ( [Ventes avec prix], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 1, fct_ventes[nb_pieces] IN { 4, 5 } )
+				RETURN
+					IF (
+						nbVentes >= [Seuil ventes],
+						CALCULATE (
+							MEDIAN ( fct_ventes[valeur_fonciere] ),
+							REMOVEFILTERS ( dim_type_bien ),
+							dim_type_bien[code_type_bien] = 1,
+							fct_ventes[nb_pieces] IN { 4, 5 },
+							fct_ventes[est_population_prix] = TRUE ()
+						)
+					)
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Prix médian du bien type du type sélectionné : maison de 4 ou 5 pièces, ou appartement T3. Alimente les cartes KPI.
+		measure 'Prix médian bien type' =
+				SWITCH (
+					SELECTEDVALUE ( dim_type_bien[code_type_bien] ),
+					1, [Prix médian maison 4-5 p.],
+					2, [Prix médian T3]
+				)
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Prix médian au m² de l'ensemble du ou des départements des communes du contexte, même type de bien et même période. Ignore la sélection de communes.
+		measure 'Prix médian m² département' =
+				VAR departements = VALUES ( dim_commune[code_departement] )
+				RETURN
+					CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_commune ), departements )
+			formatString: #,0 €
+			displayFolder: Prix
+
+		/// Variation du nombre de ventes par rapport à la même période de l'année précédente. Vide si moins de 10 ventes l'année précédente.
+		measure 'Évol. ventes %' =
+				VAR ventesN1 = [Ventes N-1]
+				RETURN
+					IF ( ventesN1 >= [Seuil ventes], DIVIDE ( [Ventes] - ventesN1, ventesN1 ) )
+			formatString: ▲ +0.0 %;▼ -0.0 %;0.0 %
+			displayFolder: Évolutions
+
+		/// Variation du prix médian au m² par rapport à la même période de l'année précédente. Vide si moins de 10 ventes sur l'une des deux périodes.
+		measure 'Évol. prix m² %' =
+				VAR prixN = [Prix médian m²]
+				VAR prixN1 = [Prix médian m² N-1]
+				RETURN
+					IF ( NOT ISBLANK ( prixN ) && NOT ISBLANK ( prixN1 ), DIVIDE ( prixN - prixN1, prixN1 ) )
+			formatString: ▲ +0.0 %;▼ -0.0 %;0.0 %
+			displayFolder: Évolutions
+
+		/// Écart du prix médian au m² de la commune par rapport à la médiane de son département, même type de bien et même période. Vide si moins de 10 ventes dans la commune.
+		measure 'Écart vs département %' =
+				VAR prixCommune = [Prix médian m²]
+				VAR prixDepartement = [Prix médian m² département]
+				RETURN
+					IF (
+						HASONEVALUE ( dim_commune[code_commune_insee] ) && NOT ISBLANK ( prixCommune ),
+						DIVIDE ( prixCommune - prixDepartement, prixDepartement )
+					)
+			formatString: +0 %;-0 %;0 %
+			displayFolder: Évolutions
+
+		/// Vaut 1 si la commune compte au moins 20 ventes avec prix l'année sélectionnée et l'année précédente, sinon vide.
+		measure 'Commune éligible top' =
+				VAR ventesN = [Ventes avec prix]
+				VAR ventesN1 = CALCULATE ( [Ventes avec prix], SAMEPERIODLASTYEAR ( dim_date[date_jour] ) )
+				RETURN
+					IF ( HASONEVALUE ( dim_commune[code_commune_insee] ) && ventesN >= [Seuil top] && ventesN1 >= [Seuil top], 1 )
+			formatString: 0
+			displayFolder: Évolutions
+
+		/// Rang de la commune parmi les communes éligibles, de la plus forte hausse du prix médian au m² (rang 1) à la plus forte baisse. Filtrer le visuel sur un rang inférieur ou égal à 10.
+		measure 'Rang hausse prix' =
+				IF (
+					[Commune éligible top] = 1,
+					VAR evolCommune = [Évol. prix m² %]
+					VAR communesEligibles = FILTER ( ALLSELECTED ( dim_commune ), [Commune éligible top] = 1 )
+					RETURN
+						RANKX ( communesEligibles, [Évol. prix m² %], evolCommune, DESC, SKIP )
+				)
+			formatString: 0
+			displayFolder: Évolutions
+
+		/// Rang de la commune parmi les communes éligibles, de la plus forte baisse du prix médian au m² (rang 1) à la plus forte hausse. Filtrer le visuel sur un rang inférieur ou égal à 10.
+		measure 'Rang baisse prix' =
+				IF (
+					[Commune éligible top] = 1,
+					VAR evolCommune = [Évol. prix m² %]
+					VAR communesEligibles = FILTER ( ALLSELECTED ( dim_commune ), [Commune éligible top] = 1 )
+					RETURN
+						RANKX ( communesEligibles, [Évol. prix m² %], evolCommune, ASC, SKIP )
+				)
+			formatString: 0
+			displayFolder: Évolutions
+
+		/// Libellé du bien type du type sélectionné, affiché sous la carte « Prix médian bien type ».
+		measure 'Libellé bien type' =
+				SWITCH (
+					SELECTEDVALUE ( dim_type_bien[code_type_bien] ),
+					1, "Maison de 4 ou 5 pièces",
+					2, "Appartement T3"
+				)
+			displayFolder: Titres
+
+		/// Mention affichée quand un prix repose sur moins de ventes que le seuil, à la place du chiffre.
+		measure 'Mention volume' =
+				IF ( [Ventes avec prix] < [Seuil ventes], "Moins de " & [Seuil ventes] & " ventes : prix non affiché" )
+			displayFolder: Titres
+
+		/// Pied de page : source et dates des données, lues dans mart_metadonnees.
+		measure 'Texte source' =
+				"Source : DVF géolocalisées (DGFiP, Etalab) · données publiées le "
+					& FORMAT ( MAX ( mart_metadonnees[date_publication_donnees] ), "dd/mm/yyyy", "fr-FR" )
+					& " · ventes du "
+					& FORMAT ( MAX ( mart_metadonnees[date_premiere_vente] ), "dd/mm/yyyy", "fr-FR" )
+					& " au "
+					& FORMAT ( MAX ( mart_metadonnees[date_derniere_vente] ), "dd/mm/yyyy", "fr-FR" )
+			displayFolder: Titres
+
+		/// Titre de la page Vue d'ensemble : sens des évolutions des ventes et des prix par rapport à l'année précédente.
+		measure 'Titre vue d''ensemble' =
+				VAR typeBien = SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "Logements" )
+				VAR annee = SELECTEDVALUE ( dim_date[annee] )
+				VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+				VAR evolVentes = [Évol. ventes %]
+				VAR evolPrix = [Évol. prix m² %]
+				VAR texteVentes =
+					IF (
+						NOT ISBLANK ( evolVentes ),
+						SWITCH ( TRUE (), evolVentes > 0.01, "ventes en hausse", evolVentes < -0.01, "ventes en baisse", "ventes stables" )
+							& " (" & FORMAT ( evolVentes, "+0.0 %;-0.0 %;0.0 %", "fr-FR" ) & ")"
+					)
+				VAR textePrix =
+					IF (
+						NOT ISBLANK ( evolPrix ),
+						SWITCH ( TRUE (), evolPrix > 0.01, "prix en hausse", evolPrix < -0.01, "prix en baisse", "prix stables" )
+							& " (" & FORMAT ( evolPrix, "+0.0 %;-0.0 %;0.0 %", "fr-FR" ) & ")"
+					)
+				VAR constat =
+					SWITCH (
+						TRUE (),
+						NOT ISBLANK ( texteVentes ) && NOT ISBLANK ( textePrix ), texteVentes & ", " & textePrix,
+						NOT ISBLANK ( texteVentes ), texteVentes,
+						NOT ISBLANK ( textePrix ), textePrix,
+						FORMAT ( [Ventes], "#,0", "fr-FR" ) & " ventes"
+					)
+				RETURN
+					typeBien & " " & periode & " : " & constat
+			displayFolder: Titres
+
+		/// Titre de la page Géographie : commune au prix médian au m² le plus élevé (parmi celles qui atteignent le seuil de volume).
+		measure 'Titre géographie' =
+				VAR typeBien = SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "Logements" )
+				VAR annee = SELECTEDVALUE ( dim_date[annee] )
+				VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+				VAR communesAvecPrix = FILTER ( VALUES ( dim_commune[libelle_commune] ), NOT ISBLANK ( [Prix médian m²] ) )
+				VAR plusChere = TOPN ( 1, communesAvecPrix, [Prix médian m²], DESC )
+				VAR nomCommune = MAXX ( plusChere, dim_commune[libelle_commune] )
+				VAR prixCommune = MAXX ( plusChere, [Prix médian m²] )
+				RETURN
+					IF (
+						ISBLANK ( nomCommune ),
+						typeBien & " " & periode & " : volumes insuffisants pour comparer les communes",
+						typeBien & " " & periode & " : le prix au m² le plus élevé est à " & nomCommune
+							& " (" & FORMAT ( prixCommune, "#,0", "fr-FR" ) & " €/m²)"
+					)
+			displayFolder: Titres
+
+		/// Titre de la page Typologie : intervalle des prix au m² dans lequel se situe la moitié centrale des ventes (1er et 3e quartiles).
+		measure 'Titre typologie' =
+				VAR typeBien = SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "Logements" )
+				VAR annee = SELECTEDVALUE ( dim_date[annee] )
+				VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+				VAR quartileBas = CALCULATE ( PERCENTILE.INC ( fct_ventes[prix_m2], 0.25 ), fct_ventes[est_population_prix] = TRUE () )
+				VAR quartileHaut = CALCULATE ( PERCENTILE.INC ( fct_ventes[prix_m2], 0.75 ), fct_ventes[est_population_prix] = TRUE () )
+				RETURN
+					IF (
+						ISBLANK ( [Prix médian m²] ),
+						typeBien & " " & periode & " : volumes insuffisants",
+						typeBien & " " & periode & " : la moitié des ventes se fait entre "
+							& FORMAT ( ROUND ( quartileBas, -1 ), "#,0", "fr-FR" ) & " et "
+							& FORMAT ( ROUND ( quartileHaut, -1 ), "#,0", "fr-FR" ) & " €/m²"
+					)
+			displayFolder: Titres
+
+		/// Titre de la page Fiche commune : prix médian au m² de la commune et écart à son département.
+		measure 'Titre fiche commune' =
+				VAR commune = SELECTEDVALUE ( dim_commune[nom_commune] )
+				VAR departement = SELECTEDVALUE ( dim_commune[libelle_du_departement] )
+				VAR typeBien = LOWER ( SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "logements" ) )
+				VAR annee = SELECTEDVALUE ( dim_date[annee] )
+				VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+				VAR prix = [Prix médian m²]
+				VAR ecart = [Écart vs département %]
+				RETURN
+					SWITCH (
+						TRUE (),
+						ISBLANK ( commune ), "Sélectionnez une commune",
+						ISBLANK ( prix ), commune & ", " & typeBien & " " & periode & " : moins de " & [Seuil ventes] & " ventes, prix non publié",
+						commune & ", " & typeBien & " " & periode & " : "
+							& FORMAT ( prix, "#,0", "fr-FR" ) & " €/m², "
+							& FORMAT ( ABS ( ecart ), "0 %", "fr-FR" )
+							& IF ( ecart >= 0, " au-dessus ", " en dessous " ) & departement
+					)
+			displayFolder: Titres
+
+		/// Couleur de mise en forme conditionnelle de l'évolution des ventes : vermillon en hausse, bleu en baisse, gris si vide.
+		measure 'Couleur évol. ventes' =
+				VAR evolution = [Évol. ventes %]
+				RETURN
+					SWITCH ( TRUE (), ISBLANK ( evolution ), "#616E7C", evolution > 0, "#B5401A", evolution < 0, "#1565A8", "#616E7C" )
+			displayFolder: Mise en forme
+
+		/// Couleur de mise en forme conditionnelle de l'évolution du prix au m² : vermillon en hausse, bleu en baisse, gris si vide.
+		measure 'Couleur évol. prix' =
+				VAR evolution = [Évol. prix m² %]
+				RETURN
+					SWITCH ( TRUE (), ISBLANK ( evolution ), "#616E7C", evolution > 0, "#B5401A", evolution < 0, "#1565A8", "#616E7C" )
+			displayFolder: Mise en forme
+
+		/// Couleur de mise en forme conditionnelle de l'écart au département : vermillon au-dessus, bleu en dessous, gris si vide.
+		measure 'Couleur écart département' =
+				VAR ecart = [Écart vs département %]
+				RETURN
+					SWITCH ( TRUE (), ISBLANK ( ecart ), "#616E7C", ecart > 0, "#B5401A", ecart < 0, "#1565A8", "#616E7C" )
+			displayFolder: Mise en forme

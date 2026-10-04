@@ -180,6 +180,69 @@ Enregistrer (**Ctrl+S**). Dans le dépôt, `git status` doit faire apparaître
 `powerbi/dvf-bretagne.pbip`, `powerbi/dvf-bretagne.SemanticModel/` et
 `powerbi/dvf-bretagne.Report/`, mais **aucun** `cache.abf` ni `localSettings.json`.
 
+## 12. Mesures DAX
+
+Les 30 mesures sont définies dans [`measures.tmdl`](measures.tmdl), avec leur formule, leur
+description (reprise du dictionnaire des KPI), leur format et leur dossier d'affichage.
+Elles s'installent en une fois par la vue TMDL de Power BI Desktop.
+
+### 12.1 Créer la table de mesures
+
+1. **Accueil > Entrer des données**.
+2. Nommer la table **`Mesures`** (en bas de la fenêtre), laisser la colonne par défaut vide.
+3. **Charger**.
+
+### 12.2 Coller le script
+
+1. Ouvrir la **vue TMDL** (icône `</>` dans la barre de gauche, sous la Vue Modèle).
+2. Coller tout le contenu de `measures.tmdl` dans l'onglet de script.
+3. Cliquer sur **Appliquer**. Power BI signale les éventuelles erreurs de syntaxe avec leur
+   numéro de ligne, sans rien modifier tant que le script n'est pas valide.
+
+### 12.3 Finaliser
+
+1. Masquer la colonne par défaut de la table `Mesures` (clic droit > **Masquer dans la vue
+   rapport**). Une table dont toutes les colonnes sont masquées et qui contient des mesures
+   prend l'icône de calculatrice et remonte en tête du volet Données.
+2. **Ctrl+S**.
+
+Le script reste dans le dépôt comme installation de référence ; une fois appliqué, les
+mesures font partie du modèle (`dvf-bretagne.SemanticModel/definition/tables/Mesures.tmdl`),
+qui devient la source à faire évoluer.
+
+### 12.4 Contrôler les valeurs
+
+Sur une page vide, placer un segment sur `dim_date[annee]` (2025) et un sur
+`dim_type_bien[libelle_type_bien]`, puis une carte par mesure. Les valeurs attendues ont été
+calculées indépendamment, en SQL sur les exports Parquet :
+
+| Mesure | Maison, 2025 | Appartement, 2025 |
+|---|---:|---:|
+| `Ventes` | 32 843 | 15 058 |
+| `Ventes N-1` | 30 846 | 13 239 |
+| `Évol. ventes %` | ▲ +6,5 % | ▲ +13,7 % |
+| `Prix médian m²` | 2 290 € | 2 915 € |
+| `Prix médian m² N-1` | 2 233 € | 2 836 € |
+| `Évol. prix m² %` | ▲ +2,6 % | ▲ +2,8 % |
+| `Prix médian bien type` | 230 000 € | 178 100 € |
+| `Part maisons %` | 69 % | 69 % (ignore le type) |
+| `Titre typologie` | Maisons en 2025 : la moitié des ventes se fait entre 1 640 et 3 010 €/m² | |
+| `Titre géographie` | | Appartements en 2025 : le prix au m² le plus élevé est à La Trinité-sur-Mer (56) (5 927 €/m²) |
+
+Avec un segment supplémentaire sur `dim_commune[libelle_commune]` = **Vannes (56)**,
+appartements 2025 : `Prix médian m²` = 3 885 €, `Prix médian m² département` = 3 333 €,
+`Écart vs département %` = +17 %.
+
+Tops 10 des appartements en 2025 (tableau par `libelle_commune`, filtre de visuel sur le
+rang) : `Rang hausse prix` 1 à 3 = Landivisiau (+26,2 %), Vern-sur-Seiche (+21,9 %),
+Guingamp (+21,9 %), et rang 10 = Pont-l'Abbé (+12,4 %) ; `Rang baisse prix` 1 à 3 = Guidel
+(−41,1 %), Fouesnant (−29,0 %), Sarzeau (−11,6 %).
+
+> **Piège du filtre de rang** : Power BI traite une valeur vide comme 0, si bien que le
+> filtre « est inférieur ou égal à 10 » conserve aussi les communes **non éligibles**, dont
+> le rang est vide. Le filtre de visuel doit combiner deux conditions : **est inférieur ou
+> égal à 10** **Et** **n'est pas vide**.
+
 ## Mise à jour des données
 
 1. `uv run python ingestion/download.py` (télécharge les nouvelles publications DVF).
