@@ -1,0 +1,91 @@
+{
+  "name": "DVF Bretagne",
+  "dataColors": [
+    "#2B6F77",
+    "#B07A12",
+    "#4A4A8A",
+    "#5C3D2E",
+    "#7A5C99",
+    "#5B7F2A",
+    "#3E4C59",
+    "#9C5A44"
+  ],
+  "foreground": "#1F2933",
+  "foregroundNeutralSecondary": "#52606D",
+  "foregroundNeutralTertiary": "#7B8794",
+  "background": "#FFFFFF",
+  "backgroundLight": "#F5F7FA",
+  "backgroundNeutral": "#D9E2EC",
+  "tableAccent": "#2B6F77",
+  "hyperlink": "#1565A8",
+  "minimum": "#E3F1F0",
+  "center": "#6FA8A6",
+  "maximum": "#12464C",
+  "null": "#C5CCD3",
+  "textClasses": {
+    "callout": {
+      "fontSize": 26,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1F2933"
+    },
+    "title": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1F2933"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#1F2933"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI",
+      "color": "#52606D"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#1F2933" } },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI Semibold",
+            "alignment": "left"
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#D9E2EC" } },
+            "radius": 6
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F5F7FA" } },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}
