@@ -1,0 +1,70 @@
+table mart_entonnoir_population
+	lineageTag: fa9cb3d0-1cb2-4e9e-975e-38e22aa6423c
+
+	column etape_ordre
+		dataType: int64
+		formatString: 0
+		lineageTag: c1402e3d-90cc-40de-a044-b856da3b2b6a
+		summarizeBy: none
+		sourceColumn: etape_ordre
+
+		annotation SummarizationSetBy = User
+
+	column regle
+		dataType: string
+		lineageTag: d6976d52-995a-4682-b433-6296f60bd987
+		summarizeBy: none
+		sourceColumn: regle
+
+		annotation SummarizationSetBy = Automatic
+
+	column etape_libelle
+		dataType: string
+		lineageTag: cba8d414-5b60-470a-8c27-3069b0b1cec4
+		summarizeBy: none
+		sourceColumn: etape_libelle
+
+		annotation SummarizationSetBy = Automatic
+
+	column nb_mutations
+		dataType: int64
+		formatString: 0
+		lineageTag: 105d458d-92aa-41c8-8ad8-d91b746c6a8a
+		summarizeBy: sum
+		sourceColumn: nb_mutations
+
+		annotation SummarizationSetBy = Automatic
+
+	column nb_exclues
+		dataType: int64
+		formatString: 0
+		lineageTag: cd4cfb0d-2f1c-4863-aa97-2add87c0187a
+		summarizeBy: sum
+		sourceColumn: nb_exclues
+
+		annotation SummarizationSetBy = Automatic
+
+	column part_des_mutations
+		dataType: double
+		lineageTag: 96639a68-1962-4aba-8a62-5d5f5b1c51f1
+		summarizeBy: sum
+		sourceColumn: part_des_mutations
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition mart_entonnoir_population = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(CheminExports & "mart_entonnoir_population.parquet"))
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

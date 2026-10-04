@@ -1,0 +1,8 @@
+/// Dossier des exports Parquet produits par dbt (avec la barre oblique finale)
+expression CheminExports = "C:\ClaudeProjects\dvf-analytics-bretagne\exports\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: fdccf254-748e-4b49-a878-822c46c8fe50
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

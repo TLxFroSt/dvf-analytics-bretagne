@@ -1,0 +1,101 @@
+table dim_commune
+	lineageTag: b2e97ecc-a24d-4c6f-84df-e48a7b8f7053
+
+	column commune_key
+		dataType: string
+		isHidden
+		lineageTag: fdc30e66-1638-4700-8114-024de4bc8eec
+		summarizeBy: none
+		sourceColumn: commune_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_commune_insee
+		dataType: string
+		lineageTag: 13bdd624-cd64-4ccf-b531-a63e69dbac83
+		summarizeBy: none
+		sourceColumn: code_commune_insee
+
+		annotation SummarizationSetBy = Automatic
+
+	column nom_commune
+		dataType: string
+		lineageTag: b77f6d6b-c21a-4967-ac8c-17863b878d19
+		summarizeBy: none
+		sourceColumn: nom_commune
+
+		annotation SummarizationSetBy = Automatic
+
+	column libelle_commune
+		dataType: string
+		lineageTag: eb7b4363-493a-48b4-91f6-d1c91d0f5d0e
+		summarizeBy: none
+		sourceColumn: libelle_commune
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_departement
+		dataType: string
+		lineageTag: 3df9d605-4613-4d1f-99f0-dac314789123
+		summarizeBy: none
+		sourceColumn: code_departement
+
+		annotation SummarizationSetBy = Automatic
+
+	column nom_departement
+		dataType: string
+		lineageTag: 3654be97-1736-47f6-8218-a1a9dda045f4
+		summarizeBy: none
+		sourceColumn: nom_departement
+
+		annotation SummarizationSetBy = Automatic
+
+	column libelle_du_departement
+		dataType: string
+		lineageTag: 92aac95e-5838-4215-96c0-8c416b8d06b2
+		summarizeBy: none
+		sourceColumn: libelle_du_departement
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_epci
+		dataType: string
+		lineageTag: 0cab3188-3119-4efb-a9f8-4d0e9d455420
+		summarizeBy: none
+		sourceColumn: code_epci
+
+		annotation SummarizationSetBy = Automatic
+
+	column nom_epci
+		dataType: string
+		lineageTag: 9a44a3f3-8ea3-4c0f-8348-3149f49876ea
+		summarizeBy: none
+		sourceColumn: nom_epci
+
+		annotation SummarizationSetBy = Automatic
+
+	column population
+		dataType: int64
+		formatString: 0
+		lineageTag: a9778ebd-d3eb-4792-ac03-85fd3c3b745a
+		summarizeBy: none
+		sourceColumn: population
+
+		annotation SummarizationSetBy = User
+
+	partition dim_commune = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(CheminExports & "dim_commune.parquet"))
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

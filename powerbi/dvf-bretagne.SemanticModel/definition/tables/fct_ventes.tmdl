@@ -1,0 +1,247 @@
+table fct_ventes
+	lineageTag: 4887ef11-103f-4a8e-972e-ffd351733002
+
+	column vente_key
+		dataType: string
+		isHidden
+		lineageTag: a694a5d0-7d5a-4f04-8d18-16755b4f8815
+		summarizeBy: none
+		sourceColumn: vente_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_mutation
+		dataType: string
+		lineageTag: 33186e23-ec97-463d-bc18-f41da336732f
+		summarizeBy: none
+		sourceColumn: id_mutation
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_mutation
+		dataType: dateTime
+		isHidden
+		formatString: Long Date
+		lineageTag: 080590d5-6fca-4887-bb1f-2bdd34c5a7a5
+		summarizeBy: none
+		sourceColumn: date_mutation
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column commune_key
+		dataType: string
+		isHidden
+		lineageTag: d8e976c5-9ad6-456f-be21-a40af573fcef
+		summarizeBy: none
+		sourceColumn: commune_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column type_bien_key
+		dataType: string
+		isHidden
+		lineageTag: 4105b1cd-6191-404d-9de7-6ed513362c6d
+		summarizeBy: none
+		sourceColumn: type_bien_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column valeur_fonciere
+		dataType: double
+		isHidden
+		lineageTag: 78c9d6a3-0127-411e-8b65-ae169d7b6eb0
+		summarizeBy: sum
+		sourceColumn: valeur_fonciere
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nb_logements
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 724cb8f5-47fe-4feb-a32c-c0c9f730bc00
+		summarizeBy: sum
+		sourceColumn: nb_logements
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nb_dependances
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 45d651e1-8d40-42f6-8b95-880149753751
+		summarizeBy: sum
+		sourceColumn: nb_dependances
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column surface_bati_m2
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: cc0d73d1-c5f6-4034-a104-ee4db7e12c94
+		summarizeBy: sum
+		sourceColumn: surface_bati_m2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column nb_pieces
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b3a94b35-5221-4165-8c7e-eb2984d99b30
+		summarizeBy: sum
+		sourceColumn: nb_pieces
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column surface_terrain_m2
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3dd223cf-2cc6-46ee-9590-c05463f74d42
+		summarizeBy: sum
+		sourceColumn: surface_terrain_m2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column prix_m2
+		dataType: double
+		isHidden
+		lineageTag: 29c5a148-97e1-46b4-a592-4d9750d7c4ef
+		summarizeBy: sum
+		sourceColumn: prix_m2
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column est_population_prix
+		dataType: boolean
+		isHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 7d4c9f44-faeb-4235-9ce9-107c90ff6d03
+		summarizeBy: none
+		sourceColumn: est_population_prix
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column motif_exclusion_prix
+		dataType: string
+		lineageTag: f498b727-abe3-44c7-a8a2-383aa2545b83
+		summarizeBy: none
+		sourceColumn: motif_exclusion_prix
+
+		annotation SummarizationSetBy = Automatic
+
+	column tranche_surface_ordre
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 58965d21-48dc-4d33-bb65-46fcd98703ae
+		summarizeBy: sum
+		sourceColumn: tranche_surface_ordre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tranche_surface
+		dataType: string
+		lineageTag: 310c617a-1bf2-4139-9d2f-83f9b6754721
+		summarizeBy: none
+		sourceColumn: tranche_surface
+		sortByColumn: tranche_surface_ordre
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column tranche_pieces_ordre
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: af644b4e-8d8a-4354-af06-ae8154f5080d
+		summarizeBy: sum
+		sourceColumn: tranche_pieces_ordre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tranche_pieces
+		dataType: string
+		lineageTag: 66cb63e7-e78a-4bae-8d87-944f96ab5f8c
+		summarizeBy: none
+		sourceColumn: tranche_pieces
+		sortByColumn: tranche_pieces_ordre
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column tranche_prix_m2_ordre
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d36555cf-926f-4f5a-a706-2baa12ba28b8
+		summarizeBy: sum
+		sourceColumn: tranche_prix_m2_ordre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column tranche_prix_m2
+		dataType: string
+		lineageTag: 21fe223c-fa02-4c29-bb05-df5b650167a9
+		summarizeBy: none
+		sourceColumn: tranche_prix_m2
+		sortByColumn: tranche_prix_m2_ordre
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fct_ventes = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(CheminExports & "fct_ventes.parquet"))
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

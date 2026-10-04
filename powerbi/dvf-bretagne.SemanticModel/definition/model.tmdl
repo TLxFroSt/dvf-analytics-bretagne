@@ -1,0 +1,23 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["CheminExports","fct_ventes","dim_date","dim_commune","dim_type_bien","mart_entonnoir_population","mart_metadonnees"]
+
+ref table fct_ventes
+ref table dim_date
+ref table dim_commune
+ref table dim_type_bien
+ref table mart_entonnoir_population
+ref table mart_metadonnees
+
+ref cultureInfo fr-FR
+

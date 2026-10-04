@@ -1,0 +1,68 @@
+table mart_metadonnees
+	lineageTag: 06f0c119-7d89-437e-85ab-da03d021f146
+
+	column date_publication_donnees
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9becc055-5166-4aa7-8e76-263d4dc25c6b
+		summarizeBy: none
+		sourceColumn: date_publication_donnees
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_premiere_vente
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 570ca02c-cb73-43a6-ba10-96deead95262
+		summarizeBy: none
+		sourceColumn: date_premiere_vente
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column date_derniere_vente
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3eebbfd0-14e3-4179-a4d5-9d0b4be0c975
+		summarizeBy: none
+		sourceColumn: date_derniere_vente
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column nb_fichiers_sources
+		dataType: int64
+		formatString: 0
+		lineageTag: 75dc68ce-2c94-4926-94a8-bfa0f4588c1e
+		summarizeBy: sum
+		sourceColumn: nb_fichiers_sources
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_construction
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 563fa8e7-6be2-4c8c-8e27-93f78a64d250
+		summarizeBy: none
+		sourceColumn: date_construction
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mart_metadonnees = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(CheminExports & "mart_metadonnees.parquet"))
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

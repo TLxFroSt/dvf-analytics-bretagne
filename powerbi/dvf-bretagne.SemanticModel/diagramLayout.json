@@ -1,0 +1,100 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 712.73076133058,
+            "y": 416.07386596194351
+          },
+          "nodeIndex": "fct_ventes",
+          "nodeLineageTag": "4887ef11-103f-4a8e-972e-ffd351733002",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 144.4706975172939,
+            "y": 534.97679506907559
+          },
+          "nodeIndex": "dim_date",
+          "nodeLineageTag": "507b2960-e45c-48af-b17b-40ab8d6168f9",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 138.0989058640946,
+            "y": 79.192306814508868
+          },
+          "nodeIndex": "dim_commune",
+          "nodeLineageTag": "b2e97ecc-a24d-4c6f-84df-e48a7b8f7053",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 708.69963528803169,
+            "y": 0
+          },
+          "nodeIndex": "dim_type_bien",
+          "nodeLineageTag": "027c3eec-ba9b-4241-bdac-aa7fee941cf0",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1149.8272281739619,
+            "y": 230.32417369237871
+          },
+          "nodeIndex": "mart_entonnoir_population",
+          "nodeLineageTag": "fa9cb3d0-1cb2-4e9e-975e-38e22aa6423c",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1152.254581722375,
+            "y": 672.22526782828413
+          },
+          "nodeIndex": "mart_metadonnees",
+          "nodeLineageTag": "06f0c119-7d89-437e-85ab-da03d021f146",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Toutes les tables",
+      "zoomValue": 79.553182037699813,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Toutes les tables",
+  "defaultDiagram": "Toutes les tables"
+}

@@ -1,0 +1,71 @@
+table dim_type_bien
+	lineageTag: 027c3eec-ba9b-4241-bdac-aa7fee941cf0
+
+	column type_bien_key
+		dataType: string
+		isHidden
+		lineageTag: d73ffbed-acdd-49dc-9e7b-7511c4c5c03a
+		summarizeBy: none
+		sourceColumn: type_bien_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column code_type_bien
+		dataType: int64
+		formatString: 0
+		lineageTag: 807bfd5e-eec7-46ed-8e5d-ff611ff12655
+		summarizeBy: none
+		sourceColumn: code_type_bien
+
+		annotation SummarizationSetBy = User
+
+	column libelle_type_bien
+		dataType: string
+		lineageTag: bb435494-6105-4165-ac51-eb017133d60d
+		summarizeBy: none
+		sourceColumn: libelle_type_bien
+		sortByColumn: ordre_tri
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column libelle_type_bien_pluriel
+		dataType: string
+		lineageTag: 6ca3eaa5-94ee-4e08-a57f-92ea03d91f4c
+		summarizeBy: none
+		sourceColumn: libelle_type_bien_pluriel
+		sortByColumn: ordre_tri
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordre_tri
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a7ccc1f4-e0f3-48e3-a41d-0a5cd3ed1029
+		summarizeBy: none
+		sourceColumn: ordre_tri
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_type_bien = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(CheminExports & "dim_type_bien.parquet"))
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

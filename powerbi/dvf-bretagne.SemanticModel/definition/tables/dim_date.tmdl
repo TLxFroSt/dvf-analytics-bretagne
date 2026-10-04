@@ -1,0 +1,114 @@
+table dim_date
+	lineageTag: 507b2960-e45c-48af-b17b-40ab8d6168f9
+	dataCategory: Time
+
+	column date_jour
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: b3aad2af-d155-4ef6-a558-18a1371f507e
+		summarizeBy: none
+		sourceColumn: date_jour
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column annee
+		dataType: int64
+		formatString: 0
+		lineageTag: 02031813-ae65-4b6a-a8cf-5d77f52f05d5
+		summarizeBy: none
+		sourceColumn: annee
+
+		annotation SummarizationSetBy = User
+
+	column trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: cae7ebdf-a472-4541-953c-0bf801d11d20
+		summarizeBy: none
+		sourceColumn: trimestre
+
+		annotation SummarizationSetBy = User
+
+	column libelle_trimestre
+		dataType: string
+		lineageTag: 79b59a15-8c6b-45a4-83b3-193c65ea6f30
+		summarizeBy: none
+		sourceColumn: libelle_trimestre
+		sortByColumn: tri_trimestre
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column tri_trimestre
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5d9148c8-0e31-4d3b-a3fa-20938ba615e6
+		summarizeBy: none
+		sourceColumn: tri_trimestre
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_debut_trimestre
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6d3a5e5a-116b-424a-aac3-d1f7da58bb29
+		summarizeBy: none
+		sourceColumn: date_debut_trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column mois
+		dataType: int64
+		formatString: 0
+		lineageTag: ae3fa87f-6841-49e1-9560-d4f31a2174d8
+		summarizeBy: none
+		sourceColumn: mois
+
+		annotation SummarizationSetBy = User
+
+	column nom_mois
+		dataType: string
+		lineageTag: dd7be7e6-f5c2-4c30-83d9-ebf72a708f7a
+		summarizeBy: none
+		sourceColumn: nom_mois
+		sortByColumn: mois
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column tri_mois
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a724add8-74a0-49d5-8a9d-334665e5faee
+		summarizeBy: none
+		sourceColumn: tri_mois
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Parquet.Document(File.Contents(CheminExports & "dim_date.parquet"))
+				in
+				    Source
+
+	changedProperty = Name
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

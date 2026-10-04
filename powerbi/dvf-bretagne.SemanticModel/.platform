@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "dvf-bretagne"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "727a44a0-9124-401c-a6f2-db86df265bca"
+  }
+}

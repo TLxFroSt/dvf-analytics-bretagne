@@ -1,0 +1,12 @@
+relationship 14357f26-406f-a78d-4981-9a94e118e796
+	fromColumn: fct_ventes.date_mutation
+	toColumn: dim_date.date_jour
+
+relationship bd407e51-c75f-9dc9-01b6-75f2dfa10f87
+	fromColumn: fct_ventes.commune_key
+	toColumn: dim_commune.commune_key
+
+relationship 98c92e43-fafc-2cf6-e51e-8c39ec580c2b
+	fromColumn: fct_ventes.type_bien_key
+	toColumn: dim_type_bien.type_bien_key
+
