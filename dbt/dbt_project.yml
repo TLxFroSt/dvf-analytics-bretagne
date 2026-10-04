@@ -1,0 +1,32 @@
+name: dvf_bretagne
+version: "1.0.0"
+config-version: 2
+profile: dvf_bretagne
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - target
+  - dbt_packages
+
+vars:
+  # Dossier des CSV DVF téléchargés par ingestion/download.py, relatif au dossier dbt/.
+  # Surchargé en CI pour pointer sur un échantillon : --vars '{dvf_raw_path: ...}'
+  dvf_raw_path: "../data/raw"
+
+models:
+  dvf_bretagne:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table

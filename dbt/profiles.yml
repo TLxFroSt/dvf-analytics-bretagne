@@ -1,0 +1,16 @@
+# Profil versionné : il ne contient aucun secret (base DuckDB locale).
+# dbt le trouve automatiquement lorsqu'il est lancé depuis le dossier dbt/.
+dvf_bretagne:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # Chemin relatif au dossier dbt/ ; surchargeable via la variable d'environnement.
+      path: "{{ env_var('DVF_DUCKDB_PATH', '../warehouse/dvf.duckdb') }}"
+      threads: 4
+    # Cible utilisée par sqlfluff (templater dbt) : base en mémoire, indépendante du dossier
+    # courant et qui ne verrouille pas le fichier de l'entrepôt pendant un dbt build.
+    lint:
+      type: duckdb
+      path: ":memory:"
+      threads: 1
