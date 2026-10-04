@@ -268,7 +268,7 @@ Power BI** est le texte affiché en info-bulle dans la liste des champs.
 | **Seuil** | Vide si moins de 10 ventes du bien type. |
 | **Lecture** | Répond directement à « quel budget prévoir ? ». Plus parlant qu'un prix au m² pour un acheteur. Volumes disponibles : 4 000 à 6 000 T3 et 13 000 à 20 000 maisons de 4-5 pièces par an en Bretagne. |
 | **Piège** | Prix hors frais de notaire (environ 7 à 8 % en plus dans l'ancien). Dépendances éventuelles incluses. |
-| **Mesures DAX** | `Prix médian T3`, `Prix médian maison 4-5 p.` (dossier Prix) |
+| **Mesures DAX** | `Prix médian T3`, `Prix médian maison 4-5 p.` (dossier Prix). `Prix médian bien type` renvoie l'une ou l'autre selon le type de bien sélectionné ; elle alimente les cartes KPI. |
 | **Description Power BI** | Prix médian de vente d'un appartement de 3 pièces (respectivement d'une maison de 4 ou 5 pièces), hors frais de notaire et hors valeurs aberrantes. Vide si moins de 10 ventes. |
 
 ---
