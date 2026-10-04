@@ -2,6 +2,10 @@
 dialect = duckdb
 templater = dbt
 max_line_length = 100
+# ST06 (structure.column_order) impose les colonnes simples avant les calculs, et compte un
+# cast(...) comme une colonne simple. Le projet ordonne les colonnes par sens métier
+# (identifiants, mesures, tranches…) plutôt que par catégorie syntaxique : règle désactivée.
+exclude_rules = structure.column_order
 
 [sqlfluff:templater:dbt]
 project_dir = dbt
