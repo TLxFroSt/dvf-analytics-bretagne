@@ -17,3 +17,14 @@ sources:
             external_location: >-
               read_csv('{{ var("dvf_raw_path") }}/*/*.csv.gz',
               header = true, all_varchar = true, union_by_name = true)
+
+      - name: manifest
+        description: >
+          Manifeste écrit par `ingestion/download.py` dans `data/raw/manifest.csv` : une ligne
+          par fichier téléchargé, avec sa date de publication sur data.gouv.fr (en-tête HTTP
+          Last-Modified). Sert à dater les données dans le dashboard.
+        config:
+          meta:
+            external_location: >-
+              read_csv('{{ var("dvf_raw_path") }}/manifest.csv',
+              header = true, all_varchar = true)

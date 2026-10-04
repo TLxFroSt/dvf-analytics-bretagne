@@ -1,0 +1,40 @@
+models:
+  - name: stg_dvf_manifest
+    description: >
+      Manifeste des fichiers DVF téléchargés, typé. **Grain** : un fichier, soit un couple
+      année × département. Fournit la date de publication des données affichée dans le
+      dashboard. Matérialisé en table, comme `stg_dvf`.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - annee
+              - code_departement
+    columns:
+      - name: annee
+        description: "Année des ventes contenues dans le fichier."
+        data_tests:
+          - not_null
+      - name: code_departement
+        description: "Code du département (texte)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["22", "29", "35", "56"]
+      - name: url
+        description: "URL du fichier sur data.gouv.fr."
+        data_tests:
+          - not_null
+      - name: date_publication
+        description: "Date de publication du fichier par la DGFiP sur data.gouv.fr (en-tête HTTP Last-Modified), en UTC."
+        data_tests:
+          - not_null
+      - name: taille_octets
+        description: "Taille du fichier compressé téléchargé, en octets."
+        data_tests:
+          - not_null
+      - name: date_telechargement
+        description: "Date du téléchargement du fichier par le script d'ingestion, en UTC."
+        data_tests:
+          - not_null
