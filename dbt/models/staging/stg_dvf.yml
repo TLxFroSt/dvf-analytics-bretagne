@@ -1,0 +1,199 @@
+models:
+  - name: stg_dvf
+    description: >
+      DVF géolocalisées renommées et typées, sans jointure ni filtre.
+
+
+      **Grain** : une ligne source, soit un local ou une parcelle au sein d'une disposition
+      d'une mutation. Une même mutation s'étend sur plusieurs lignes (plusieurs dispositions,
+      parcelles ou locaux), et `valeur_fonciere` est répétée sur chacune d'elles : elle porte
+      sur la disposition entière, jamais sur la ligne.
+
+
+      **Pas de clé unique, volontairement.** La source ne fournit pas d'identifiant de ligne
+      et contient environ 7 % de lignes strictement identiques : la version géolocalisée
+      des DVF ne publie pas l'identifiant du local, si bien que deux locaux identiques d'une
+      même vente (deux caves, par exemple) produisent deux lignes identiques. Elles sont
+      conservées telles quelles ; l'unicité est garantie au grain mutation dans la couche
+      intermediate.
+
+
+      **Matérialisé en table**, par exception à la convention des vues en staging : les CSV
+      ne sont lus qu'une fois par build et la base est interrogeable depuis n'importe quel
+      dossier.
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "length(code_commune_insee) = 5"
+          config:
+            description: "Les codes commune INSEE font exactement 5 caractères."
+    columns:
+      # Mutation
+      - name: id_mutation
+        description: "Identifiant de la mutation (acte de vente, d'échange…), unique par année de publication."
+        data_tests:
+          - not_null
+      - name: date_mutation
+        description: "Date de signature de l'acte."
+        data_tests:
+          - not_null
+      - name: numero_disposition
+        description: "Numéro de la disposition au sein de la mutation. Un acte peut regrouper plusieurs dispositions, chacune avec sa propre valeur foncière."
+        data_tests:
+          - not_null
+      - name: nature_mutation
+        description: "Nature de la mutation : vente, vente en l'état futur d'achèvement (VEFA), échange, adjudication…"
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                # Apostrophes doublées : le test accepted_values ne les échappe pas en SQL.
+                values:
+                  - "Vente"
+                  - "Vente en l''état futur d''achèvement"
+                  - "Vente terrain à bâtir"
+                  - "Echange"
+                  - "Adjudication"
+                  - "Expropriation"
+      - name: valeur_fonciere
+        description: "Prix de la disposition en euros, frais d'agence inclus et frais de notaire exclus. Répété sur chaque ligne de la disposition. Nul pour certaines mutations sans contrepartie financière."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+      # Adresse
+      - name: adresse_numero
+        description: "Numéro dans la voie."
+      - name: adresse_suffixe
+        description: "Indice de répétition du numéro (B, T, Q…)."
+      - name: adresse_nom_voie
+        description: "Libellé de la voie."
+      - name: adresse_code_voie
+        description: "Code FANTOIR de la voie."
+      - name: code_postal
+        description: "Code postal (texte, 5 caractères)."
+
+      # Géographie administrative
+      - name: code_commune_insee
+        description: "Code INSEE de la commune (texte, 5 caractères), au millésime du géocodage."
+        data_tests:
+          - not_null
+      - name: nom_commune
+        description: "Nom de la commune."
+        data_tests:
+          - not_null
+      - name: code_departement
+        description: "Code du département (texte)."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["22", "29", "35", "56"]
+      - name: ancien_code_commune_insee
+        description: "Code INSEE de la commune avant fusion, renseigné pour les communes nouvelles."
+      - name: ancien_nom_commune
+        description: "Nom de la commune avant fusion."
+
+      # Parcelle cadastrale
+      - name: id_parcelle
+        description: "Identifiant cadastral de la parcelle (14 caractères)."
+      - name: ancien_id_parcelle
+        description: "Identifiant de la parcelle avant fusion de communes."
+      - name: numero_volume
+        description: "Numéro de volume, pour les divisions en volumes (ouvrages superposés)."
+
+      # Lots de copropriété
+      - name: lot1_numero
+        description: "Numéro du 1er lot de copropriété."
+      - name: lot1_surface_carrez_m2
+        description: "Surface Loi Carrez du 1er lot, en m²."
+      - name: lot2_numero
+        description: "Numéro du 2e lot de copropriété."
+      - name: lot2_surface_carrez_m2
+        description: "Surface Loi Carrez du 2e lot, en m²."
+      - name: lot3_numero
+        description: "Numéro du 3e lot de copropriété."
+      - name: lot3_surface_carrez_m2
+        description: "Surface Loi Carrez du 3e lot, en m²."
+      - name: lot4_numero
+        description: "Numéro du 4e lot de copropriété."
+      - name: lot4_surface_carrez_m2
+        description: "Surface Loi Carrez du 4e lot, en m²."
+      - name: lot5_numero
+        description: "Numéro du 5e lot de copropriété."
+      - name: lot5_surface_carrez_m2
+        description: "Surface Loi Carrez du 5e lot, en m²."
+      - name: nombre_lots
+        description: "Nombre total de lots de la disposition (la source ne détaille que les 5 premiers)."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+      # Local
+      - name: code_type_local
+        description: "Code du type de local : 1 maison, 2 appartement, 3 dépendance, 4 local industriel ou commercial. Nul pour une ligne de parcelle sans local."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4]
+                quote: false
+      - name: type_local
+        description: "Libellé du type de local. Nul pour une ligne de parcelle sans local."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - "Maison"
+                  - "Appartement"
+                  - "Dépendance"
+                  - "Local industriel. commercial ou assimilé"
+      - name: surface_bati_m2
+        description: "Surface réelle bâtie du local, en m² (surface au sol mesurée par le cadastre, différente de la surface Carrez)."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: nombre_pieces
+        description: "Nombre de pièces principales du local."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+      # Terrain
+      - name: code_nature_culture
+        description: "Code de nature de culture de la parcelle (S sols, T terres, AB terrains à bâtir…)."
+      - name: nature_culture
+        description: "Libellé de nature de culture de la parcelle."
+      - name: code_nature_culture_speciale
+        description: "Code de nature de culture spéciale."
+      - name: nature_culture_speciale
+        description: "Libellé de nature de culture spéciale."
+      - name: surface_terrain_m2
+        description: "Surface de la parcelle (ou de la subdivision fiscale), en m²."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+      # Géolocalisation
+      - name: longitude
+        description: "Longitude du centroïde de la parcelle (WGS 84). Nulle quand la parcelle n'a pas pu être géocodée (environ 2 % des lignes)."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -5.3
+                max_value: -0.9
+              config:
+                severity: warn
+      - name: latitude
+        description: "Latitude du centroïde de la parcelle (WGS 84). Nulle quand la parcelle n'a pas pu être géocodée."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 47.2
+                max_value: 49.0
+              config:
+                severity: warn

@@ -1,0 +1,19 @@
+sources:
+  - name: dvf
+    description: >
+      Demandes de Valeurs Foncières géolocalisées (DGFiP, Etalab), publiées sur data.gouv.fr
+      sous Licence Ouverte. Un fichier CSV compressé par année et par département, téléchargé
+      par `ingestion/download.py` dans `data/raw/{année}/{département}.csv.gz`.
+    tables:
+      - name: geo_dvf
+        description: >
+          Fichiers DVF géolocalisés, lus directement par DuckDB sans chargement préalable.
+          Toutes les colonnes sont lues en texte (`all_varchar`) : le typage est fait
+          explicitement dans `stg_dvf`, pour ne pas dépendre de l'inférence de DuckDB
+          (qui lit par exemple les codes commune comme des entiers).
+          Une ligne = un local ou une parcelle au sein d'une disposition d'une mutation.
+        config:
+          meta:
+            external_location: >-
+              read_csv('{{ var("dvf_raw_path") }}/*/*.csv.gz',
+              header = true, all_varchar = true, union_by_name = true)
