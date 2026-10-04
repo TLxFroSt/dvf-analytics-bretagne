@@ -1,0 +1,139 @@
+seeds:
+  - name: communes_bretagne
+    description: >
+      Référentiel des communes bretonnes actuelles, construit par
+      `ingestion/build_communes_seed.py` à partir de l'API Découpage administratif
+      (geo.api.gouv.fr, données INSEE, Licence Ouverte). Une ligne par commune.
+    config:
+      column_types:
+        code_commune_insee: varchar
+        nom_commune: varchar
+        code_departement: varchar
+        code_epci: varchar
+        nom_epci: varchar
+        population: integer
+    columns:
+      - name: code_commune_insee
+        description: "Code INSEE de la commune (texte, 5 caractères), au Code officiel géographique en vigueur."
+        data_tests:
+          - unique
+          - not_null
+      - name: nom_commune
+        description: "Nom officiel de la commune."
+        data_tests:
+          - not_null
+      - name: code_departement
+        description: "Code du département (texte)."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('departements')
+                field: code_departement
+      - name: code_epci
+        description: "Code SIREN de l'EPCI à fiscalité propre de rattachement. Nul pour les communes insulaires isolées (Île-de-Bréhat, Île-de-Sein, Ouessant)."
+      - name: nom_epci
+        description: "Nom de l'EPCI de rattachement."
+      - name: population
+        description: "Population municipale (dernières populations légales de l'INSEE)."
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: communes_passage
+    description: >
+      Table de passage des anciennes communes (déléguées ou associées, issues de fusions)
+      vers leur commune actuelle, construite par `ingestion/build_communes_seed.py`.
+      DVF conserve le code commune en vigueur au moment du géocodage : une vente située dans
+      une commune fusionnée depuis porte l'ancien code, ramené ici à la commune actuelle.
+    config:
+      column_types:
+        code_commune_ancienne: varchar
+        nom_commune_ancienne: varchar
+        type_commune_ancienne: varchar
+        code_commune_insee: varchar
+    columns:
+      - name: code_commune_ancienne
+        description: "Code INSEE de l'ancienne commune."
+        data_tests:
+          - unique
+          - not_null
+      - name: nom_commune_ancienne
+        description: "Nom de l'ancienne commune."
+        data_tests:
+          - not_null
+      - name: type_commune_ancienne
+        description: "Statut de l'ancienne commune au sein de la commune actuelle."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["commune-deleguee", "commune-associee"]
+      - name: code_commune_insee
+        description: "Code INSEE de la commune actuelle (chef-lieu) qui l'a absorbée."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('communes_bretagne')
+                field: code_commune_insee
+
+  - name: departements
+    description: "Les 4 départements bretons, avec la forme « du / de la / des » utilisée dans les titres dynamiques du dashboard."
+    config:
+      column_types:
+        code_departement: varchar
+        nom_departement: varchar
+        libelle_du_departement: varchar
+    columns:
+      - name: code_departement
+        description: "Code du département (texte)."
+        data_tests:
+          - unique
+          - not_null
+      - name: nom_departement
+        description: "Nom du département."
+        data_tests:
+          - unique
+          - not_null
+      - name: libelle_du_departement
+        description: "Nom précédé de la préposition contractée (« du Finistère », « des Côtes-d'Armor »), pour composer des phrases."
+        data_tests:
+          - not_null
+
+  - name: types_bien
+    description: "Types de bien retenus pour l'analyse. Le code reprend `code_type_local` de DVF (1 maison, 2 appartement)."
+    config:
+      column_types:
+        code_type_bien: integer
+        libelle_type_bien: varchar
+        libelle_type_bien_pluriel: varchar
+        ordre_tri: integer
+    columns:
+      - name: code_type_bien
+        description: "Code du type de bien, identique au code_type_local de DVF."
+        data_tests:
+          - unique
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2]
+                quote: false
+      - name: libelle_type_bien
+        description: "Libellé du type de bien."
+        data_tests:
+          - unique
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["Maison", "Appartement"]
+      - name: libelle_type_bien_pluriel
+        description: "Libellé au pluriel, pour les titres (« Maisons en 2025 : … »)."
+        data_tests:
+          - not_null
+      - name: ordre_tri
+        description: "Ordre d'affichage dans les visuels et les filtres."
+        data_tests:
+          - unique
+          - not_null

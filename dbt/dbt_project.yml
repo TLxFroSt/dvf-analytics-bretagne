@@ -19,6 +19,10 @@ vars:
   # Surchargé en CI pour pointer sur un échantillon : --vars '{dvf_raw_path: ...}'
   dvf_raw_path: "../data/raw"
 
+seeds:
+  dvf_bretagne:
+    +schema: seeds
+
 models:
   dvf_bretagne:
     staging:

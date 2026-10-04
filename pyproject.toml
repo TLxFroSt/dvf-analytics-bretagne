@@ -18,6 +18,8 @@ package = false
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+# Les scripts d'ingestion s'importent entre eux (ex. : `from download import ...`).
+src = [".", "ingestion"]
 
 [tool.ruff.lint]
 # E/W : pycodestyle, F : pyflakes, I : tri des imports, B : bugbear,

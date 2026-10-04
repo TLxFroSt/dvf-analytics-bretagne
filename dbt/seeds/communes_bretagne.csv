@@ -1,0 +1,1203 @@
+code_commune_insee,nom_commune,code_departement,code_epci,nom_epci,population
+22001,Allineuc,22,200067460,CC Loudéac Communauté - Bretagne Centre,589
+22002,Andel,22,200069391,CA Lamballe Terre et Mer,1180
+22003,Aucaleuc,22,200068989,CA Dinan Agglomération,973
+22004,Bégard,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,4889
+22005,Belle-Isle-en-Terre,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1024
+22006,Berhet,22,200065928,CA Lannion-Trégor Communauté,272
+22008,Bobital,22,200068989,CA Dinan Agglomération,1170
+22009,Le Bodéo,22,200069409,CA Saint-Brieuc Armor Agglomération,186
+22011,Boqueho,22,200069086,CC Leff Armor Communauté,1054
+22012,La Bouillie,22,200069391,CA Lamballe Terre et Mer,824
+22013,Bourbriac,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2145
+22014,Bourseul,22,200068989,CA Dinan Agglomération,1277
+22015,Bréhand,22,200069391,CA Lamballe Terre et Mer,1684
+22016,Île-de-Bréhat,22,,,429
+22018,Brélidy,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,334
+22019,Bringolo,22,200069086,CC Leff Armor Communauté,518
+22020,Broons,22,200068989,CA Dinan Agglomération,2943
+22021,Brusvily,22,200068989,CA Dinan Agglomération,1153
+22023,Bulat-Pestivien,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,406
+22024,Calanhel,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,245
+22025,Callac,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2312
+22026,Calorguen,22,200068989,CA Dinan Agglomération,729
+22028,Camlez,22,200065928,CA Lannion-Trégor Communauté,845
+22029,Canihuel,22,242200715,CC du Kreiz-Breizh (CCKB),350
+22030,Caouënnec-Lanvézéac,22,200065928,CA Lannion-Trégor Communauté,899
+22031,Carnoët,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,673
+22032,Caulnes,22,200068989,CA Dinan Agglomération,2501
+22033,Caurel,22,200067460,CC Loudéac Communauté - Bretagne Centre,353
+22034,Cavan,22,200065928,CA Lannion-Trégor Communauté,1571
+22035,Les Champs-Géraux,22,200068989,CA Dinan Agglomération,1054
+22036,La Chapelle-Blanche,22,200068989,CA Dinan Agglomération,211
+22037,La Chapelle-Neuve,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,413
+22039,La Chèze,22,200067460,CC Loudéac Communauté - Bretagne Centre,578
+22040,Coadout,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,532
+22041,Coatascorn,22,200065928,CA Lannion-Trégor Communauté,248
+22042,Coatréven,22,200065928,CA Lannion-Trégor Communauté,489
+22044,Coëtmieux,22,200069391,CA Lamballe Terre et Mer,1869
+22045,Cohiniac,22,200069086,CC Leff Armor Communauté,402
+22046,Le Mené,22,200067460,CC Loudéac Communauté - Bretagne Centre,6556
+22047,Corlay,22,200067460,CC Loudéac Communauté - Bretagne Centre,914
+22048,Corseul,22,200068989,CA Dinan Agglomération,2331
+22049,Créhen,22,200068989,CA Dinan Agglomération,1671
+22050,Dinan,22,200068989,CA Dinan Agglomération,14764
+22052,Duault,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,385
+22053,Éréac,22,200069391,CA Lamballe Terre et Mer,675
+22054,Erquy,22,200069391,CA Lamballe Terre et Mer,3974
+22055,Binic-Étables-sur-Mer,22,200069409,CA Saint-Brieuc Armor Agglomération,7041
+22056,Évran,22,200068989,CA Dinan Agglomération,1784
+22057,Le Faouët,22,200069086,CC Leff Armor Communauté,412
+22059,Le Fœil,22,200069409,CA Saint-Brieuc Armor Agglomération,1375
+22060,Gausson,22,200067460,CC Loudéac Communauté - Bretagne Centre,648
+22061,Glomel,22,242200715,CC du Kreiz-Breizh (CCKB),1440
+22062,Gomené,22,200067460,CC Loudéac Communauté - Bretagne Centre,560
+22063,Gommenec'h,22,200069086,CC Leff Armor Communauté,551
+22064,Gouarec,22,242200715,CC du Kreiz-Breizh (CCKB),866
+22065,Goudelin,22,200069086,CC Leff Armor Communauté,1751
+22067,Grâces,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2601
+22068,Grâce-Uzel,22,200067460,CC Loudéac Communauté - Bretagne Centre,423
+22069,Guenroc,22,200068989,CA Dinan Agglomération,215
+22070,Guingamp,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,7111
+22071,Guitté,22,200068989,CA Dinan Agglomération,701
+22072,Gurunhuel,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,409
+22073,La Harmoye,22,200069409,CA Saint-Brieuc Armor Agglomération,386
+22074,Le Haut-Corlay,22,200067460,CC Loudéac Communauté - Bretagne Centre,658
+22075,Hémonstoir,22,200067460,CC Loudéac Communauté - Bretagne Centre,687
+22076,Hénanbihen,22,200069391,CA Lamballe Terre et Mer,1479
+22077,Hénansal,22,200069391,CA Lamballe Terre et Mer,1294
+22079,Hénon,22,200069391,CA Lamballe Terre et Mer,2310
+22081,Hillion,22,200069409,CA Saint-Brieuc Armor Agglomération,4335
+22082,Le Hinglé,22,200068989,CA Dinan Agglomération,927
+22083,Illifaut,22,200067460,CC Loudéac Communauté - Bretagne Centre,706
+22084,Jugon-les-Lacs,22,200069391,CA Lamballe Terre et Mer,2541
+22085,Kerbors,22,200065928,CA Lannion-Trégor Communauté,292
+22086,Kerfot,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,642
+22087,Kergrist-Moëlou,22,242200715,CC du Kreiz-Breizh (CCKB),629
+22088,Kerien,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,245
+22090,Kermaria-Sulard,22,200065928,CA Lannion-Trégor Communauté,1112
+22091,Kermoroc'h,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,443
+22092,Kerpert,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,268
+22093,Lamballe-Armor,22,200069391,CA Lamballe Terre et Mer,17241
+22094,Lancieux,22,243500725,CC Côte d'Emeraude,1611
+22095,Landebaëron,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,167
+22096,Landébia,22,200068989,CA Dinan Agglomération,461
+22097,La Landec,22,200068989,CA Dinan Agglomération,761
+22098,Landéhen,22,200069391,CA Lamballe Terre et Mer,1444
+22099,Lanfains,22,200069409,CA Saint-Brieuc Armor Agglomération,1077
+22101,Langoat,22,200065928,CA Lannion-Trégor Communauté,1175
+22103,Langrolay-sur-Rance,22,200068989,CA Dinan Agglomération,991
+22104,Languédias,22,200068989,CA Dinan Agglomération,563
+22105,Languenan,22,200068989,CA Dinan Agglomération,1170
+22106,Langueux,22,200069409,CA Saint-Brieuc Armor Agglomération,7939
+22107,Bon Repos sur Blavet,22,242200715,CC du Kreiz-Breizh (CCKB),1248
+22108,Lanleff,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,121
+22109,Lanloup,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,252
+22110,Lanmérin,22,200065928,CA Lannion-Trégor Communauté,575
+22111,Lanmodez,22,200065928,CA Lannion-Trégor Communauté,394
+22112,Lannebert,22,200069086,CC Leff Armor Communauté,423
+22113,Lannion,22,200065928,CA Lannion-Trégor Communauté,20315
+22114,Lanrelas,22,200069391,CA Lamballe Terre et Mer,874
+22115,Lanrivain,22,242200715,CC du Kreiz-Breizh (CCKB),464
+22116,Lanrodec,22,200069086,CC Leff Armor Communauté,1387
+22117,Lantic,22,200069409,CA Saint-Brieuc Armor Agglomération,1814
+22118,Lanvallay,22,200068989,CA Dinan Agglomération,4291
+22119,Lanvellec,22,200065928,CA Lannion-Trégor Communauté,608
+22121,Lanvollon,22,200069086,CC Leff Armor Communauté,1969
+22122,Laurenan,22,200067460,CC Loudéac Communauté - Bretagne Centre,744
+22124,Lescouët-Gouarec,22,242200715,CC du Kreiz-Breizh (CCKB),216
+22126,Le Leslay,22,200069409,CA Saint-Brieuc Armor Agglomération,152
+22127,Lézardrieux,22,200065928,CA Lannion-Trégor Communauté,1623
+22128,Locarn,22,242200715,CC du Kreiz-Breizh (CCKB),434
+22129,Loc-Envel,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,75
+22131,Loguivy-Plougras,22,200065928,CA Lannion-Trégor Communauté,840
+22132,Lohuec,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,245
+22133,Loscouët-sur-Meu,22,200067460,CC Loudéac Communauté - Bretagne Centre,659
+22134,Louannec,22,200065928,CA Lannion-Trégor Communauté,3019
+22135,Louargat,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2448
+22136,Loudéac,22,200067460,CC Loudéac Communauté - Bretagne Centre,9987
+22137,Maël-Carhaix,22,242200715,CC du Kreiz-Breizh (CCKB),1497
+22138,Maël-Pestivien,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,362
+22139,Magoar,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,75
+22140,La Malhoure,22,200069391,CA Lamballe Terre et Mer,626
+22141,Mantallot,22,200065928,CA Lannion-Trégor Communauté,226
+22143,Matignon,22,200068989,CA Dinan Agglomération,1771
+22144,La Méaugon,22,200069409,CA Saint-Brieuc Armor Agglomération,1320
+22145,Mégrit,22,200068989,CA Dinan Agglomération,812
+22146,Mellionnec,22,242200715,CC du Kreiz-Breizh (CCKB),443
+22147,Merdrignac,22,200067460,CC Loudéac Communauté - Bretagne Centre,3139
+22148,Mérillac,22,200067460,CC Loudéac Communauté - Bretagne Centre,249
+22149,Merléac,22,200067460,CC Loudéac Communauté - Bretagne Centre,481
+22150,Le Merzer,22,200069086,CC Leff Armor Communauté,986
+22152,Minihy-Tréguier,22,200065928,CA Lannion-Trégor Communauté,1271
+22153,Moncontour,22,200069391,CA Lamballe Terre et Mer,738
+22155,La Motte,22,200067460,CC Loudéac Communauté - Bretagne Centre,2173
+22156,Moustéru,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,645
+22157,Le Moustoir,22,242900744,CC Poher Communauté,656
+22158,Guerlédan,22,200067460,CC Loudéac Communauté - Bretagne Centre,2532
+22160,Noyal,22,200069391,CA Lamballe Terre et Mer,985
+22161,Pabu,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2771
+22162,Paimpol,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,7341
+22163,Paule,22,242200715,CC du Kreiz-Breizh (CCKB),671
+22164,Pédernec,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1893
+22165,Penguily,22,200069391,CA Lamballe Terre et Mer,617
+22166,Penvénan,22,200065928,CA Lannion-Trégor Communauté,2584
+22168,Perros-Guirec,22,200065928,CA Lannion-Trégor Communauté,7336
+22169,Peumerit-Quintin,22,242200715,CC du Kreiz-Breizh (CCKB),191
+22170,Plaine-Haute,22,200069409,CA Saint-Brieuc Armor Agglomération,1712
+22171,Plaintel,22,200069409,CA Saint-Brieuc Armor Agglomération,4602
+22172,Plancoët,22,200068989,CA Dinan Agglomération,3104
+22174,Pléboulle,22,200068989,CA Dinan Agglomération,721
+22175,Plédéliac,22,200069391,CA Lamballe Terre et Mer,1662
+22176,Plédran,22,200069409,CA Saint-Brieuc Armor Agglomération,6933
+22177,Pléguien,22,200069086,CC Leff Armor Communauté,1443
+22178,Pléhédel,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1306
+22179,Fréhel,22,200068989,CA Dinan Agglomération,1611
+22180,Plélan-le-Petit,22,200068989,CA Dinan Agglomération,1992
+22181,Plélauff,22,242200715,CC du Kreiz-Breizh (CCKB),716
+22182,Plélo,22,200069086,CC Leff Armor Communauté,3344
+22183,Plémet,22,200067460,CC Loudéac Communauté - Bretagne Centre,3764
+22184,Plémy,22,200069391,CA Lamballe Terre et Mer,1578
+22185,Plénée-Jugon,22,200069391,CA Lamballe Terre et Mer,2579
+22186,Pléneuf-Val-André,22,200069391,CA Lamballe Terre et Mer,3988
+22187,Plérin,22,200069409,CA Saint-Brieuc Armor Agglomération,14425
+22188,Plerneuf,22,200069086,CC Leff Armor Communauté,1123
+22189,Plésidy,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,563
+22190,Pleslin-Trigavou,22,200068989,CA Dinan Agglomération,4065
+22193,Plestan,22,200069391,CA Lamballe Terre et Mer,1635
+22194,Plestin-les-Grèves,22,200065928,CA Lannion-Trégor Communauté,3639
+22195,Pleubian,22,200065928,CA Lannion-Trégor Communauté,2365
+22196,Pleudaniel,22,200065928,CA Lannion-Trégor Communauté,921
+22197,Pleudihen-sur-Rance,22,200068989,CA Dinan Agglomération,2924
+22198,Pleumeur-Bodou,22,200065928,CA Lannion-Trégor Communauté,3848
+22199,Pleumeur-Gautier,22,200065928,CA Lannion-Trégor Communauté,1188
+22201,Plévenon,22,200068989,CA Dinan Agglomération,750
+22202,Plévin,22,242900744,CC Poher Communauté,754
+22203,Plœuc-L'Hermitage,22,200069409,CA Saint-Brieuc Armor Agglomération,4103
+22204,Ploëzal,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1229
+22205,Plorec-sur-Arguenon,22,200068989,CA Dinan Agglomération,467
+22206,Châtelaudren-Plouagat,22,200069086,CC Leff Armor Communauté,3974
+22207,Plouaret,22,200065928,CA Lannion-Trégor Communauté,2237
+22208,Plouasne,22,200068989,CA Dinan Agglomération,1798
+22209,Beaussais-sur-Mer,22,200068989,CA Dinan Agglomération,4498
+22210,Ploubazlanec,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2932
+22211,Ploubezre,22,200065928,CA Lannion-Trégor Communauté,3780
+22212,Plouëc-du-Trieux,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1140
+22213,Plouër-sur-Rance,22,200068989,CA Dinan Agglomération,3416
+22214,Plouézec,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,3147
+22215,Ploufragan,22,200069409,CA Saint-Brieuc Armor Agglomération,11507
+22216,Plougonver,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,760
+22217,Plougras,22,200065928,CA Lannion-Trégor Communauté,426
+22218,Plougrescant,22,200065928,CA Lannion-Trégor Communauté,1242
+22219,Plouguenast-Langast,22,200067460,CC Loudéac Communauté - Bretagne Centre,2380
+22220,Plouguernével,22,242200715,CC du Kreiz-Breizh (CCKB),1601
+22221,Plouguiel,22,200065928,CA Lannion-Trégor Communauté,1747
+22222,Plouha,22,200069086,CC Leff Armor Communauté,4634
+22223,Plouisy,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2007
+22224,Ploulec'h,22,200065928,CA Lannion-Trégor Communauté,1598
+22225,Ploumagoar,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,5414
+22226,Ploumilliau,22,200065928,CA Lannion-Trégor Communauté,2466
+22227,Plounérin,22,200065928,CA Lannion-Trégor Communauté,798
+22228,Plounévez-Moëdec,22,200065928,CA Lannion-Trégor Communauté,1479
+22229,Plounévez-Quintin,22,242200715,CC du Kreiz-Breizh (CCKB),1064
+22231,Plourac'h,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,351
+22232,Plourhan,22,200069409,CA Saint-Brieuc Armor Agglomération,2155
+22233,Plourivo,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2270
+22234,Plouvara,22,200069086,CC Leff Armor Communauté,1144
+22235,Plouzélambre,22,200065928,CA Lannion-Trégor Communauté,198
+22236,Pludual,22,200069086,CC Leff Armor Communauté,738
+22237,Val-d'Arguenon,22,200068989,CA Dinan Agglomération,2844
+22238,Plufur,22,200065928,CA Lannion-Trégor Communauté,529
+22239,Plumaudan,22,200068989,CA Dinan Agglomération,1421
+22240,Plumaugat,22,200068989,CA Dinan Agglomération,1160
+22241,Plumieux,22,200067460,CC Loudéac Communauté - Bretagne Centre,1678
+22242,Plurien,22,200069391,CA Lamballe Terre et Mer,1521
+22243,Plusquellec,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,559
+22244,Plussulien,22,200067460,CC Loudéac Communauté - Bretagne Centre,520
+22245,Pluzunet,22,200065928,CA Lannion-Trégor Communauté,1017
+22246,Pommeret,22,200069391,CA Lamballe Terre et Mer,2116
+22248,Pommerit-le-Vicomte,22,200069086,CC Leff Armor Communauté,1809
+22249,Pont-Melvez,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,595
+22250,Pontrieux,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1002
+22251,Pordic,22,200069409,CA Saint-Brieuc Armor Agglomération,7454
+22254,Prat,22,200065928,CA Lannion-Trégor Communauté,1078
+22255,La Prénessaye,22,200067460,CC Loudéac Communauté - Bretagne Centre,885
+22256,Quemper-Guézennec,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1118
+22257,Quemperven,22,200065928,CA Lannion-Trégor Communauté,417
+22258,Quessoy,22,200069391,CA Lamballe Terre et Mer,3969
+22259,Quévert,22,200068989,CA Dinan Agglomération,3955
+22260,Le Quillio,22,200067460,CC Loudéac Communauté - Bretagne Centre,597
+22261,Quintenic,22,200069391,CA Lamballe Terre et Mer,363
+22262,Quintin,22,200069409,CA Saint-Brieuc Armor Agglomération,2739
+22263,Le Quiou,22,200068989,CA Dinan Agglomération,359
+22264,La Roche-Jaudy,22,200065928,CA Lannion-Trégor Communauté,2629
+22265,Rospez,22,200065928,CA Lannion-Trégor Communauté,1794
+22266,Rostrenen,22,242200715,CC du Kreiz-Breizh (CCKB),3282
+22267,Rouillac,22,200069391,CA Lamballe Terre et Mer,409
+22268,Ruca,22,200068989,CA Dinan Agglomération,595
+22269,Runan,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,245
+22271,Saint-Adrien,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,376
+22272,Saint-Agathon,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,2169
+22273,Saint-Alban,22,200069391,CA Lamballe Terre et Mer,2397
+22274,Saint-André-des-Eaux,22,200068989,CA Dinan Agglomération,409
+22275,Saint-Barnabé,22,200067460,CC Loudéac Communauté - Bretagne Centre,1223
+22276,Saint-Bihy,22,200069409,CA Saint-Brieuc Armor Agglomération,267
+22277,Saint-Brandan,22,200069409,CA Saint-Brieuc Armor Agglomération,2317
+22278,Saint-Brieuc,22,200069409,CA Saint-Brieuc Armor Agglomération,44364
+22279,Saint-Caradec,22,200067460,CC Loudéac Communauté - Bretagne Centre,1132
+22280,Saint-Carné,22,200068989,CA Dinan Agglomération,1167
+22281,Saint-Carreuc,22,200069409,CA Saint-Brieuc Armor Agglomération,1576
+22282,Saint-Cast-le-Guildo,22,200068989,CA Dinan Agglomération,3371
+22283,Saint-Clet,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,877
+22284,Saint-Connan,22,242200715,CC du Kreiz-Breizh (CCKB),303
+22285,Saint-Connec,22,245614433,CC Pontivy Communauté,258
+22286,Saint-Denoual,22,200069391,CA Lamballe Terre et Mer,495
+22287,Saint-Donan,22,200069409,CA Saint-Brieuc Armor Agglomération,1477
+22288,Saint-Étienne-du-Gué-de-l'Isle,22,200067460,CC Loudéac Communauté - Bretagne Centre,372
+22289,Saint-Fiacre,22,200069086,CC Leff Armor Communauté,210
+22291,Saint-Gildas,22,200069409,CA Saint-Brieuc Armor Agglomération,248
+22293,Saint-Gilles-les-Bois,22,200069086,CC Leff Armor Communauté,384
+22294,Saint-Gilles-Pligeaux,22,242200715,CC du Kreiz-Breizh (CCKB),307
+22295,Saint-Gilles-Vieux-Marché,22,200067460,CC Loudéac Communauté - Bretagne Centre,307
+22296,Saint-Glen,22,200069391,CA Lamballe Terre et Mer,664
+22299,Saint-Hélen,22,200068989,CA Dinan Agglomération,1560
+22300,Saint-Hervé,22,200067460,CC Loudéac Communauté - Bretagne Centre,425
+22302,Saint-Jacut-de-la-Mer,22,200068989,CA Dinan Agglomération,908
+22304,Saint-Jean-Kerdaniel,22,200069086,CC Leff Armor Communauté,694
+22305,Saint-Jouan-de-l'Isle,22,200068989,CA Dinan Agglomération,446
+22306,Saint-Judoce,22,200068989,CA Dinan Agglomération,594
+22307,Saint-Julien,22,200069409,CA Saint-Brieuc Armor Agglomération,2101
+22308,Saint-Juvat,22,200068989,CA Dinan Agglomération,663
+22310,Saint-Laurent,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,541
+22311,Saint-Lormel,22,200068989,CA Dinan Agglomération,882
+22312,Saint-Maden,22,200068989,CA Dinan Agglomération,218
+22313,Saint-Martin-des-Prés,22,200067460,CC Loudéac Communauté - Bretagne Centre,319
+22314,Saint-Maudan,22,200067460,CC Loudéac Communauté - Bretagne Centre,399
+22315,Saint-Maudez,22,200068989,CA Dinan Agglomération,286
+22316,Saint-Mayeux,22,200067460,CC Loudéac Communauté - Bretagne Centre,454
+22317,Saint-Méloir-des-Bois,22,200068989,CA Dinan Agglomération,270
+22318,Saint-Michel-de-Plélan,22,200068989,CA Dinan Agglomération,334
+22319,Saint-Michel-en-Grève,22,200065928,CA Lannion-Trégor Communauté,447
+22320,Saint-Nicodème,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,167
+22321,Saint-Nicolas-du-Pélem,22,242200715,CC du Kreiz-Breizh (CCKB),1523
+22322,Saint-Péver,22,200069086,CC Leff Armor Communauté,397
+22323,Saint-Pôtan,22,200068989,CA Dinan Agglomération,839
+22324,Saint-Quay-Perros,22,200065928,CA Lannion-Trégor Communauté,1308
+22325,Saint-Quay-Portrieux,22,200069409,CA Saint-Brieuc Armor Agglomération,3224
+22326,Saint-Rieul,22,200069391,CA Lamballe Terre et Mer,551
+22327,Saint-Samson-sur-Rance,22,200068989,CA Dinan Agglomération,1625
+22328,Saint-Servais,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,435
+22330,Saint-Thélo,22,200067460,CC Loudéac Communauté - Bretagne Centre,371
+22331,Sainte-Tréphine,22,242200715,CC du Kreiz-Breizh (CCKB),189
+22332,Saint-Trimoël,22,200069391,CA Lamballe Terre et Mer,526
+22333,Saint-Vran,22,200067460,CC Loudéac Communauté - Bretagne Centre,781
+22334,Saint-Igeaux,22,242200715,CC du Kreiz-Breizh (CCKB),126
+22335,Senven-Léhart,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,235
+22337,Sévignac,22,200069391,CA Lamballe Terre et Mer,1117
+22338,Squiffiec,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,747
+22339,Taden,22,200068989,CA Dinan Agglomération,2636
+22340,Tonquédec,22,200065928,CA Lannion-Trégor Communauté,1201
+22341,Tramain,22,200069391,CA Lamballe Terre et Mer,704
+22342,Trébédan,22,200068989,CA Dinan Agglomération,441
+22343,Trébeurden,22,200065928,CA Lannion-Trégor Communauté,3821
+22344,Trébrivan,22,242200715,CC du Kreiz-Breizh (CCKB),761
+22345,Trébry,22,200069391,CA Lamballe Terre et Mer,844
+22346,Trédaniel,22,200069391,CA Lamballe Terre et Mer,906
+22347,Trédarzec,22,200065928,CA Lannion-Trégor Communauté,1055
+22348,Trédias,22,200069391,CA Lamballe Terre et Mer,513
+22349,Trédrez-Locquémeau,22,200065928,CA Lannion-Trégor Communauté,1478
+22350,Tréduder,22,200065928,CA Lannion-Trégor Communauté,210
+22351,Treffrin,22,242900744,CC Poher Communauté,516
+22352,Tréfumel,22,200068989,CA Dinan Agglomération,282
+22353,Trégastel,22,200065928,CA Lannion-Trégor Communauté,2524
+22354,Tréglamus,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,1096
+22356,Trégomeur,22,200069086,CC Leff Armor Communauté,945
+22358,Trégonneau,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,515
+22359,Trégrom,22,200065928,CA Lannion-Trégor Communauté,464
+22360,Trégueux,22,200069409,CA Saint-Brieuc Armor Agglomération,8450
+22361,Tréguidel,22,200069086,CC Leff Armor Communauté,630
+22362,Tréguier,22,200065928,CA Lannion-Trégor Communauté,2294
+22363,Trélévern,22,200065928,CA Lannion-Trégor Communauté,1245
+22364,Trélivan,22,200068989,CA Dinan Agglomération,2865
+22365,Trémargat,22,242200715,CC du Kreiz-Breizh (CCKB),183
+22366,Trémel,22,200065928,CA Lannion-Trégor Communauté,409
+22368,Tréméreuc,22,243500725,CC Côte d'Emeraude,729
+22369,Trémeur,22,200069391,CA Lamballe Terre et Mer,809
+22370,Tréméven,22,200069086,CC Leff Armor Communauté,362
+22371,Trémorel,22,200067460,CC Loudéac Communauté - Bretagne Centre,1156
+22372,Trémuson,22,200069409,CA Saint-Brieuc Armor Agglomération,2259
+22373,Tréogan,22,242900744,CC Poher Communauté,106
+22375,Tressignaux,22,200069086,CC Leff Armor Communauté,670
+22376,Trévé,22,200067460,CC Loudéac Communauté - Bretagne Centre,1681
+22377,Tréveneuc,22,200069409,CA Saint-Brieuc Armor Agglomération,813
+22378,Trévérec,22,200069086,CC Leff Armor Communauté,228
+22379,Trévou-Tréguignec,22,200065928,CA Lannion-Trégor Communauté,1603
+22380,Trévron,22,200068989,CA Dinan Agglomération,682
+22381,Trézény,22,200065928,CA Lannion-Trégor Communauté,354
+22383,Troguéry,22,200065928,CA Lannion-Trégor Communauté,227
+22384,Uzel,22,200067460,CC Loudéac Communauté - Bretagne Centre,1134
+22385,La Vicomté-sur-Rance,22,200068989,CA Dinan Agglomération,1149
+22386,Le Vieux-Bourg,22,200069409,CA Saint-Brieuc Armor Agglomération,742
+22387,Le Vieux-Marché,22,200065928,CA Lannion-Trégor Communauté,1299
+22388,Vildé-Guingalan,22,200068989,CA Dinan Agglomération,1304
+22389,Yffiniac,22,200069409,CA Saint-Brieuc Armor Agglomération,5074
+22390,Yvias,22,200067981,CA Guingamp-Paimpol Agglomération de l'Armor à l'Argoat,765
+22391,Yvignac-la-Tour,22,200068989,CA Dinan Agglomération,1135
+29001,Argol,29,200066868,CC Presqu'île de Crozon-Aulne maritime,1065
+29002,Arzano,29,242900694,CA Quimperlé Communauté,1441
+29003,Audierne,29,242900629,CC Cap Sizun - Pointe du Raz,3727
+29004,Bannalec,29,242900694,CA Quimperlé Communauté,5725
+29005,Baye,29,242900694,CA Quimperlé Communauté,1369
+29006,Bénodet,29,242900660,CC du Pays Fouesnantais,3849
+29007,Berrien,29,200067197,CC Monts d'Arrée Communauté,943
+29008,Beuzec-Cap-Sizun,29,242900629,CC Cap Sizun - Pointe du Raz,1008
+29010,Bodilis,29,242900751,CC du Pays de Landivisiau,1723
+29011,Bohars,29,242900314,Brest Métropole,3727
+29012,Bolazec,29,200067197,CC Monts d'Arrée Communauté,168
+29013,Botmeur,29,200067197,CC Monts d'Arrée Communauté,224
+29014,Botsorhel,29,242900835,CA Morlaix Communauté,425
+29015,Bourg-Blanc,29,242900553,CC du Pays des Abers,3573
+29016,Brasparts,29,200067197,CC Monts d'Arrée Communauté,1067
+29017,Brélès,29,242900074,CC du Pays d'Iroise,868
+29018,Brennilis,29,200067197,CC Monts d'Arrée Communauté,454
+29019,Brest,29,242900314,Brest Métropole,142346
+29020,Briec,29,200068120,CA Quimper Bretagne Occidentale,5816
+29021,Plounéour-Brignogan-plages,29,242900793,CC Communauté Lesneven Côte des Légendes,1972
+29022,Camaret-sur-Mer,29,200066868,CC Presqu'île de Crozon-Aulne maritime,2494
+29023,Carantec,29,242900835,CA Morlaix Communauté,3272
+29024,Carhaix-Plouguer,29,242900744,CC Poher Communauté,7412
+29025,Cast,29,200067247,CC Pleyben-Châteaulin-Porzay,1570
+29026,Châteaulin,29,200067247,CC Pleyben-Châteaulin-Porzay,5085
+29027,Châteauneuf-du-Faou,29,242900561,CC de Haute Cornouaille,3651
+29028,Cléden-Cap-Sizun,29,242900629,CC Cap Sizun - Pointe du Raz,916
+29029,Cléden-Poher,29,242900744,CC Poher Communauté,1130
+29030,Cléder,29,200067072,CC Haut-Léon Communauté,3584
+29031,Clohars-Carnoët,29,242900694,CA Quimperlé Communauté,4708
+29032,Clohars-Fouesnant,29,242900660,CC du Pays Fouesnantais,2264
+29033,Le Cloître-Pleyben,29,200067247,CC Pleyben-Châteaulin-Porzay,502
+29034,Le Cloître-Saint-Thégonnec,29,242900835,CA Morlaix Communauté,641
+29035,Coat-Méal,29,242900553,CC du Pays des Abers,1133
+29036,Collorec,29,242900561,CC de Haute Cornouaille,588
+29037,Combrit,29,242900702,CC du Pays Bigouden Sud,4265
+29038,Commana,29,242900751,CC du Pays de Landivisiau,983
+29039,Concarneau,29,242900769,CA Concarneau Cornouaille Agglomération,20845
+29040,Le Conquet,29,242900074,CC du Pays d'Iroise,2835
+29041,Coray,29,242900561,CC de Haute Cornouaille,1856
+29042,Crozon,29,200066868,CC Presqu'île de Crozon-Aulne maritime,7499
+29043,Daoulas,29,242900801,CA du Pays de Landerneau-Daoulas,1864
+29044,Dinéault,29,200067247,CC Pleyben-Châteaulin-Porzay,1853
+29045,Dirinon,29,242900801,CA du Pays de Landerneau-Daoulas,2188
+29046,Douarnenez,29,242900645,CC Douarnenez Communauté,14068
+29047,Le Drennec,29,242900553,CC du Pays des Abers,1896
+29048,Edern,29,200068120,CA Quimper Bretagne Occidentale,2186
+29049,Elliant,29,242900769,CA Concarneau Cornouaille Agglomération,3427
+29051,Ergué-Gabéric,29,200068120,CA Quimper Bretagne Occidentale,8606
+29053,Le Faou,29,200066868,CC Presqu'île de Crozon-Aulne maritime,1911
+29054,La Feuillée,29,200067197,CC Monts d'Arrée Communauté,677
+29055,Le Folgoët,29,242900793,CC Communauté Lesneven Côte des Légendes,3315
+29056,La Forest-Landerneau,29,242900801,CA du Pays de Landerneau-Daoulas,2018
+29057,La Forêt-Fouesnant,29,242900660,CC du Pays Fouesnantais,3508
+29058,Fouesnant,29,242900660,CC du Pays Fouesnantais,10436
+29059,Garlan,29,242900835,CA Morlaix Communauté,1043
+29060,Gouesnach,29,242900660,CC du Pays Fouesnantais,2836
+29061,Gouesnou,29,242900314,Brest Métropole,6501
+29062,Gouézec,29,200067247,CC Pleyben-Châteaulin-Porzay,1111
+29063,Goulien,29,242900629,CC Cap Sizun - Pointe du Raz,446
+29064,Goulven,29,242900793,CC Communauté Lesneven Côte des Légendes,432
+29065,Gourlizon,29,242900710,CC du Haut Pays Bigouden,949
+29066,Guengat,29,200068120,CA Quimper Bretagne Occidentale,1846
+29067,Guerlesquin,29,242900835,CA Morlaix Communauté,1285
+29068,Guiclan,29,242900751,CC du Pays de Landivisiau,2585
+29069,Guilers,29,242900314,Brest Métropole,8268
+29070,Guiler-sur-Goyen,29,242900710,CC du Haut Pays Bigouden,520
+29071,Guilligomarc'h,29,242900694,CA Quimperlé Communauté,803
+29072,Guilvinec,29,242900702,CC du Pays Bigouden Sud,2669
+29073,Guimaëc,29,242900835,CA Morlaix Communauté,982
+29074,Guimiliau,29,242900751,CC du Pays de Landivisiau,994
+29075,Guipavas,29,242900314,Brest Métropole,15538
+29076,Milizac-Guipronvel,29,242900074,CC du Pays d'Iroise,4816
+29077,Guissény,29,242900793,CC Communauté Lesneven Côte des Légendes,1979
+29078,Hanvec,29,242900801,CA du Pays de Landerneau-Daoulas,2025
+29079,Henvic,29,242900835,CA Morlaix Communauté,1181
+29080,Hôpital-Camfrout,29,242900801,CA du Pays de Landerneau-Daoulas,2215
+29081,Huelgoat,29,200067197,CC Monts d'Arrée Communauté,1440
+29082,Île-de-Batz,29,200067072,CC Haut-Léon Communauté,458
+29083,Île-de-Sein,29,,,263
+29084,Île-Molène,29,242900074,CC du Pays d'Iroise,176
+29085,Île-Tudy,29,242900702,CC du Pays Bigouden Sud,742
+29086,Irvillac,29,242900801,CA du Pays de Landerneau-Daoulas,1411
+29087,Le Juch,29,242900645,CC Douarnenez Communauté,765
+29089,Kergloff,29,242900744,CC Poher Communauté,897
+29090,Kerlaz,29,242900645,CC Douarnenez Communauté,805
+29091,Kerlouan,29,242900793,CC Communauté Lesneven Côte des Légendes,1999
+29093,Kernilis,29,242900793,CC Communauté Lesneven Côte des Légendes,1407
+29094,Kernouës,29,242900793,CC Communauté Lesneven Côte des Légendes,665
+29095,Kersaint-Plabennec,29,242900553,CC du Pays des Abers,1571
+29097,Lampaul-Guimiliau,29,242900751,CC du Pays de Landivisiau,2032
+29098,Lampaul-Plouarzel,29,242900074,CC du Pays d'Iroise,2221
+29099,Lampaul-Ploudalmézeau,29,242900074,CC du Pays d'Iroise,816
+29100,Lanarvily,29,242900793,CC Communauté Lesneven Côte des Légendes,401
+29101,Landéda,29,242900553,CC du Pays des Abers,3702
+29102,Landeleau,29,242900561,CC de Haute Cornouaille,993
+29103,Landerneau,29,242900801,CA du Pays de Landerneau-Daoulas,16363
+29104,Landévennec,29,200066868,CC Presqu'île de Crozon-Aulne maritime,330
+29105,Landivisiau,29,242900751,CC du Pays de Landivisiau,9426
+29106,Landrévarzec,29,200068120,CA Quimper Bretagne Occidentale,1882
+29107,Landudal,29,200068120,CA Quimper Bretagne Occidentale,930
+29108,Landudec,29,242900710,CC du Haut Pays Bigouden,1459
+29109,Landunvez,29,242900074,CC du Pays d'Iroise,1579
+29110,Langolen,29,200068120,CA Quimper Bretagne Occidentale,836
+29111,Lanhouarneau,29,200067072,CC Haut-Léon Communauté,1282
+29112,Lanildut,29,242900074,CC du Pays d'Iroise,1013
+29113,Lanmeur,29,242900835,CA Morlaix Communauté,2387
+29114,Lannéanou,29,242900835,CA Morlaix Communauté,342
+29115,Lannédern,29,200067247,CC Pleyben-Châteaulin-Porzay,321
+29116,Lanneuffret,29,242900801,CA du Pays de Landerneau-Daoulas,158
+29117,Lannilis,29,242900553,CC du Pays des Abers,5709
+29119,Lanrivoaré,29,242900074,CC du Pays d'Iroise,1551
+29120,Lanvéoc,29,200066868,CC Presqu'île de Crozon-Aulne maritime,2044
+29122,Laz,29,242900561,CC de Haute Cornouaille,685
+29123,Lennon,29,200067247,CC Pleyben-Châteaulin-Porzay,812
+29124,Lesneven,29,242900793,CC Communauté Lesneven Côte des Légendes,7566
+29125,Leuhan,29,242900561,CC de Haute Cornouaille,846
+29126,Loc-Brévalaire,29,242900553,CC du Pays des Abers,210
+29128,Loc-Eguiner,29,242900751,CC du Pays de Landivisiau,376
+29130,Locmaria-Plouzané,29,242900074,CC du Pays d'Iroise,5130
+29131,Locmélar,29,242900751,CC du Pays de Landivisiau,487
+29132,Locquénolé,29,242900835,CA Morlaix Communauté,790
+29133,Locquirec,29,242900835,CA Morlaix Communauté,1555
+29134,Locronan,29,200068120,CA Quimper Bretagne Occidentale,829
+29135,Loctudy,29,242900702,CC du Pays Bigouden Sud,4075
+29136,Locunolé,29,242900694,CA Quimperlé Communauté,1177
+29137,Logonna-Daoulas,29,242900801,CA du Pays de Landerneau-Daoulas,2130
+29139,Lopérec,29,200067197,CC Monts d'Arrée Communauté,828
+29140,Loperhet,29,242900801,CA du Pays de Landerneau-Daoulas,3959
+29141,Loqueffret,29,200067197,CC Monts d'Arrée Communauté,336
+29142,Lothey,29,200067247,CC Pleyben-Châteaulin-Porzay,424
+29143,Mahalon,29,242900629,CC Cap Sizun - Pointe du Raz,1021
+29144,La Martyre,29,242900801,CA du Pays de Landerneau-Daoulas,751
+29145,Confort-Meilars,29,242900629,CC Cap Sizun - Pointe du Raz,861
+29146,Melgven,29,242900769,CA Concarneau Cornouaille Agglomération,3371
+29147,Mellac,29,242900694,CA Quimperlé Communauté,3404
+29148,Mespaul,29,200067072,CC Haut-Léon Communauté,946
+29150,Moëlan-sur-Mer,29,242900694,CA Quimperlé Communauté,6749
+29151,Morlaix,29,242900835,CA Morlaix Communauté,15194
+29152,Motreff,29,242900744,CC Poher Communauté,654
+29153,Névez,29,242900769,CA Concarneau Cornouaille Agglomération,2795
+29155,Ouessant,29,,,860
+29156,Pencran,29,242900801,CA du Pays de Landerneau-Daoulas,2234
+29158,Penmarch,29,242900702,CC du Pays Bigouden Sud,5508
+29159,Peumerit,29,242900710,CC du Haut Pays Bigouden,917
+29160,Plabennec,29,242900553,CC du Pays des Abers,8686
+29161,Pleuven,29,242900660,CC du Pays Fouesnantais,3311
+29162,Pleyben,29,200067247,CC Pleyben-Châteaulin-Porzay,3692
+29163,Pleyber-Christ,29,242900835,CA Morlaix Communauté,3166
+29165,Plobannalec-Lesconil,29,242900702,CC du Pays Bigouden Sud,3718
+29166,Ploéven,29,200067247,CC Pleyben-Châteaulin-Porzay,550
+29167,Plogastel-Saint-Germain,29,242900710,CC du Haut Pays Bigouden,2024
+29168,Plogoff,29,242900629,CC Cap Sizun - Pointe du Raz,1131
+29169,Plogonnec,29,200068120,CA Quimper Bretagne Occidentale,3236
+29170,Plomelin,29,200068120,CA Quimper Bretagne Occidentale,4239
+29171,Plomeur,29,242900702,CC du Pays Bigouden Sud,3904
+29172,Plomodiern,29,200067247,CC Pleyben-Châteaulin-Porzay,2282
+29173,Plonéis,29,200068120,CA Quimper Bretagne Occidentale,2409
+29174,Plonéour-Lanvern,29,242900710,CC du Haut Pays Bigouden,6452
+29175,Plonévez-du-Faou,29,242900561,CC de Haute Cornouaille,2160
+29176,Plonévez-Porzay,29,200067247,CC Pleyben-Châteaulin-Porzay,1781
+29177,Plouarzel,29,242900074,CC du Pays d'Iroise,4029
+29178,Ploudalmézeau,29,242900074,CC du Pays d'Iroise,6522
+29179,Ploudaniel,29,242900793,CC Communauté Lesneven Côte des Légendes,3732
+29180,Ploudiry,29,242900801,CA du Pays de Landerneau-Daoulas,872
+29181,Plouédern,29,242900801,CA du Pays de Landerneau-Daoulas,3103
+29182,Plouégat-Guérand,29,242900835,CA Morlaix Communauté,1050
+29183,Plouégat-Moysan,29,242900835,CA Morlaix Communauté,717
+29184,Plouénan,29,200067072,CC Haut-Léon Communauté,2610
+29185,Plouescat,29,200067072,CC Haut-Léon Communauté,3554
+29186,Plouezoc'h,29,242900835,CA Morlaix Communauté,1646
+29187,Plougar,29,242900751,CC du Pays de Landivisiau,789
+29188,Plougasnou,29,242900835,CA Morlaix Communauté,3192
+29189,Plougastel-Daoulas,29,242900314,Brest Métropole,13434
+29190,Plougonvelin,29,242900074,CC du Pays d'Iroise,4521
+29191,Plougonven,29,242900835,CA Morlaix Communauté,3382
+29192,Plougoulm,29,200067072,CC Haut-Léon Communauté,1755
+29193,Plougourvest,29,242900751,CC du Pays de Landivisiau,1522
+29195,Plouguerneau,29,242900553,CC du Pays des Abers,6755
+29196,Plouguin,29,242900553,CC du Pays des Abers,2268
+29197,Plouhinec,29,242900629,CC Cap Sizun - Pointe du Raz,3919
+29198,Plouider,29,242900793,CC Communauté Lesneven Côte des Légendes,1809
+29199,Plouigneau,29,242900835,CA Morlaix Communauté,5014
+29201,Ploumoguer,29,242900074,CC du Pays d'Iroise,2074
+29202,Plounéour-Ménez,29,242900835,CA Morlaix Communauté,1297
+29204,Plounéventer,29,242900751,CC du Pays de Landivisiau,2251
+29205,Plounévézel,29,242900744,CC Poher Communauté,1157
+29206,Plounévez-Lochrist,29,200067072,CC Haut-Léon Communauté,2281
+29207,Plourin-lès-Morlaix,29,242900835,CA Morlaix Communauté,4548
+29208,Plourin,29,242900074,CC du Pays d'Iroise,1268
+29209,Plouvien,29,242900553,CC du Pays des Abers,3968
+29210,Plouvorn,29,242900751,CC du Pays de Landivisiau,2916
+29211,Plouyé,29,200067197,CC Monts d'Arrée Communauté,687
+29212,Plouzané,29,242900314,Brest Métropole,13567
+29213,Plouzévédé,29,242900751,CC du Pays de Landivisiau,1897
+29214,Plovan,29,242900710,CC du Haut Pays Bigouden,677
+29215,Plozévet,29,242900710,CC du Haut Pays Bigouden,2984
+29216,Pluguffan,29,200068120,CA Quimper Bretagne Occidentale,4223
+29217,Pont-Aven,29,242900769,CA Concarneau Cornouaille Agglomération,2777
+29218,Pont-Croix,29,242900629,CC Cap Sizun - Pointe du Raz,1669
+29220,Pont-l'Abbé,29,242900702,CC du Pays Bigouden Sud,8484
+29221,Porspoder,29,242900074,CC du Pays d'Iroise,1753
+29222,Port-Launay,29,200067247,CC Pleyben-Châteaulin-Porzay,404
+29224,Pouldergat,29,242900645,CC Douarnenez Communauté,1213
+29225,Pouldreuzic,29,242900710,CC du Haut Pays Bigouden,2119
+29226,Poullan-sur-Mer,29,242900645,CC Douarnenez Communauté,1453
+29227,Poullaouen,29,242900744,CC Poher Communauté,1470
+29228,Primelin,29,242900629,CC Cap Sizun - Pointe du Raz,650
+29229,Quéménéven,29,200068120,CA Quimper Bretagne Occidentale,1119
+29230,Querrien,29,242900694,CA Quimperlé Communauté,1645
+29232,Quimper,29,200068120,CA Quimper Bretagne Occidentale,64385
+29233,Quimperlé,29,242900694,CA Quimperlé Communauté,12469
+29234,Rédené,29,242900694,CA Quimperlé Communauté,3043
+29235,Le Relecq-Kerhuon,29,242900314,Brest Métropole,11897
+29236,Riec-sur-Bélon,29,242900694,CA Quimperlé Communauté,4376
+29237,La Roche-Maurice,29,242900801,CA du Pays de Landerneau-Daoulas,1893
+29238,Roscanvel,29,200066868,CC Presqu'île de Crozon-Aulne maritime,855
+29239,Roscoff,29,200067072,CC Haut-Léon Communauté,3334
+29240,Rosnoën,29,200066868,CC Presqu'île de Crozon-Aulne maritime,1012
+29241,Rosporden,29,242900769,CA Concarneau Cornouaille Agglomération,7550
+29243,Saint-Coulitz,29,200067247,CC Pleyben-Châteaulin-Porzay,475
+29244,Saint-Derrien,29,242900751,CC du Pays de Landivisiau,861
+29245,Saint-Divy,29,242900801,CA du Pays de Landerneau-Daoulas,1605
+29246,Saint-Eloy,29,242900801,CA du Pays de Landerneau-Daoulas,220
+29247,Saint-Évarzec,29,242900660,CC du Pays Fouesnantais,3574
+29248,Saint-Frégant,29,242900793,CC Communauté Lesneven Côte des Légendes,874
+29249,Saint-Goazec,29,242900561,CC de Haute Cornouaille,739
+29250,Saint-Hernin,29,242900744,CC Poher Communauté,753
+29251,Saint-Jean-du-Doigt,29,242900835,CA Morlaix Communauté,692
+29252,Saint-Jean-Trolimon,29,242900702,CC du Pays Bigouden Sud,997
+29254,Saint-Martin-des-Champs,29,242900835,CA Morlaix Communauté,4773
+29255,Saint-Méen,29,242900793,CC Communauté Lesneven Côte des Légendes,942
+29256,Saint-Nic,29,200067247,CC Pleyben-Châteaulin-Porzay,753
+29257,Saint-Pabu,29,242900553,CC du Pays des Abers,2087
+29259,Saint-Pol-de-Léon,29,200067072,CC Haut-Léon Communauté,6941
+29260,Saint-Renan,29,242900074,CC du Pays d'Iroise,8577
+29261,Saint-Rivoal,29,200067197,CC Monts d'Arrée Communauté,223
+29262,Saint-Sauveur,29,242900751,CC du Pays de Landivisiau,849
+29263,Saint-Ségal,29,200067247,CC Pleyben-Châteaulin-Porzay,1182
+29264,Saint-Servais,29,242900751,CC du Pays de Landivisiau,784
+29265,Sainte-Sève,29,242900835,CA Morlaix Communauté,1077
+29266,Saint-Thégonnec Loc-Eguiner,29,242900835,CA Morlaix Communauté,3148
+29267,Saint-Thois,29,242900561,CC de Haute Cornouaille,703
+29268,Saint-Thonan,29,242900801,CA du Pays de Landerneau-Daoulas,1956
+29269,Saint-Thurien,29,242900694,CA Quimperlé Communauté,1000
+29270,Saint-Urbain,29,242900801,CA du Pays de Landerneau-Daoulas,1670
+29271,Saint-Vougay,29,242900751,CC du Pays de Landivisiau,873
+29272,Saint-Yvi,29,242900769,CA Concarneau Cornouaille Agglomération,3431
+29273,Santec,29,200067072,CC Haut-Léon Communauté,2454
+29274,Scaër,29,242900694,CA Quimperlé Communauté,5178
+29275,Scrignac,29,200067197,CC Monts d'Arrée Communauté,816
+29276,Sibiril,29,200067072,CC Haut-Léon Communauté,1143
+29277,Sizun,29,242900751,CC du Pays de Landivisiau,2325
+29278,Spézet,29,242900561,CC de Haute Cornouaille,1774
+29279,Taulé,29,242900835,CA Morlaix Communauté,2914
+29280,Telgruc-sur-Mer,29,200066868,CC Presqu'île de Crozon-Aulne maritime,2167
+29281,Tourch,29,242900769,CA Concarneau Cornouaille Agglomération,1002
+29282,Trébabu,29,242900074,CC du Pays d'Iroise,368
+29284,Treffiagat,29,242900702,CC du Pays Bigouden Sud,2429
+29285,Tréflaouénan,29,200067072,CC Haut-Léon Communauté,518
+29286,Tréflévénez,29,242900801,CA du Pays de Landerneau-Daoulas,260
+29287,Tréflez,29,200067072,CC Haut-Léon Communauté,991
+29288,Trégarantec,29,242900793,CC Communauté Lesneven Côte des Légendes,634
+29289,Trégarvan,29,200067247,CC Pleyben-Châteaulin-Porzay,134
+29290,Tréglonou,29,242900553,CC du Pays des Abers,689
+29291,Trégourez,29,242900561,CC de Haute Cornouaille,947
+29292,Tréguennec,29,242900702,CC du Pays Bigouden Sud,311
+29293,Trégunc,29,242900769,CA Concarneau Cornouaille Agglomération,7148
+29294,Le Tréhou,29,242900801,CA du Pays de Landerneau-Daoulas,633
+29295,Trémaouézan,29,242900801,CA du Pays de Landerneau-Daoulas,483
+29296,Tréméoc,29,242900702,CC du Pays Bigouden Sud,1503
+29297,Tréméven,29,242900694,CA Quimperlé Communauté,2402
+29298,Tréogat,29,242900710,CC du Haut Pays Bigouden,573
+29299,Tréouergat,29,242900074,CC du Pays d'Iroise,323
+29300,Le Trévoux,29,242900694,CA Quimperlé Communauté,1652
+29301,Trézilidé,29,242900751,CC du Pays de Landivisiau,405
+29302,Pont-de-Buis-lès-Quimerch,29,200066868,CC Presqu'île de Crozon-Aulne maritime,3663
+35001,Acigné,35,243500139,Rennes Métropole,6874
+35002,Amanlis,35,243500634,CC Roche aux Fées Communauté,1768
+35003,Andouillé-Neuville,35,243500667,CC Val d'Ille-Aubigné,1017
+35004,Val-Couesnon,35,200070688,CC Couesnon Marches de Bretagne,4072
+35005,Arbrissel,35,243500634,CC Roche aux Fées Communauté,266
+35006,Argentré-du-Plessis,35,200039022,CA Vitré Communauté,4633
+35007,Aubigné,35,243500667,CC Val d'Ille-Aubigné,453
+35008,Availles-sur-Seiche,35,200039022,CA Vitré Communauté,630
+35009,Baguer-Morvan,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1702
+35010,Baguer-Pican,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1756
+35012,Bain-de-Bretagne,35,200070662,CC Bretagne Porte de Loire Communauté,7674
+35013,Bains-sur-Oust,35,243500741,CA Redon Agglomération,3535
+35014,Bais,35,200039022,CA Vitré Communauté,2539
+35015,Balazé,35,200039022,CA Vitré Communauté,2162
+35016,Baulon,35,200043990,CC Vallons de Haute-Bretagne Communauté,2210
+35017,La Baussaine,35,243500733,CC Bretagne Romantique,675
+35018,La Bazouge-du-Désert,35,200072452,CA Fougères Agglomération,1095
+35019,Bazouges-la-Pérouse,35,200070688,CC Couesnon Marches de Bretagne,1877
+35021,Beaucé,35,200072452,CA Fougères Agglomération,1256
+35022,Bécherel,35,243500139,Rennes Métropole,677
+35023,Bédée,35,243500550,CC Montfort Communauté,4662
+35024,Betton,35,243500139,Rennes Métropole,12964
+35025,Billé,35,200072452,CA Fougères Agglomération,1010
+35026,Bléruais,35,200038990,CC de Saint-Méen Montauban,97
+35027,Boisgervilly,35,200038990,CC de Saint-Méen Montauban,1804
+35028,Boistrudan,35,243500634,CC Roche aux Fées Communauté,728
+35029,Bonnemain,35,243500733,CC Bretagne Romantique,1536
+35030,La Bosse-de-Bretagne,35,200070662,CC Bretagne Porte de Loire Communauté,696
+35031,La Bouëxière,35,243500774,CC Liffré-Cormier Communauté,4667
+35032,Bourgbarré,35,243500139,Rennes Métropole,4804
+35033,Bourg-des-Comptes,35,200043990,CC Vallons de Haute-Bretagne Communauté,3411
+35034,La Boussac,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1271
+35035,Bovel,35,200043990,CC Vallons de Haute-Bretagne Communauté,618
+35037,Bréal-sous-Montfort,35,243500618,CC Brocéliande Communauté,6391
+35038,Bréal-sous-Vitré,35,200039022,CA Vitré Communauté,612
+35039,Brécé,35,243500139,Rennes Métropole,2232
+35040,Breteil,35,243500550,CC Montfort Communauté,3675
+35041,Brie,35,243500634,CC Roche aux Fées Communauté,988
+35042,Brielles,35,200039022,CA Vitré Communauté,692
+35044,Broualan,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,415
+35045,Bruc-sur-Aff,35,243500741,CA Redon Agglomération,855
+35046,Les Brulais,35,200043990,CC Vallons de Haute-Bretagne Communauté,542
+35047,Bruz,35,243500139,Rennes Métropole,19683
+35049,Cancale,35,243500782,CA du Pays de Saint Malo Agglomération,5672
+35050,Cardroc,35,243500733,CC Bretagne Romantique,589
+35051,Cesson-Sévigné,35,243500139,Rennes Métropole,18761
+35052,Champeaux,35,200039022,CA Vitré Communauté,505
+35054,Chanteloup,35,200070662,CC Bretagne Porte de Loire Communauté,1912
+35055,Chantepie,35,243500139,Rennes Métropole,10670
+35056,La Chapelle-aux-Filtzméens,35,243500733,CC Bretagne Romantique,824
+35057,La Chapelle-Bouëxic,35,200043990,CC Vallons de Haute-Bretagne Communauté,1537
+35058,La Chapelle-Chaussée,35,243500139,Rennes Métropole,1298
+35059,La Chapelle-des-Fougeretz,35,243500139,Rennes Métropole,4738
+35060,La Chapelle du Lou du Lac,35,200038990,CC de Saint-Méen Montauban,1050
+35061,La Chapelle-Erbrée,35,200039022,CA Vitré Communauté,717
+35062,La Chapelle-Fleurigné,35,200072452,CA Fougères Agglomération,2451
+35063,La Chapelle-Saint-Aubert,35,200072452,CA Fougères Agglomération,479
+35064,La Chapelle-de-Brain,35,243500741,CA Redon Agglomération,1114
+35065,La Chapelle-Thouarault,35,243500139,Rennes Métropole,2304
+35066,Chartres-de-Bretagne,35,243500139,Rennes Métropole,8880
+35067,Chasné-sur-Illet,35,243500774,CC Liffré-Cormier Communauté,1744
+35068,Châteaubourg,35,200039022,CA Vitré Communauté,7533
+35069,Châteaugiron,35,243500659,CC Pays de Châteaugiron Communauté,10845
+35070,Châteauneuf-d'Ille-et-Vilaine,35,243500782,CA du Pays de Saint Malo Agglomération,1664
+35071,Le Châtellier,35,200070688,CC Couesnon Marches de Bretagne,430
+35072,Châtillon-en-Vendelais,35,200039022,CA Vitré Communauté,1775
+35075,Chauvigné,35,200070688,CC Couesnon Marches de Bretagne,810
+35076,Chavagne,35,243500139,Rennes Métropole,4709
+35077,Chelun,35,243500634,CC Roche aux Fées Communauté,363
+35078,Cherrueix,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1108
+35079,Chevaigné,35,243500139,Rennes Métropole,2397
+35080,Cintré,35,243500139,Rennes Métropole,2645
+35081,Clayes,35,243500139,Rennes Métropole,947
+35082,Coësmes,35,243500634,CC Roche aux Fées Communauté,1426
+35084,Comblessac,35,200043990,CC Vallons de Haute-Bretagne Communauté,671
+35085,Combourg,35,243500733,CC Bretagne Romantique,6411
+35086,Combourtillé,35,200072452,CA Fougères Agglomération,610
+35087,Cornillé,35,200039022,CA Vitré Communauté,961
+35088,Corps-Nuds,35,243500139,Rennes Métropole,3567
+35089,La Couyère,35,200070662,CC Bretagne Porte de Loire Communauté,448
+35090,Crevin,35,200070662,CC Bretagne Porte de Loire Communauté,2819
+35091,Le Crouais,35,200038990,CC de Saint-Méen Montauban,592
+35092,Cuguen,35,243500733,CC Bretagne Romantique,828
+35093,Dinard,35,243500725,CC Côte d'Emeraude,10772
+35094,Dingé,35,243500733,CC Bretagne Romantique,1705
+35095,Dol-de-Bretagne,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,5829
+35096,Domagné,35,200039022,CA Vitré Communauté,2491
+35097,Domalain,35,200039022,CA Vitré Communauté,2055
+35098,La Dominelais,35,200070662,CC Bretagne Porte de Loire Communauté,1424
+35099,Domloup,35,243500659,CC Pays de Châteaugiron Communauté,3877
+35101,Dourdain,35,243500774,CC Liffré-Cormier Communauté,1237
+35102,Drouges,35,200039022,CA Vitré Communauté,502
+35103,Eancé,35,243500634,CC Roche aux Fées Communauté,429
+35104,Epiniac,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1438
+35105,Erbrée,35,200039022,CA Vitré Communauté,1703
+35106,Ercé-en-Lamée,35,200070662,CC Bretagne Porte de Loire Communauté,1566
+35107,Ercé-près-Liffré,35,243500774,CC Liffré-Cormier Communauté,2034
+35108,Essé,35,243500634,CC Roche aux Fées Communauté,1028
+35109,Étrelles,35,200039022,CA Vitré Communauté,2703
+35110,Feins,35,243500667,CC Val d'Ille-Aubigné,1074
+35111,Le Ferré,35,200072452,CA Fougères Agglomération,732
+35114,Forges-la-Forêt,35,243500634,CC Roche aux Fées Communauté,268
+35115,Fougères,35,200072452,CA Fougères Agglomération,20307
+35116,La Fresnais,35,243500782,CA du Pays de Saint Malo Agglomération,2509
+35117,Gaël,35,200038990,CC de Saint-Méen Montauban,1613
+35118,Gahard,35,243500667,CC Val d'Ille-Aubigné,1523
+35119,Gennes-sur-Seiche,35,200039022,CA Vitré Communauté,938
+35120,Gévezé,35,243500139,Rennes Métropole,6061
+35121,Gosné,35,243500774,CC Liffré-Cormier Communauté,2145
+35122,La Gouesnière,35,243500782,CA du Pays de Saint Malo Agglomération,2021
+35123,Goven,35,200043990,CC Vallons de Haute-Bretagne Communauté,4359
+35124,Grand-Fougeray,35,200070662,CC Bretagne Porte de Loire Communauté,2584
+35125,La Guerche-de-Bretagne,35,200039022,CA Vitré Communauté,4554
+35126,Guichen,35,200043990,CC Vallons de Haute-Bretagne Communauté,9412
+35127,Guignen,35,200043990,CC Vallons de Haute-Bretagne Communauté,4175
+35128,Guipel,35,243500667,CC Val d'Ille-Aubigné,1738
+35130,Hédé-Bazouges,35,243500733,CC Bretagne Romantique,2267
+35131,L'Hermitage,35,243500139,Rennes Métropole,4730
+35132,Hirel,35,243500782,CA du Pays de Saint Malo Agglomération,1382
+35133,Iffendic,35,243500550,CC Montfort Communauté,4609
+35134,Les Iffs,35,243500733,CC Bretagne Romantique,274
+35135,Irodouër,35,200038990,CC de Saint-Méen Montauban,2300
+35136,Janzé,35,243500634,CC Roche aux Fées Communauté,8649
+35137,Javené,35,200072452,CA Fougères Agglomération,2205
+35138,Laignelet,35,200072452,CA Fougères Agglomération,1234
+35139,Laillé,35,243500139,Rennes Métropole,5225
+35140,Lalleu,35,200070662,CC Bretagne Porte de Loire Communauté,593
+35141,Landavran,35,200039022,CA Vitré Communauté,674
+35142,Landéan,35,200072452,CA Fougères Agglomération,1250
+35143,Landujan,35,200038990,CC de Saint-Méen Montauban,941
+35144,Langan,35,243500139,Rennes Métropole,1106
+35145,Langon,35,243500741,CA Redon Agglomération,1423
+35146,Langouet,35,243500667,CC Val d'Ille-Aubigné,604
+35148,Lanrigan,35,243500733,CC Bretagne Romantique,136
+35149,Lassy,35,200043990,CC Vallons de Haute-Bretagne Communauté,1841
+35150,Lécousse,35,200072452,CA Fougères Agglomération,3530
+35151,Lieuron,35,243500741,CA Redon Agglomération,811
+35152,Liffré,35,243500774,CC Liffré-Cormier Communauté,9339
+35153,Lillemer,35,243500782,CA du Pays de Saint Malo Agglomération,398
+35154,Livré-sur-Changeon,35,243500774,CC Liffré-Cormier Communauté,1758
+35155,Lohéac,35,200043990,CC Vallons de Haute-Bretagne Communauté,702
+35156,Longaulnay,35,243500733,CC Bretagne Romantique,592
+35157,Le Loroux,35,200072452,CA Fougères Agglomération,621
+35159,Lourmais,35,243500733,CC Bretagne Romantique,340
+35160,Loutehel,35,200043990,CC Vallons de Haute-Bretagne Communauté,243
+35161,Louvigné-de-Bais,35,200039022,CA Vitré Communauté,1890
+35162,Louvigné-du-Désert,35,200072452,CA Fougères Agglomération,3346
+35163,Luitré-Dompierre,35,200072452,CA Fougères Agglomération,1868
+35164,Marcillé-Raoul,35,200070688,CC Couesnon Marches de Bretagne,749
+35165,Marcillé-Robert,35,243500634,CC Roche aux Fées Communauté,1017
+35166,Marpiré,35,200039022,CA Vitré Communauté,1023
+35167,Martigné-Ferchaud,35,243500634,CC Roche aux Fées Communauté,2688
+35168,Val d'Anast,35,200043990,CC Vallons de Haute-Bretagne Communauté,3930
+35169,Maxent,35,243500618,CC Brocéliande Communauté,1450
+35170,Mecé,35,200039022,CA Vitré Communauté,618
+35171,Médréac,35,200038990,CC de Saint-Méen Montauban,1853
+35172,Meillac,35,243500733,CC Bretagne Romantique,1974
+35173,Melesse,35,243500667,CC Val d'Ille-Aubigné,7541
+35174,Mellé,35,200072452,CA Fougères Agglomération,651
+35175,Mernel,35,200043990,CC Vallons de Haute-Bretagne Communauté,1021
+35176,Guipry-Messac,35,200043990,CC Vallons de Haute-Bretagne Communauté,7354
+35177,La Mézière,35,243500667,CC Val d'Ille-Aubigné,5033
+35178,Mézières-sur-Couesnon,35,243500774,CC Liffré-Cormier Communauté,1734
+35179,Miniac-Morvan,35,243500782,CA du Pays de Saint Malo Agglomération,4408
+35180,Miniac-sous-Bécherel,35,243500139,Rennes Métropole,776
+35181,Le Minihic-sur-Rance,35,243500725,CC Côte d'Emeraude,1524
+35183,Mondevert,35,200039022,CA Vitré Communauté,804
+35184,Montauban-de-Bretagne,35,200038990,CC de Saint-Méen Montauban,6597
+35185,Montautour,35,200039022,CA Vitré Communauté,269
+35186,Mont-Dol,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1101
+35187,Monterfil,35,243500618,CC Brocéliande Communauté,1366
+35188,Montfort-sur-Meu,35,243500550,CC Montfort Communauté,6810
+35189,Montgermont,35,243500139,Rennes Métropole,3827
+35190,Monthault,35,200072452,CA Fougères Agglomération,248
+35191,Les Portes du Coglais,35,200070688,CC Couesnon Marches de Bretagne,2208
+35192,Montreuil-des-Landes,35,200039022,CA Vitré Communauté,237
+35193,Montreuil-le-Gast,35,243500667,CC Val d'Ille-Aubigné,2080
+35194,Montreuil-sous-Pérouse,35,200039022,CA Vitré Communauté,1043
+35195,Montreuil-sur-Ille,35,243500667,CC Val d'Ille-Aubigné,2420
+35196,Mordelles,35,243500139,Rennes Métropole,7911
+35197,Mouazé,35,243500667,CC Val d'Ille-Aubigné,1712
+35198,Moulins,35,200039022,CA Vitré Communauté,724
+35199,Moussé,35,200039022,CA Vitré Communauté,293
+35200,Moutiers,35,200039022,CA Vitré Communauté,896
+35201,Muel,35,200038990,CC de Saint-Méen Montauban,927
+35202,La Noë-Blanche,35,200070662,CC Bretagne Porte de Loire Communauté,1002
+35203,La Nouaye,35,243500550,CC Montfort Communauté,362
+35204,Nouvoitou,35,243500139,Rennes Métropole,3911
+35205,Noyal-sous-Bazouges,35,200070688,CC Couesnon Marches de Bretagne,392
+35206,Noyal-Châtillon-sur-Seiche,35,243500139,Rennes Métropole,8359
+35207,Noyal-sur-Vilaine,35,243500659,CC Pays de Châteaugiron Communauté,6269
+35208,Orgères,35,243500139,Rennes Métropole,5732
+35210,Pacé,35,243500139,Rennes Métropole,11703
+35211,Paimpont,35,243500618,CC Brocéliande Communauté,1772
+35212,Pancé,35,200070662,CC Bretagne Porte de Loire Communauté,1159
+35214,Parcé,35,200072452,CA Fougères Agglomération,657
+35215,Parigné,35,200072452,CA Fougères Agglomération,1286
+35216,Parthenay-de-Bretagne,35,243500139,Rennes Métropole,1793
+35217,Le Pertre,35,200039022,CA Vitré Communauté,1363
+35218,Le Petit-Fougeray,35,200070662,CC Bretagne Porte de Loire Communauté,901
+35219,Pipriac,35,243500741,CA Redon Agglomération,3859
+35220,Piré-Chancé,35,243500659,CC Pays de Châteaugiron Communauté,3224
+35221,Pléchâtel,35,200070662,CC Bretagne Porte de Loire Communauté,2833
+35222,Pleine-Fougères,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,2002
+35223,Plélan-le-Grand,35,243500618,CC Brocéliande Communauté,4076
+35224,Plerguer,35,243500782,CA du Pays de Saint Malo Agglomération,2895
+35225,Plesder,35,243500733,CC Bretagne Romantique,790
+35226,Pleugueneuc,35,243500733,CC Bretagne Romantique,2087
+35227,Pleumeleuc,35,243500550,CC Montfort Communauté,3543
+35228,Pleurtuit,35,243500725,CC Côte d'Emeraude,7167
+35229,Pocé-les-Bois,35,200039022,CA Vitré Communauté,1312
+35230,Poilley,35,200072452,CA Fougères Agglomération,394
+35231,Poligné,35,200070662,CC Bretagne Porte de Loire Communauté,1261
+35232,Princé,35,200039022,CA Vitré Communauté,400
+35233,Québriac,35,243500733,CC Bretagne Romantique,1588
+35234,Quédillac,35,200038990,CC de Saint-Méen Montauban,1287
+35235,Rannée,35,200039022,CA Vitré Communauté,1100
+35236,Redon,35,243500741,CA Redon Agglomération,9542
+35237,Renac,35,243500741,CA Redon Agglomération,1027
+35238,Rennes,35,243500139,Rennes Métropole,230890
+35239,Retiers,35,243500634,CC Roche aux Fées Communauté,4566
+35240,Le Rheu,35,243500139,Rennes Métropole,9839
+35241,La Richardais,35,243500725,CC Côte d'Emeraude,2664
+35242,Rimou,35,200070688,CC Couesnon Marches de Bretagne,357
+35243,Romagné,35,200072452,CA Fougères Agglomération,2438
+35244,Romazy,35,200070688,CC Couesnon Marches de Bretagne,277
+35245,Romillé,35,243500139,Rennes Métropole,4189
+35246,Roz-Landrieux,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1378
+35247,Roz-sur-Couesnon,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1059
+35248,Sains,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,468
+35249,Sainte-Anne-sur-Vilaine,35,200070662,CC Bretagne Porte de Loire Communauté,1035
+35250,Saint-Armel,35,243500139,Rennes Métropole,2433
+35251,Saint-Aubin-d'Aubigné,35,243500667,CC Val d'Ille-Aubigné,4304
+35252,Saint-Aubin-des-Landes,35,200039022,CA Vitré Communauté,917
+35253,Saint-Aubin-du-Cormier,35,243500774,CC Liffré-Cormier Communauté,4203
+35255,Saint-Benoît-des-Ondes,35,243500782,CA du Pays de Saint Malo Agglomération,975
+35256,Saint-Briac-sur-Mer,35,243500725,CC Côte d'Emeraude,2258
+35257,Maen Roch,35,200070688,CC Couesnon Marches de Bretagne,5088
+35258,Saint-Brieuc-des-Iffs,35,243500733,CC Bretagne Romantique,330
+35259,Saint-Broladre,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1153
+35260,Saint-Christophe-des-Bois,35,200039022,CA Vitré Communauté,566
+35261,Saint-Christophe-de-Valains,35,200072452,CA Fougères Agglomération,231
+35262,Sainte-Colombe,35,243500634,CC Roche aux Fées Communauté,368
+35263,Saint-Coulomb,35,243500782,CA du Pays de Saint Malo Agglomération,2969
+35264,Saint-Didier,35,200039022,CA Vitré Communauté,2022
+35265,Saint-Domineuc,35,243500733,CC Bretagne Romantique,2619
+35266,Saint-Erblon,35,243500139,Rennes Métropole,3651
+35268,Saint-Ganton,35,243500741,CA Redon Agglomération,413
+35270,Saint-Georges-de-Gréhaigne,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,384
+35271,Saint-Georges-de-Reintembault,35,200072452,CA Fougères Agglomération,1541
+35272,Saint-Germain-du-Pinel,35,200039022,CA Vitré Communauté,1018
+35273,Saint-Germain-en-Coglès,35,200070688,CC Couesnon Marches de Bretagne,2096
+35274,Saint-Germain-sur-Ille,35,243500667,CC Val d'Ille-Aubigné,1017
+35275,Saint-Gilles,35,243500139,Rennes Métropole,5576
+35276,Saint-Gondran,35,243500667,CC Val d'Ille-Aubigné,651
+35277,Saint-Gonlay,35,243500550,CC Montfort Communauté,377
+35278,Saint-Grégoire,35,243500139,Rennes Métropole,9957
+35279,Saint-Guinoux,35,243500782,CA du Pays de Saint Malo Agglomération,1285
+35280,Saint-Hilaire-des-Landes,35,200070688,CC Couesnon Marches de Bretagne,1037
+35281,Saint-Jacques-de-la-Lande,35,243500139,Rennes Métropole,13800
+35282,Rives-du-Couesnon,35,200072452,CA Fougères Agglomération,2927
+35283,Saint-Jean-sur-Vilaine,35,200039022,CA Vitré Communauté,1375
+35284,Saint-Jouan-des-Guérets,35,243500782,CA du Pays de Saint Malo Agglomération,2847
+35285,Saint-Just,35,243500741,CA Redon Agglomération,1107
+35286,Saint-Léger-des-Prés,35,243500733,CC Bretagne Romantique,293
+35287,Saint-Lunaire,35,243500725,CC Côte d'Emeraude,2768
+35288,Saint-Malo,35,243500782,CA du Pays de Saint Malo Agglomération,47439
+35289,Saint-Malo-de-Phily,35,200043990,CC Vallons de Haute-Bretagne Communauté,1081
+35290,Saint-Malon-sur-Mel,35,200038990,CC de Saint-Méen Montauban,618
+35291,Saint-Marcan,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,431
+35292,Saint-Marc-le-Blanc,35,200070688,CC Couesnon Marches de Bretagne,1553
+35294,Sainte-Marie,35,243500741,CA Redon Agglomération,2247
+35295,Saint-Maugan,35,200038990,CC de Saint-Méen Montauban,505
+35296,Saint-Médard-sur-Ille,35,243500667,CC Val d'Ille-Aubigné,1377
+35297,Saint-Méen-le-Grand,35,200038990,CC de Saint-Méen Montauban,4653
+35299,Saint-Méloir-des-Ondes,35,243500782,CA du Pays de Saint Malo Agglomération,4720
+35300,Saint-M'Hervé,35,200039022,CA Vitré Communauté,1354
+35302,Saint-Onen-la-Chapelle,35,200038990,CC de Saint-Méen Montauban,1126
+35304,Saint-Ouen-des-Alleux,35,200072452,CA Fougères Agglomération,1326
+35305,Saint-Péran,35,243500618,CC Brocéliande Communauté,407
+35306,Saint-Père-Marc-en-Poulet,35,243500782,CA du Pays de Saint Malo Agglomération,2440
+35307,Saint-Pern,35,200038990,CC de Saint-Méen Montauban,966
+35308,Mesnil-Roc'h,35,243500733,CC Bretagne Romantique,4492
+35309,Saint-Rémy-du-Plain,35,200070688,CC Couesnon Marches de Bretagne,818
+35310,Saint-Sauveur-des-Landes,35,200072452,CA Fougères Agglomération,1565
+35311,Saint-Séglin,35,200043990,CC Vallons de Haute-Bretagne Communauté,610
+35312,Saint-Senoux,35,200043990,CC Vallons de Haute-Bretagne Communauté,1863
+35314,Saint-Suliac,35,243500782,CA du Pays de Saint Malo Agglomération,1018
+35315,Saint-Sulpice-la-Forêt,35,243500139,Rennes Métropole,1580
+35316,Saint-Sulpice-des-Landes,35,200070662,CC Bretagne Porte de Loire Communauté,820
+35317,Saint-Symphorien,35,243500667,CC Val d'Ille-Aubigné,625
+35318,Saint-Thual,35,243500733,CC Bretagne Romantique,996
+35319,Saint-Thurial,35,243500618,CC Brocéliande Communauté,2184
+35320,Saint-Uniac,35,200038990,CC de Saint-Méen Montauban,513
+35321,Saulnières,35,200070662,CC Bretagne Porte de Loire Communauté,801
+35322,Le Sel-de-Bretagne,35,200070662,CC Bretagne Porte de Loire Communauté,1117
+35324,La Selle-en-Luitré,35,200072452,CA Fougères Agglomération,582
+35325,La Selle-Guerchaise,35,200039022,CA Vitré Communauté,153
+35326,Sens-de-Bretagne,35,243500667,CC Val d'Ille-Aubigné,2592
+35327,Servon-sur-Vilaine,35,243500659,CC Pays de Châteaugiron Communauté,4152
+35328,Sixt-sur-Aff,35,243500741,CA Redon Agglomération,2273
+35329,Sougeal,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,547
+35330,Taillis,35,200039022,CA Vitré Communauté,1028
+35331,Talensac,35,243500550,CC Montfort Communauté,2571
+35332,Teillay,35,200070662,CC Bretagne Porte de Loire Communauté,1117
+35333,Le Theil-de-Bretagne,35,243500634,CC Roche aux Fées Communauté,1731
+35334,Thorigné-Fouillard,35,243500139,Rennes Métropole,8667
+35335,Thourie,35,243500634,CC Roche aux Fées Communauté,868
+35336,Le Tiercent,35,200070688,CC Couesnon Marches de Bretagne,199
+35337,Tinténiac,35,243500733,CC Bretagne Romantique,3939
+35338,Torcé,35,200039022,CA Vitré Communauté,1281
+35339,Trans-la-Forêt,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,634
+35340,Treffendel,35,243500618,CC Brocéliande Communauté,1350
+35342,Trémeheuc,35,243500733,CC Bretagne Romantique,355
+35343,Tresbœuf,35,200070662,CC Bretagne Porte de Loire Communauté,1234
+35345,Trévérien,35,243500733,CC Bretagne Romantique,918
+35346,Trimer,35,243500733,CC Bretagne Romantique,205
+35347,Val-d'Izé,35,200039022,CA Vitré Communauté,2620
+35350,Vergéal,35,200039022,CA Vitré Communauté,806
+35351,Le Verger,35,243500139,Rennes Métropole,1389
+35352,Vern-sur-Seiche,35,243500139,Rennes Métropole,8207
+35353,Vezin-le-Coquet,35,243500139,Rennes Métropole,6471
+35354,Vieux-Viel,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,329
+35355,Vieux-Vy-sur-Couesnon,35,243500667,CC Val d'Ille-Aubigné,1286
+35356,Vignoc,35,243500667,CC Val d'Ille-Aubigné,2329
+35357,Villamée,35,200072452,CA Fougères Agglomération,301
+35358,La Ville-ès-Nonais,35,243500782,CA du Pays de Saint Malo Agglomération,1233
+35359,Visseiche,35,200039022,CA Vitré Communauté,881
+35360,Vitré,35,200039022,CA Vitré Communauté,19365
+35361,Le Vivier-sur-Mer,35,200070670,CC du Pays de Dol et de la Baie du Mont Saint-Michel,1065
+35362,Le Tronchet,35,243500782,CA du Pays de Saint Malo Agglomération,1202
+35363,Pont-Péan,35,243500139,Rennes Métropole,4245
+56001,Allaire,56,243500741,CA Redon Agglomération,3955
+56002,Ambon,56,200027027,CC Arc Sud Bretagne,2101
+56003,Arradon,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,5835
+56004,Arzal,56,200027027,CC Arc Sud Bretagne,1846
+56005,Arzon,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2271
+56006,Augan,56,200066785,CC de l'Oust à Brocéliande,1569
+56007,Auray,56,200043123,CC Auray Quiberon Terre Atlantique,14207
+56008,Baden,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,5086
+56009,Bangor,56,245600465,CC de Belle Ile en Mer,994
+56010,Baud,56,200096675,CC Baud Communauté,6367
+56011,Béganne,56,243500741,CA Redon Agglomération,1493
+56012,Beignon,56,200066785,CC de l'Oust à Brocéliande,1944
+56013,Belz,56,200043123,CC Auray Quiberon Terre Atlantique,3893
+56014,Berné,56,245614417,CC Roi Morvan Communauté,1551
+56015,Berric,56,245614383,CC Questembert Communauté,2129
+56017,Bignan,56,200096683,CC Centre Morbihan Communauté,2757
+56018,Billiers,56,200027027,CC Arc Sud Bretagne,1066
+56019,Billio,56,200096683,CC Centre Morbihan Communauté,335
+56020,Bohal,56,200066785,CC de l'Oust à Brocéliande,873
+56021,Brandérion,56,200042174,CA Lorient Agglomération,1494
+56022,Brandivy,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,1466
+56023,Brech,56,200043123,CC Auray Quiberon Terre Atlantique,7052
+56024,Bréhan,56,245614433,CC Pontivy Communauté,2306
+56025,Brignac,56,200066777,CC Ploërmel Communauté,200
+56026,Bubry,56,200042174,CA Lorient Agglomération,2242
+56027,Buléon,56,200096683,CC Centre Morbihan Communauté,547
+56028,Caden,56,245614383,CC Questembert Communauté,1641
+56029,Calan,56,200042174,CA Lorient Agglomération,1277
+56030,Camoël,56,244400610,CA de la Presqu'île de Guérande Atlantique (Cap Atlantique),1183
+56031,Camors,56,200043123,CC Auray Quiberon Terre Atlantique,3260
+56032,Campénéac,56,200066777,CC Ploërmel Communauté,1991
+56033,Carentoir,56,200066785,CC de l'Oust à Brocéliande,3232
+56034,Carnac,56,200043123,CC Auray Quiberon Terre Atlantique,4194
+56035,Caro,56,200066785,CC de l'Oust à Brocéliande,1126
+56036,Caudan,56,200042174,CA Lorient Agglomération,7206
+56039,La Chapelle-Neuve,56,200096675,CC Baud Communauté,1001
+56040,Cléguer,56,200042174,CA Lorient Agglomération,3460
+56041,Cléguérec,56,245614433,CC Pontivy Communauté,2885
+56042,Colpo,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2296
+56043,Concoret,56,200066777,CC Ploërmel Communauté,758
+56044,Cournon,56,200066785,CC de l'Oust à Brocéliande,812
+56045,Le Cours,56,245614383,CC Questembert Communauté,697
+56046,Crach,56,200043123,CC Auray Quiberon Terre Atlantique,3423
+56047,Crédin,56,245614433,CC Pontivy Communauté,1483
+56048,Le Croisty,56,245614417,CC Roi Morvan Communauté,739
+56050,La Croix-Helléan,56,200066777,CC Ploërmel Communauté,892
+56051,Cruguel,56,200066777,CC Ploërmel Communauté,664
+56052,Damgan,56,200027027,CC Arc Sud Bretagne,1943
+56053,Elven,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,6651
+56054,Erdeven,56,200043123,CC Auray Quiberon Terre Atlantique,4008
+56055,Étel,56,200043123,CC Auray Quiberon Terre Atlantique,2074
+56056,Évriguet,56,200066777,CC Ploërmel Communauté,210
+56057,Le Faouët,56,245614417,CC Roi Morvan Communauté,2814
+56058,Férel,56,244400610,CA de la Presqu'île de Guérande Atlantique (Cap Atlantique),3499
+56060,Les Fougerêts,56,243500741,CA Redon Agglomération,970
+56061,La Gacilly,56,200066785,CC de l'Oust à Brocéliande,3995
+56062,Gâvres,56,200042174,CA Lorient Agglomération,696
+56063,Gestel,56,200042174,CA Lorient Agglomération,2601
+56065,Gourhel,56,200066777,CC Ploërmel Communauté,711
+56066,Gourin,56,245614417,CC Roi Morvan Communauté,3960
+56067,Grand-Champ,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,5929
+56068,La Grée-Saint-Laurent,56,200066777,CC Ploërmel Communauté,304
+56069,Groix,56,200042174,CA Lorient Agglomération,2310
+56070,Guégon,56,200066777,CC Ploërmel Communauté,2365
+56071,Guéhenno,56,200096683,CC Centre Morbihan Communauté,814
+56072,Gueltas,56,245614433,CC Pontivy Communauté,551
+56073,Guémené-sur-Scorff,56,245614417,CC Roi Morvan Communauté,1175
+56074,Guénin,56,200096675,CC Baud Communauté,1921
+56075,Guer,56,200066785,CC de l'Oust à Brocéliande,6208
+56076,Guern,56,245614433,CC Pontivy Communauté,1411
+56077,Le Guerno,56,200027027,CC Arc Sud Bretagne,989
+56078,Guidel,56,200042174,CA Lorient Agglomération,12338
+56079,Guillac,56,200066777,CC Ploërmel Communauté,1396
+56080,Guilliers,56,200066777,CC Ploërmel Communauté,1368
+56081,Guiscriff,56,245614417,CC Roi Morvan Communauté,2037
+56082,Helléan,56,200066777,CC Ploërmel Communauté,395
+56083,Hennebont,56,200042174,CA Lorient Agglomération,15910
+56084,Le Hézo,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,930
+56085,Hœdic,56,200043123,CC Auray Quiberon Terre Atlantique,104
+56086,Île-d'Houat,56,200043123,CC Auray Quiberon Terre Atlantique,219
+56087,Île-aux-Moines,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,630
+56088,Île-d'Arz,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,321
+56089,Inguiniel,56,200042174,CA Lorient Agglomération,2188
+56090,Inzinzac-Lochrist,56,200042174,CA Lorient Agglomération,6691
+56091,Josselin,56,200066777,CC Ploërmel Communauté,2584
+56092,Kerfourn,56,245614433,CC Pontivy Communauté,852
+56093,Kergrist,56,245614433,CC Pontivy Communauté,714
+56094,Kervignac,56,245600440,CC Blavet Bellevue Océan,7204
+56096,Landaul,56,200043123,CC Auray Quiberon Terre Atlantique,2516
+56097,Landévant,56,200043123,CC Auray Quiberon Terre Atlantique,4056
+56098,Lanester,56,200042174,CA Lorient Agglomération,23263
+56099,Langoëlan,56,245614417,CC Roi Morvan Communauté,403
+56100,Langonnet,56,245614417,CC Roi Morvan Communauté,1930
+56101,Languidic,56,200042174,CA Lorient Agglomération,8042
+56102,Forges de Lanouée,56,200066777,CC Ploërmel Communauté,2253
+56103,Lantillac,56,200066777,CC Ploërmel Communauté,296
+56104,Lanvaudan,56,200042174,CA Lorient Agglomération,808
+56105,Lanvénégen,56,245614417,CC Roi Morvan Communauté,1145
+56106,Larmor-Baden,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,917
+56107,Larmor-Plage,56,200042174,CA Lorient Agglomération,8418
+56108,Larré,56,245614383,CC Questembert Communauté,1104
+56109,Lauzach,56,245614383,CC Questembert Communauté,1264
+56110,Lignol,56,245614417,CC Roi Morvan Communauté,861
+56111,Limerzel,56,245614383,CC Questembert Communauté,1370
+56112,Lizio,56,200066785,CC de l'Oust à Brocéliande,840
+56113,Locmalo,56,245614417,CC Roi Morvan Communauté,890
+56114,Locmaria,56,245600465,CC de Belle Ile en Mer,978
+56115,Locmaria-Grand-Champ,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,1855
+56116,Locmariaquer,56,200043123,CC Auray Quiberon Terre Atlantique,1577
+56117,Locminé,56,200096683,CC Centre Morbihan Communauté,4773
+56118,Locmiquélic,56,200042174,CA Lorient Agglomération,4093
+56119,Locoal-Mendon,56,200043123,CC Auray Quiberon Terre Atlantique,3530
+56120,Locqueltas,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2031
+56121,Lorient,56,200042174,CA Lorient Agglomération,58329
+56122,Loyat,56,200066777,CC Ploërmel Communauté,1750
+56123,Malansac,56,245614383,CC Questembert Communauté,2339
+56124,Malestroit,56,200066785,CC de l'Oust à Brocéliande,2558
+56125,Malguénac,56,245614433,CC Pontivy Communauté,1857
+56126,Marzan,56,200027027,CC Arc Sud Bretagne,2684
+56127,Mauron,56,200066777,CC Ploërmel Communauté,3163
+56128,Melrand,56,200096675,CC Baud Communauté,1598
+56129,Ménéac,56,200066777,CC Ploërmel Communauté,1476
+56130,Merlevenez,56,245600440,CC Blavet Bellevue Océan,3174
+56131,Meslan,56,245614417,CC Roi Morvan Communauté,1479
+56132,Meucon,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2280
+56133,Missiriac,56,200066785,CC de l'Oust à Brocéliande,1195
+56134,Mohon,56,200066777,CC Ploërmel Communauté,991
+56135,Molac,56,245614383,CC Questembert Communauté,1633
+56136,Monteneuf,56,200066785,CC de l'Oust à Brocéliande,763
+56137,Monterblanc,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,3356
+56139,Montertelot,56,200066777,CC Ploërmel Communauté,375
+56140,Moréac,56,200096683,CC Centre Morbihan Communauté,3704
+56141,Moustoir-Ac,56,200096683,CC Centre Morbihan Communauté,1775
+56143,Muzillac,56,200027027,CC Arc Sud Bretagne,5089
+56144,Évellys,56,200096683,CC Centre Morbihan Communauté,3379
+56145,Néant-sur-Yvel,56,200066777,CC Ploërmel Communauté,1045
+56146,Neulliac,56,245614433,CC Pontivy Communauté,1482
+56147,Nivillac,56,200027027,CC Arc Sud Bretagne,4951
+56148,Nostang,56,245600440,CC Blavet Bellevue Océan,1676
+56149,Noyal-Muzillac,56,200027027,CC Arc Sud Bretagne,2548
+56151,Noyal-Pontivy,56,245614433,CC Pontivy Communauté,3606
+56152,Le Palais,56,245600465,CC de Belle Ile en Mer,2599
+56153,Péaule,56,200027027,CC Arc Sud Bretagne,2929
+56154,Peillac,56,243500741,CA Redon Agglomération,1873
+56155,Pénestin,56,244400610,CA de la Presqu'île de Guérande Atlantique (Cap Atlantique),2085
+56156,Persquen,56,245614417,CC Roi Morvan Communauté,365
+56157,Plaudren,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,1978
+56158,Plescop,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,6362
+56159,Pleucadeuc,56,200066785,CC de l'Oust à Brocéliande,1866
+56160,Pleugriffet,56,245614433,CC Pontivy Communauté,1281
+56161,Ploemel,56,200043123,CC Auray Quiberon Terre Atlantique,3175
+56162,Ploemeur,56,200042174,CA Lorient Agglomération,18872
+56163,Ploërdut,56,245614417,CC Roi Morvan Communauté,1255
+56164,Ploeren,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,6790
+56165,Ploërmel,56,200066777,CC Ploërmel Communauté,10163
+56166,Plouay,56,200042174,CA Lorient Agglomération,5755
+56167,Plougoumelen,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2664
+56168,Plouharnel,56,200043123,CC Auray Quiberon Terre Atlantique,2285
+56169,Plouhinec,56,245600440,CC Blavet Bellevue Océan,5400
+56170,Plouray,56,245614417,CC Roi Morvan Communauté,1060
+56171,Pluherlin,56,245614383,CC Questembert Communauté,1542
+56172,Plumelec,56,200096683,CC Centre Morbihan Communauté,2754
+56173,Pluméliau-Bieuzy,56,200096675,CC Baud Communauté,4632
+56174,Plumelin,56,200096683,CC Centre Morbihan Communauté,2885
+56175,Plumergat,56,200043123,CC Auray Quiberon Terre Atlantique,4207
+56176,Pluneret,56,200043123,CC Auray Quiberon Terre Atlantique,6262
+56177,Pluvigner,56,200043123,CC Auray Quiberon Terre Atlantique,7682
+56178,Pontivy,56,245614433,CC Pontivy Communauté,14640
+56179,Pont-Scorff,56,200042174,CA Lorient Agglomération,4037
+56180,Porcaro,56,200066785,CC de l'Oust à Brocéliande,743
+56181,Port-Louis,56,200042174,CA Lorient Agglomération,2608
+56182,Priziac,56,245614417,CC Roi Morvan Communauté,1037
+56184,Questembert,56,245614383,CC Questembert Communauté,8133
+56185,Quéven,56,200042174,CA Lorient Agglomération,8991
+56186,Quiberon,56,200043123,CC Auray Quiberon Terre Atlantique,4876
+56188,Quistinic,56,200042174,CA Lorient Agglomération,1444
+56189,Radenac,56,245614433,CC Pontivy Communauté,1066
+56190,Réguiny,56,245614433,CC Pontivy Communauté,1955
+56191,Réminiac,56,200066785,CC de l'Oust à Brocéliande,438
+56193,Riantec,56,200042174,CA Lorient Agglomération,5865
+56194,Rieux,56,243500741,CA Redon Agglomération,2856
+56195,La Roche-Bernard,56,200027027,CC Arc Sud Bretagne,746
+56196,Rochefort-en-Terre,56,245614383,CC Questembert Communauté,647
+56197,Val d'Oust,56,200066777,CC Ploërmel Communauté,2807
+56198,Rohan,56,245614433,CC Pontivy Communauté,1526
+56199,Roudouallec,56,245614417,CC Roi Morvan Communauté,722
+56200,Ruffiac,56,200066785,CC de l'Oust à Brocéliande,1422
+56201,Le Saint,56,245614417,CC Roi Morvan Communauté,612
+56202,Saint-Abraham,56,200066785,CC de l'Oust à Brocéliande,552
+56203,Saint-Aignan,56,245614433,CC Pontivy Communauté,637
+56204,Saint-Allouestre,56,200096683,CC Centre Morbihan Communauté,675
+56205,Saint-Armel,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,903
+56206,Saint-Avé,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,12470
+56207,Saint-Barthélemy,56,200096675,CC Baud Communauté,1197
+56208,Saint-Brieuc-de-Mauron,56,200066777,CC Ploërmel Communauté,308
+56209,Sainte-Brigitte,56,245614433,CC Pontivy Communauté,178
+56210,Saint-Caradec-Trégomel,56,245614417,CC Roi Morvan Communauté,467
+56211,Saint-Congard,56,200066785,CC de l'Oust à Brocéliande,792
+56212,Saint-Dolay,56,200027027,CC Arc Sud Bretagne,2645
+56213,Saint-Gérand-Croixanvec,56,245614433,CC Pontivy Communauté,1312
+56214,Saint-Gildas-de-Rhuys,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2004
+56215,Saint-Gonnery,56,245614433,CC Pontivy Communauté,1087
+56216,Saint-Gorgon,56,243500741,CA Redon Agglomération,443
+56218,Saint-Gravé,56,245614383,CC Questembert Communauté,763
+56219,Saint-Guyomard,56,200066785,CC de l'Oust à Brocéliande,1468
+56220,Sainte-Hélène,56,245600440,CC Blavet Bellevue Océan,1303
+56221,Saint-Jacut-les-Pins,56,243500741,CA Redon Agglomération,1745
+56222,Saint-Jean-Brévelay,56,200096683,CC Centre Morbihan Communauté,2869
+56223,Saint-Jean-la-Poterie,56,243500741,CA Redon Agglomération,1429
+56224,Saint-Laurent-sur-Oust,56,200066785,CC de l'Oust à Brocéliande,396
+56225,Saint-Léry,56,200066777,CC Ploërmel Communauté,210
+56226,Saint-Malo-de-Beignon,56,200066785,CC de l'Oust à Brocéliande,537
+56227,Saint-Malo-des-Trois-Fontaines,56,200066777,CC Ploërmel Communauté,545
+56228,Saint-Marcel,56,200066785,CC de l'Oust à Brocéliande,1155
+56229,Saint-Martin-sur-Oust,56,200066785,CC de l'Oust à Brocéliande,1312
+56230,Saint-Nicolas-du-Tertre,56,200066785,CC de l'Oust à Brocéliande,469
+56231,Saint-Nolff,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,3990
+56232,Saint-Perreux,56,243500741,CA Redon Agglomération,1086
+56233,Saint-Philibert,56,200043123,CC Auray Quiberon Terre Atlantique,1575
+56234,Saint-Pierre-Quiberon,56,200043123,CC Auray Quiberon Terre Atlantique,2344
+56236,Saint-Servant,56,200066777,CC Ploërmel Communauté,806
+56237,Saint-Thuriau,56,245614433,CC Pontivy Communauté,1885
+56238,Saint-Tugdual,56,245614417,CC Roi Morvan Communauté,376
+56239,Saint-Vincent-sur-Oust,56,243500741,CA Redon Agglomération,1679
+56240,Sarzeau,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,9212
+56241,Sauzon,56,245600465,CC de Belle Ile en Mer,1036
+56242,Séglien,56,245614433,CC Pontivy Communauté,673
+56243,Séné,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,9554
+56244,Sérent,56,200066785,CC de l'Oust à Brocéliande,3429
+56245,Silfiac,56,245614433,CC Pontivy Communauté,491
+56246,Le Sourn,56,245614433,CC Pontivy Communauté,2121
+56247,Sulniac,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,3852
+56248,Surzur,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,5211
+56249,Taupont,56,200066777,CC Ploërmel Communauté,2428
+56250,Théhillac,56,243500741,CA Redon Agglomération,611
+56251,Theix-Noyalo,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,8500
+56252,Le Tour-du-Parc,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,1343
+56253,Tréal,56,200066785,CC de l'Oust à Brocéliande,699
+56254,Trédion,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,1400
+56255,Treffléan,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2572
+56256,Tréhorenteuc,56,200066777,CC Ploërmel Communauté,111
+56257,La Trinité-Porhoët,56,200066777,CC Ploërmel Communauté,663
+56258,La Trinité-sur-Mer,56,200043123,CC Auray Quiberon Terre Atlantique,1845
+56259,La Trinité-Surzur,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,1678
+56260,Vannes,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,55790
+56261,La Vraie-Croix,56,245614383,CC Questembert Communauté,1495
+56262,Le Bono,56,200067932,CA Golfe du Morbihan - Vannes Agglomération,2608
+56263,Sainte-Anne-d'Auray,56,200043123,CC Auray Quiberon Terre Atlantique,2889
+56264,Kernascléden,56,245614417,CC Roi Morvan Communauté,418
