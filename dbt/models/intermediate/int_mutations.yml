@@ -1,0 +1,140 @@
+models:
+  - name: int_mutations
+    description: >
+      Lignes DVF regroupées au grain mutation (règle R1 du dictionnaire des KPI), toutes
+      natures confondues, avec la composition de chaque mutation.
+
+
+      **Grain** : une mutation (`id_mutation`), soit un acte notarié.
+
+
+      **Règles appliquées** :
+
+      - la valeur foncière, répétée à l'identique sur chaque ligne de la mutation, est prise
+        une seule fois ;
+
+      - les codes d'anciennes communes sont ramenés à la commune actuelle (seed
+        `communes_passage`) ;
+
+      - une mutation qui porte sur plusieurs communes est rattachée à celle qui porte le plus
+        de logements, à défaut le plus de lignes, puis au plus petit code INSEE ;
+
+      - une mutation dont les lignes portent plusieurs natures différentes (9 cas) est de
+        nature `Mixte`, et sort donc des ventes ;
+
+      - les lignes strictement identiques comptent comme des locaux distincts.
+    columns:
+      - name: id_mutation
+        description: "Identifiant de la mutation."
+        data_tests:
+          - unique
+          - not_null
+      - name: date_mutation
+        description: "Date de signature de l'acte."
+        data_tests:
+          - not_null
+      - name: nature_mutation
+        description: "Nature de la mutation, ou `Mixte` si ses lignes portent des natures différentes."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                # Apostrophes doublées : le test accepted_values ne les échappe pas en SQL.
+                values:
+                  - "Vente"
+                  - "Vente en l''état futur d''achèvement"
+                  - "Vente terrain à bâtir"
+                  - "Echange"
+                  - "Adjudication"
+                  - "Expropriation"
+                  - "Mixte"
+      - name: code_commune_insee
+        description: "Code INSEE de la commune actuelle de rattachement de la mutation."
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('communes_bretagne')
+                field: code_commune_insee
+      - name: code_departement
+        description: "Code du département de la commune de rattachement."
+        data_tests:
+          - not_null
+      - name: valeur_fonciere
+        description: "Prix déclaré dans l'acte, en euros, pris une fois par mutation. Nul pour certaines mutations sans contrepartie financière."
+      - name: nb_lignes
+        description: "Nombre de lignes source de la mutation."
+      - name: nb_dispositions
+        description: "Nombre de dispositions de l'acte."
+      - name: nb_parcelles
+        description: "Nombre de parcelles cadastrales distinctes."
+      - name: nb_maisons
+        description: "Nombre de maisons vendues."
+      - name: nb_appartements
+        description: "Nombre d'appartements vendus."
+      - name: nb_dependances
+        description: "Nombre de dépendances (garages, caves, parkings…)."
+      - name: nb_locaux_activite
+        description: "Nombre de locaux industriels, commerciaux ou assimilés."
+      - name: surface_bati_logements_m2
+        description: "Somme des surfaces réelles bâties des maisons et appartements, en m²."
+      - name: nb_pieces_logements
+        description: "Somme des pièces principales des maisons et appartements."
+      - name: surface_terrain_m2
+        description: "Surface totale des parcelles, chaque subdivision fiscale comptée une fois, en m²."
+
+unit_tests:
+  - name: test_int_mutations_composition
+    description: >
+      Composition d'une mutation : dépendances comptées à part, lignes identiques comptées
+      comme des locaux distincts, valeur prise une fois.
+    model: int_mutations
+    given:
+      - input: ref('stg_dvf')
+        rows:
+          # Maison + garage
+          - {id_mutation: "M1", date_mutation: 2025-03-01, nature_mutation: "Vente", valeur_fonciere: 200000, numero_disposition: 1, code_commune_insee: "35238", id_parcelle: "P1", type_local: "Maison", surface_bati_m2: 100, nombre_pieces: 4}
+          - {id_mutation: "M1", date_mutation: 2025-03-01, nature_mutation: "Vente", valeur_fonciere: 200000, numero_disposition: 1, code_commune_insee: "35238", id_parcelle: "P1", type_local: "Dépendance"}
+          # Appartement présent deux fois à l'identique
+          - {id_mutation: "M2", date_mutation: 2025-03-01, nature_mutation: "Vente", valeur_fonciere: 150000, numero_disposition: 1, code_commune_insee: "35238", id_parcelle: "P2", type_local: "Appartement", surface_bati_m2: 60, nombre_pieces: 3}
+          - {id_mutation: "M2", date_mutation: 2025-03-01, nature_mutation: "Vente", valeur_fonciere: 150000, numero_disposition: 1, code_commune_insee: "35238", id_parcelle: "P2", type_local: "Appartement", surface_bati_m2: 60, nombre_pieces: 3}
+      - input: ref('communes_passage')
+        rows: []
+      - input: ref('communes_bretagne')
+        rows:
+          - {code_commune_insee: "35238", code_departement: "35"}
+    expect:
+      rows:
+        - {id_mutation: "M1", valeur_fonciere: 200000, nb_lignes: 2, nb_maisons: 1, nb_appartements: 0, nb_dependances: 1, surface_bati_logements_m2: 100, nb_pieces_logements: 4}
+        - {id_mutation: "M2", valeur_fonciere: 150000, nb_lignes: 2, nb_maisons: 0, nb_appartements: 2, nb_dependances: 0, surface_bati_logements_m2: 120, nb_pieces_logements: 6}
+
+  - name: test_int_mutations_commune_et_nature
+    description: >
+      Ancienne commune ramenée à la commune actuelle ; mutation sur deux communes rattachée
+      à celle qui porte le logement ; natures différentes classées « Mixte ».
+    model: int_mutations
+    given:
+      - input: ref('stg_dvf')
+        rows:
+          # Code d'une ancienne commune (Fleurigné, fusionnée dans Fougères-Nord)
+          - {id_mutation: "C1", date_mutation: 2023-06-01, nature_mutation: "Vente", code_commune_insee: "35112", type_local: "Maison"}
+          # Deux communes : le logement est dans la seconde, malgré plus de lignes dans la première
+          - {id_mutation: "C2", date_mutation: 2023-06-01, nature_mutation: "Vente", code_commune_insee: "35001", id_parcelle: "T1"}
+          - {id_mutation: "C2", date_mutation: 2023-06-01, nature_mutation: "Vente", code_commune_insee: "35001", id_parcelle: "T2"}
+          - {id_mutation: "C2", date_mutation: 2023-06-01, nature_mutation: "Vente", code_commune_insee: "35002", id_parcelle: "T3", type_local: "Maison"}
+          # Deux natures différentes
+          - {id_mutation: "C3", date_mutation: 2023-06-01, nature_mutation: "Vente", code_commune_insee: "35001"}
+          - {id_mutation: "C3", date_mutation: 2023-06-01, nature_mutation: "Echange", code_commune_insee: "35001"}
+      - input: ref('communes_passage')
+        rows:
+          - {code_commune_ancienne: "35112", code_commune_insee: "35062"}
+      - input: ref('communes_bretagne')
+        rows:
+          - {code_commune_insee: "35001", code_departement: "35"}
+          - {code_commune_insee: "35002", code_departement: "35"}
+          - {code_commune_insee: "35062", code_departement: "35"}
+    expect:
+      rows:
+        - {id_mutation: "C1", code_commune_insee: "35062", code_departement: "35", nature_mutation: "Vente"}
+        - {id_mutation: "C2", code_commune_insee: "35002", code_departement: "35", nature_mutation: "Vente"}
+        - {id_mutation: "C3", code_commune_insee: "35001", code_departement: "35", nature_mutation: "Mixte"}

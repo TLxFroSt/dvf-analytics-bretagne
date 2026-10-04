@@ -305,7 +305,7 @@ haut à gauche.
 ├─────────────────────────────────────┬────────────────────────────────────────┤
 │ A  Source, période, date de mise à  │ B  Des actes notariés aux ventes       │
 │    jour, licence                    │    analysées : entonnoir des règles    │
-│                                     │    (424 243 → 268 342 → 216 901)       │
+│                                     │    (424 238 → 268 341 → 216 900)       │
 ├─────────────────────────────────────┴────────────────────────────────────────┤
 │ C  Définitions et règles : médiane, prix au m², exclusions, seuils, VEFA,    │
 │    lien vers le dictionnaire des KPI                                         │

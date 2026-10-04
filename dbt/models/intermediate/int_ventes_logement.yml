@@ -1,0 +1,145 @@
+models:
+  - name: int_ventes_logement
+    description: >
+      Ventes de logement (règle R3 du dictionnaire des KPI) et leur classement dans la
+      population prix (règles R4 et R5).
+
+
+      **Grain** : une vente de logement, soit une mutation de nature `Vente` comprenant au
+      moins une maison ou un appartement, d'un seul type, et aucun local d'activité.
+      Les dépendances sont admises.
+
+
+      **Population prix** (`est_population_prix`) : ventes d'un seul logement, de valeur
+      renseignée, de surface bâtie d'au moins `surface_bati_min_m2` m², et dont le prix au m²
+      est compris entre les percentiles `prix_m2_percentile_bas` et `prix_m2_percentile_haut`
+      de son groupe type de bien × département × année. Les seuils sont des variables du
+      projet dbt. Chaque vente exclue porte le motif de son exclusion
+      (`motif_exclusion_prix`), dans l'ordre d'application des règles.
+    data_tests:
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "est_population_prix = (motif_exclusion_prix is null)"
+          config:
+            description: "Le drapeau de population prix et le motif d'exclusion sont cohérents."
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: >-
+              not est_population_prix
+              or prix_m2 between prix_m2_borne_basse and prix_m2_borne_haute
+          config:
+            description: "Toute vente de la population prix a un prix au m² dans les bornes de son groupe."
+    columns:
+      - name: id_mutation
+        description: "Identifiant de la mutation."
+        data_tests:
+          - unique
+          - not_null
+      - name: date_mutation
+        description: "Date de signature de l'acte."
+        data_tests:
+          - not_null
+      - name: annee
+        description: "Année de signature de l'acte."
+        data_tests:
+          - not_null
+      - name: code_commune_insee
+        description: "Code INSEE de la commune actuelle de rattachement."
+        data_tests:
+          - not_null
+      - name: code_departement
+        description: "Code du département."
+        data_tests:
+          - not_null
+      - name: code_type_bien
+        description: "Type de bien de la vente : 1 maison, 2 appartement."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2]
+                quote: false
+      - name: valeur_fonciere
+        description: "Prix déclaré dans l'acte, en euros (TVA comprise le cas échéant, hors frais de notaire)."
+      - name: nb_logements
+        description: "Nombre de logements vendus (maisons ou appartements)."
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+      - name: nb_dependances
+        description: "Nombre de dépendances vendues avec le ou les logements."
+      - name: surface_bati_m2
+        description: "Surface réelle bâtie du logement, en m². Renseignée pour les ventes d'un seul logement uniquement."
+      - name: nb_pieces
+        description: "Nombre de pièces principales du logement. Renseigné pour les ventes d'un seul logement uniquement."
+      - name: surface_terrain_m2
+        description: "Surface totale des parcelles vendues, en m²."
+      - name: prix_m2
+        description: "Valeur foncière divisée par la surface réelle bâtie, en €/m². Calculé pour les ventes d'un seul logement de valeur renseignée et de surface suffisante."
+      - name: prix_m2_borne_basse
+        description: "Percentile bas du prix au m² du groupe type × département × année : en dessous, la vente est exclue des prix."
+      - name: prix_m2_borne_haute
+        description: "Percentile haut du prix au m² du groupe type × département × année : au-dessus, la vente est exclue des prix."
+      - name: motif_exclusion_prix
+        description: "Motif d'exclusion de la population prix, nul pour les ventes retenues. Les règles s'appliquent dans l'ordre : plusieurs logements, valeur absente, surface insuffisante, prix au m² aberrant."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - "plusieurs_logements"
+                  - "valeur_absente"
+                  - "surface_insuffisante"
+                  - "prix_m2_aberrant"
+      - name: est_population_prix
+        description: "Vrai si la vente entre dans les indicateurs de prix (population R4)."
+        data_tests:
+          - not_null
+
+unit_tests:
+  - name: test_int_ventes_logement_perimetre
+    description: >
+      Seules les ventes comprenant des logements d'un seul type et aucun local d'activité
+      sont retenues ; chaque vente hors population prix porte le bon motif.
+    model: int_ventes_logement
+    given:
+      - input: ref('int_mutations')
+        rows:
+          # Retenue : une maison et un garage
+          - {id_mutation: "V1", date_mutation: 2025-03-01, nature_mutation: "Vente", code_departement: "35", valeur_fonciere: 200000, nb_maisons: 1, nb_appartements: 0, nb_dependances: 1, nb_locaux_activite: 0, surface_bati_logements_m2: 100}
+          # Vente de deux appartements : comptée en volume, pas en prix
+          - {id_mutation: "V2", date_mutation: 2025-03-01, nature_mutation: "Vente", code_departement: "35", valeur_fonciere: 300000, nb_maisons: 0, nb_appartements: 2, nb_dependances: 0, nb_locaux_activite: 0, surface_bati_logements_m2: 120}
+          - {id_mutation: "V3", date_mutation: 2025-03-01, nature_mutation: "Vente", code_departement: "35", valeur_fonciere: null, nb_maisons: 1, nb_appartements: 0, nb_dependances: 0, nb_locaux_activite: 0, surface_bati_logements_m2: 90}
+          - {id_mutation: "V4", date_mutation: 2025-03-01, nature_mutation: "Vente", code_departement: "35", valeur_fonciere: 50000, nb_maisons: 1, nb_appartements: 0, nb_dependances: 0, nb_locaux_activite: 0, surface_bati_logements_m2: 8}
+          # Hors périmètre : maison et appartement mêlés, local d'activité, échange, terrain seul
+          - {id_mutation: "X1", date_mutation: 2025-03-01, nature_mutation: "Vente", code_departement: "35", valeur_fonciere: 400000, nb_maisons: 1, nb_appartements: 1, nb_dependances: 0, nb_locaux_activite: 0}
+          - {id_mutation: "X2", date_mutation: 2025-03-01, nature_mutation: "Vente", code_departement: "35", valeur_fonciere: 400000, nb_maisons: 1, nb_appartements: 0, nb_dependances: 0, nb_locaux_activite: 1}
+          - {id_mutation: "X3", date_mutation: 2025-03-01, nature_mutation: "Echange", code_departement: "35", valeur_fonciere: 0, nb_maisons: 1, nb_appartements: 0, nb_dependances: 0, nb_locaux_activite: 0}
+          - {id_mutation: "X4", date_mutation: 2025-03-01, nature_mutation: "Vente", code_departement: "35", valeur_fonciere: 30000, nb_maisons: 0, nb_appartements: 0, nb_dependances: 0, nb_locaux_activite: 0}
+    expect:
+      rows:
+        - {id_mutation: "V1", code_type_bien: 1, nb_logements: 1, prix_m2: 2000, motif_exclusion_prix: null, est_population_prix: true}
+        - {id_mutation: "V2", code_type_bien: 2, nb_logements: 2, prix_m2: null, motif_exclusion_prix: "plusieurs_logements", est_population_prix: false}
+        - {id_mutation: "V3", code_type_bien: 1, nb_logements: 1, prix_m2: null, motif_exclusion_prix: "valeur_absente", est_population_prix: false}
+        - {id_mutation: "V4", code_type_bien: 1, nb_logements: 1, prix_m2: null, motif_exclusion_prix: "surface_insuffisante", est_population_prix: false}
+
+  - name: test_int_ventes_logement_valeurs_aberrantes
+    description: >
+      Les bornes P1-P99 sont calculées par groupe type × département × année : dans un groupe
+      de trois appartements (1 000, 2 000 et 50 000 €/m²), les deux extrêmes sont exclus ;
+      un appartement seul dans un autre département n'est pas affecté par ce groupe.
+    model: int_ventes_logement
+    given:
+      - input: ref('int_mutations')
+        rows:
+          - {id_mutation: "A1", date_mutation: 2025-05-01, nature_mutation: "Vente", code_departement: "29", valeur_fonciere: 50000, nb_maisons: 0, nb_appartements: 1, nb_dependances: 0, nb_locaux_activite: 0, surface_bati_logements_m2: 50}
+          - {id_mutation: "A2", date_mutation: 2025-05-01, nature_mutation: "Vente", code_departement: "29", valeur_fonciere: 100000, nb_maisons: 0, nb_appartements: 1, nb_dependances: 0, nb_locaux_activite: 0, surface_bati_logements_m2: 50}
+          - {id_mutation: "A3", date_mutation: 2025-05-01, nature_mutation: "Vente", code_departement: "29", valeur_fonciere: 2500000, nb_maisons: 0, nb_appartements: 1, nb_dependances: 0, nb_locaux_activite: 0, surface_bati_logements_m2: 50}
+          - {id_mutation: "B1", date_mutation: 2025-05-01, nature_mutation: "Vente", code_departement: "56", valeur_fonciere: 2500000, nb_maisons: 0, nb_appartements: 1, nb_dependances: 0, nb_locaux_activite: 0, surface_bati_logements_m2: 50}
+    expect:
+      rows:
+        - {id_mutation: "A1", prix_m2: 1000, motif_exclusion_prix: "prix_m2_aberrant", est_population_prix: false}
+        - {id_mutation: "A2", prix_m2: 2000, motif_exclusion_prix: null, est_population_prix: true}
+        - {id_mutation: "A3", prix_m2: 50000, motif_exclusion_prix: "prix_m2_aberrant", est_population_prix: false}
+        - {id_mutation: "B1", prix_m2: 50000, motif_exclusion_prix: null, est_population_prix: true}

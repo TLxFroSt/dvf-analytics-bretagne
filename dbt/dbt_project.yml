@@ -19,6 +19,11 @@ vars:
   # Surchargé en CI pour pointer sur un échantillon : --vars '{dvf_raw_path: ...}'
   dvf_raw_path: "../data/raw"
 
+  # Règles de la population prix (docs/kpi-dictionary.md, R4 et R5)
+  surface_bati_min_m2: 9          # surface minimale d'un logement décent
+  prix_m2_percentile_bas: 0.01    # bornes d'exclusion des valeurs aberrantes,
+  prix_m2_percentile_haut: 0.99   # par type de bien × département × année
+
 seeds:
   dvf_bretagne:
     +schema: seeds

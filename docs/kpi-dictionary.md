@@ -37,6 +37,21 @@ prise **une seule fois**, jamais additionnée. Sur les 455 487 mutations de la p
 aucune ne porte deux valeurs différentes, y compris les 2 758 qui comptent plusieurs
 dispositions ; un test dbt vérifie que cela reste vrai à chaque mise à jour.
 
+Trois attributs sont fixés au grain mutation :
+
+- **Commune** : DVF conserve le code commune en vigueur au moment du géocodage. Les codes
+  d'anciennes communes, fusionnées depuis dans une commune nouvelle (6 codes, 340
+  mutations), sont ramenés à la commune actuelle par une table de passage issue du Code
+  officiel géographique.
+- **Commune d'une mutation sur plusieurs communes** (3 344 mutations, souvent des parcelles
+  de terrain) : la commune qui porte le plus de logements, à défaut le plus de lignes, puis
+  le plus petit code INSEE. Seules 124 mutations ont des logements dans plusieurs communes ;
+  toutes portent sur plusieurs logements, et n'entrent donc pas dans les prix.
+- **Nature** : une mutation dont les lignes portent des natures différentes (9 cas) est
+  classée `Mixte`, et sort des ventes plutôt que de recevoir une nature arbitraire.
+
+Modèle dbt : `int_mutations`.
+
 ### R2. Ventes uniquement
 
 Seules les mutations de nature `Vente` sont retenues.
@@ -56,15 +71,17 @@ Une vente de logement est une vente (R2) qui comprend :
 
 Son **type de bien** est celui de ses logements : Maison ou Appartement.
 
-| Ventes (R2) | 424 243 |
+| Ventes (R2) | 424 238 |
 |---|---:|
-| Sans logement (terrain, dépendance seule) | − 147 688 |
+| Sans logement (terrain, dépendance seule) | − 147 684 |
 | Avec un local industriel ou commercial | − 7 577 |
 | Mêlant maisons et appartements | − 636 |
-| **Ventes de logement** | **268 342** |
+| **Ventes de logement** | **268 341** |
 
 Une vente de plusieurs logements (46 776 cas, immeubles et lots de maisons) compte pour
 **une** vente : l'unité de compte est l'acte, pas le logement.
+
+Modèle dbt : `int_ventes_logement` (une ligne par vente de logement).
 
 ### R4. Population « prix » (indicateurs de prix)
 
@@ -79,10 +96,15 @@ Sous-ensemble des ventes de logement (R3) qui remplissent toutes les conditions 
 
 | Étape | Mutations |
 |---|---:|
-| Ventes d'un seul logement sans local professionnel | 221 566 |
-| Valeur absente ou surface < 9 m² | − 206 |
+| Ventes d'un seul logement (ventes de logement moins 46 776 ventes de plusieurs logements) | 221 565 |
+| Valeur absente (169) ou surface < 9 m² (37) | − 206 |
 | Prix au m² hors de l'intervalle P1-P99 de son groupe | − 4 459 |
-| **Population prix** | **216 901** |
+| **Population prix** | **216 900** |
+
+Modèle dbt : `int_ventes_logement`, colonnes `est_population_prix` et
+`motif_exclusion_prix` (motif de chaque exclusion, dans l'ordre des règles ci-dessus).
+Le seuil de surface et les percentiles sont des variables du projet dbt
+(`surface_bati_min_m2`, `prix_m2_percentile_bas`, `prix_m2_percentile_haut`).
 
 Les lignes de source strictement identiques (environ 7 % des lignes) sont comptées comme
 des locaux distincts. Une vente dont le logement apparaît deux fois est donc considérée
