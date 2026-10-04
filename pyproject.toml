@@ -1,0 +1,32 @@
+[project]
+name = "dvf-analytics-bretagne"
+version = "0.1.0"
+description = "Analyse du marché immobilier breton à partir des données DVF géolocalisées (dbt, DuckDB, Power BI)."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "dbt-core>=1.12.5",
+    "dbt-duckdb>=1.11.0",
+    "duckdb>=1.5.6",
+    "requests>=2.34.2",
+]
+
+[tool.uv]
+# Projet applicatif (scripts + dbt), pas une librairie à empaqueter.
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+# E/W : pycodestyle, F : pyflakes, I : tri des imports, B : bugbear,
+# UP : syntaxe moderne, N : nommage, SIM : simplifications.
+select = ["E", "W", "F", "I", "B", "UP", "N", "SIM"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.16.10",
+    "sqlfluff>=4.4.0",
+    "sqlfluff-templater-dbt>=4.4.0",
+]

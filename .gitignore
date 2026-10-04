@@ -1,0 +1,29 @@
+# Données sources, entrepôt et exports : régénérables, jamais versionnés
+data/
+warehouse/
+exports/
+*.duckdb
+*.duckdb.wal
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/.user.yml
+
+# Power BI : cache local et paramètres utilisateur du format PBIP
+powerbi/**/.pbi/localSettings.json
+powerbi/**/.pbi/cache.abf
+
+# Environnement et éditeurs
+.env
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
