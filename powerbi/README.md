@@ -123,12 +123,14 @@ dessus.
 ## 8. Tri des libellés
 
 Sans ce réglage, Power BI trie les libellés par ordre alphabétique (« 120 à 149 m² » avant
-« 30 à 49 m² »). Sélectionner la colonne, puis **Outils de colonne > Trier par colonne** :
+« 30 à 49 m² »). Sélectionner la colonne, puis **Outils de colonne > Trier par colonne**.
+Chaque libellé doit correspondre à une seule valeur de tri : le nom du mois se trie donc par
+le numéro du mois (1 à 12), pas par `tri_mois` (« janvier » y prend une valeur par année).
 
 | Table | Colonne | Trier par |
 |---|---|---|
 | `dim_date` | `libelle_trimestre` | `tri_trimestre` |
-| `dim_date` | `nom_mois` | `tri_mois` |
+| `dim_date` | `nom_mois` | `mois` |
 | `dim_type_bien` | `libelle_type_bien` | `ordre_tri` |
 | `dim_type_bien` | `libelle_type_bien_pluriel` | `ordre_tri` |
 | `fct_ventes` | `tranche_surface` | `tranche_surface_ordre` |
