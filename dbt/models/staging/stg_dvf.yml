@@ -56,7 +56,7 @@ models:
                   - "Adjudication"
                   - "Expropriation"
       - name: valeur_fonciere
-        description: "Prix de la disposition en euros, frais d'agence inclus et frais de notaire exclus. Répété sur chaque ligne de la disposition. Nul pour certaines mutations sans contrepartie financière."
+        description: "Prix déclaré dans l'acte, en euros, TVA comprise le cas échéant et hors frais de notaire. Répété sur chaque ligne de la disposition. Nul pour certaines mutations sans contrepartie financière."
         data_tests:
           - dbt_utils.accepted_range:
               arguments:
