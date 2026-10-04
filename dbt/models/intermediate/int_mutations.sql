@@ -55,7 +55,8 @@ parcelles as (
 terrain as (
     select
         id_mutation,
-        sum(surface_terrain_m2) as surface_terrain_m2
+        -- sum() renvoie un hugeint dans DuckDB : ramené à un entier standard pour Power BI.
+        cast(sum(surface_terrain_m2) as bigint) as surface_terrain_m2
     from parcelles
     group by id_mutation
 ),
@@ -80,11 +81,13 @@ composition as (
         count(*) filter (
             where type_local = 'Local industriel. commercial ou assimilé'
         ) as nb_locaux_activite,
-        sum(surface_bati_m2) filter (
-            where type_local in ('Maison', 'Appartement')
+        cast(
+            sum(surface_bati_m2) filter (where type_local in ('Maison', 'Appartement'))
+            as integer
         ) as surface_bati_logements_m2,
-        sum(nombre_pieces) filter (
-            where type_local in ('Maison', 'Appartement')
+        cast(
+            sum(nombre_pieces) filter (where type_local in ('Maison', 'Appartement'))
+            as integer
         ) as nb_pieces_logements
     from lignes
     group by id_mutation

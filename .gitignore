@@ -1,10 +1,11 @@
 # Données sources, entrepôt et exports : régénérables, jamais versionnés
 data/
-exports/
-# Le dossier warehouse/ est versionné vide (.gitkeep) : DuckDB ne crée pas
-# le dossier parent de son fichier de base.
+# Les dossiers warehouse/ et exports/ sont versionnés vides (.gitkeep) : DuckDB ne crée pas
+# le dossier parent d'un fichier qu'il écrit (base de données, export Parquet).
 warehouse/*
 !warehouse/.gitkeep
+exports/*
+!exports/.gitkeep
 *.duckdb
 *.duckdb.wal
 # Fichiers de débordement des sessions DuckDB en mémoire

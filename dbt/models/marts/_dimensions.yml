@@ -1,0 +1,116 @@
+models:
+  - name: dim_date
+    description: >
+      Dimension calendrier. **Grain** : un jour, du 1er janvier de la première année de
+      ventes au 31 décembre de la dernière ; les bornes suivent les données. Clé naturelle :
+      la date, attendue par Power BI pour marquer la table comme table de dates.
+      Exportée en `exports/dim_date.parquet`.
+    columns:
+      - name: date_jour
+        description: "Jour calendaire (clé de la dimension)."
+        data_tests:
+          - unique
+          - not_null
+      - name: annee
+        description: "Année civile."
+        data_tests:
+          - not_null
+      - name: trimestre
+        description: "Numéro du trimestre (1 à 4)."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4]
+                quote: false
+      - name: libelle_trimestre
+        description: "Libellé du trimestre, par exemple « 2025 T1 »."
+        data_tests:
+          - not_null
+      - name: tri_trimestre
+        description: "Clé de tri du libellé de trimestre (année × 10 + trimestre)."
+        data_tests:
+          - not_null
+      - name: date_debut_trimestre
+        description: "Premier jour du trimestre, pour un axe temporel continu dans les courbes."
+        data_tests:
+          - not_null
+      - name: mois
+        description: "Numéro du mois (1 à 12)."
+      - name: nom_mois
+        description: "Nom du mois en français."
+        data_tests:
+          - not_null
+      - name: tri_mois
+        description: "Clé de tri du mois (année × 100 + mois)."
+
+  - name: dim_commune
+    description: >
+      Dimension commune, département et EPCI dénormalisés. **Grain** : une commune actuelle
+      de Bretagne (référentiel INSEE, seed `communes_bretagne`). Exportée en
+      `exports/dim_commune.parquet`.
+    columns:
+      - name: commune_key
+        description: "Clé de substitution de la commune (hachage du code INSEE)."
+        data_tests:
+          - unique
+          - not_null
+      - name: code_commune_insee
+        description: "Code INSEE de la commune."
+        data_tests:
+          - unique
+          - not_null
+      - name: nom_commune
+        description: "Nom officiel de la commune."
+        data_tests:
+          - not_null
+      - name: libelle_commune
+        description: "Nom suivi du code département, par exemple « Saint-Malo (35) » : distingue les communes homonymes dans les listes."
+        data_tests:
+          - unique
+          - not_null
+      - name: code_departement
+        description: "Code du département."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["22", "29", "35", "56"]
+      - name: nom_departement
+        description: "Nom du département."
+        data_tests:
+          - not_null
+      - name: libelle_du_departement
+        description: "Nom du département précédé de la préposition contractée (« du Finistère »), pour les titres dynamiques."
+        data_tests:
+          - not_null
+      - name: code_epci
+        description: "Code SIREN de l'EPCI de rattachement. Nul pour les communes insulaires isolées."
+      - name: nom_epci
+        description: "Nom de l'EPCI de rattachement."
+      - name: population
+        description: "Population municipale (dernières populations légales de l'INSEE)."
+
+  - name: dim_type_bien
+    description: >
+      Dimension type de bien. **Grain** : un type de bien (maison, appartement).
+      Exportée en `exports/dim_type_bien.parquet`.
+    columns:
+      - name: type_bien_key
+        description: "Clé de substitution du type de bien."
+        data_tests:
+          - unique
+          - not_null
+      - name: code_type_bien
+        description: "Code du type de bien, identique au code_type_local de DVF (1 maison, 2 appartement)."
+        data_tests:
+          - unique
+          - not_null
+      - name: libelle_type_bien
+        description: "Libellé du type de bien."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["Maison", "Appartement"]
+      - name: libelle_type_bien_pluriel
+        description: "Libellé au pluriel, pour les titres dynamiques."
+      - name: ordre_tri
+        description: "Ordre d'affichage dans les visuels et les filtres."

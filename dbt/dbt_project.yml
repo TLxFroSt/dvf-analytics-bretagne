@@ -18,6 +18,8 @@ vars:
   # Dossier des CSV DVF téléchargés par ingestion/download.py, relatif au dossier dbt/.
   # Surchargé en CI pour pointer sur un échantillon : --vars '{dvf_raw_path: ...}'
   dvf_raw_path: "../data/raw"
+  # Dossier des exports Parquet lus par Power BI, relatif au dossier dbt/.
+  exports_path: "../exports"
 
   # Règles de la population prix (docs/kpi-dictionary.md, R4 et R5)
   surface_bati_min_m2: 9          # surface minimale d'un logement décent
@@ -39,3 +41,4 @@ models:
     marts:
       +schema: marts
       +materialized: table
+      +post-hook: "{{ export_parquet() }}"

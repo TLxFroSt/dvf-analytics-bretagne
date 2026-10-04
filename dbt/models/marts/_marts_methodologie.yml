@@ -1,0 +1,50 @@
+models:
+  - name: mart_entonnoir_population
+    description: >
+      Entonnoir des règles de population du dictionnaire des KPI (R1 à R5) : nombre de
+      mutations restant après chaque règle, pour la page Méthodologie du dashboard.
+      **Grain** : une étape. Exportée en `exports/mart_entonnoir_population.parquet`.
+    columns:
+      - name: etape_ordre
+        description: "Ordre de l'étape dans l'entonnoir."
+        data_tests:
+          - unique
+          - not_null
+      - name: regle
+        description: "Règle du dictionnaire des KPI appliquée à cette étape."
+        data_tests:
+          - not_null
+      - name: etape_libelle
+        description: "Libellé de la population restante, affiché dans l'entonnoir."
+        data_tests:
+          - not_null
+      - name: nb_mutations
+        description: "Nombre de mutations restant après la règle."
+        data_tests:
+          - not_null
+      - name: nb_exclues
+        description: "Nombre de mutations écartées par rapport à l'étape précédente ; nul pour la première étape."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: part_des_mutations
+        description: "Part des mutations publiées qui restent à cette étape (entre 0 et 1)."
+
+  - name: mart_metadonnees
+    description: >
+      Métadonnées de fraîcheur des données, pour le pied de page et la page Méthodologie.
+      **Grain** : une seule ligne. Exportée en `exports/mart_metadonnees.parquet`.
+    columns:
+      - name: date_publication_donnees
+        description: "Date de publication des fichiers DVF par la DGFiP (la plus récente), d'après le manifeste d'ingestion."
+        data_tests:
+          - not_null
+      - name: date_premiere_vente
+        description: "Date de la première vente de la période couverte."
+      - name: date_derniere_vente
+        description: "Date de la dernière vente de la période couverte."
+      - name: nb_fichiers_sources
+        description: "Nombre de fichiers DVF (année × département) chargés."
+      - name: date_construction
+        description: "Date et heure de construction des marts par dbt."
