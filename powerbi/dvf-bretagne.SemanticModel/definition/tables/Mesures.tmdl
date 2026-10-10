@@ -1,0 +1,380 @@
+table Mesures
+	lineageTag: a1741cd5-fb10-4021-88ba-731ae4161a1a
+
+	/// Nombre minimal de ventes pour afficher un indicateur de prix ou une évolution (dictionnaire des KPI, section 2).
+	measure 'Seuil ventes' = 10
+		formatString: 0
+		displayFolder: Paramètres
+		lineageTag: 50059dbb-79ad-4a9d-b2f5-339242f688d5
+
+	/// Nombre minimal de ventes avec prix, en N et en N-1, pour qu'une commune entre dans les tops 10 des hausses et des baisses.
+	measure 'Seuil top' = 20
+		formatString: 0
+		displayFolder: Paramètres
+		lineageTag: d934e17b-8593-4bad-aee5-fb9cbb0aaeda
+
+	/// Nombre de ventes de maisons ou d'appartements (actes de vente, hors VEFA et hors ventes avec local professionnel).
+	measure Ventes = COUNTROWS ( fct_ventes )
+		formatString: #,0
+		displayFolder: Volumes
+		lineageTag: 84f7bfa5-beb1-4204-a936-2d1f87fa7ce7
+
+	/// Nombre de ventes sur la même période de l'année précédente.
+	measure 'Ventes N-1' = CALCULATE ( [Ventes], SAMEPERIODLASTYEAR ( dim_date[date_jour] ) )
+		formatString: #,0
+		displayFolder: Volumes
+		lineageTag: b255b18c-640b-495f-ba08-7744105a9638
+
+	/// Part des maisons dans le nombre de ventes de logement. Ignore le filtre de type de bien. Vide si moins de 10 ventes.
+	measure 'Part maisons %' =
+			VAR ventesTousTypes = CALCULATE ( [Ventes], REMOVEFILTERS ( dim_type_bien ) )
+			VAR ventesMaisons = CALCULATE ( [Ventes], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 1 )
+			RETURN
+				IF ( ventesTousTypes >= [Seuil ventes], DIVIDE ( COALESCE ( ventesMaisons, 0 ), ventesTousTypes ) )
+		formatString: 0 %
+		displayFolder: Volumes
+		lineageTag: ea61c7fe-8e6c-4c10-b01c-10c7ce484841
+
+	/// Nombre de ventes d'un seul logement retenues pour les indicateurs de prix, après exclusion des valeurs aberrantes.
+	measure 'Ventes avec prix' = CALCULATE ( [Ventes], fct_ventes[est_population_prix] = TRUE () )
+		formatString: #,0
+		displayFolder: Volumes
+		lineageTag: 809b9dbf-5042-48bd-b32a-c9ec87edb779
+
+	/// Médiane du prix au m² bâti des ventes d'un seul logement, hors valeurs aberrantes. Vide si moins de 10 ventes ou si maisons et appartements sont mélangés.
+	measure 'Prix médian m²' =
+			VAR nbTypes = CALCULATE ( DISTINCTCOUNT ( fct_ventes[type_bien_key] ), fct_ventes[est_population_prix] = TRUE () )
+			VAR nbVentes = [Ventes avec prix]
+			RETURN
+				IF (
+					nbTypes = 1 && nbVentes >= [Seuil ventes],
+					CALCULATE ( MEDIAN ( fct_ventes[prix_m2] ), fct_ventes[est_population_prix] = TRUE () )
+				)
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: 84a575fa-cb72-4e32-a031-b36a92908187
+
+	/// Prix médian au m² des appartements, quel que soit le filtre de type de bien. Vide si moins de 10 ventes.
+	measure 'Prix médian m² appartements' = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 2 )
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: ad1d4723-b904-4e6c-9029-66c38fc8eb4b
+
+	/// Prix médian au m² des maisons, quel que soit le filtre de type de bien. Vide si moins de 10 ventes.
+	measure 'Prix médian m² maisons' = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 1 )
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: 02d1a942-4fcf-46bf-bd4f-66ac7fe6ff6b
+
+	/// Prix médian au m² sur la même période de l'année précédente.
+	measure 'Prix médian m² N-1' = CALCULATE ( [Prix médian m²], SAMEPERIODLASTYEAR ( dim_date[date_jour] ) )
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: 66e70ac1-0b31-4f92-b352-2aad53d954f7
+
+	/// Prix médian de vente d'un appartement de 3 pièces, hors frais de notaire et hors valeurs aberrantes. Vide si moins de 10 ventes.
+	measure 'Prix médian T3' =
+			VAR nbVentes = CALCULATE ( [Ventes avec prix], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 2, fct_ventes[nb_pieces] = 3 )
+			RETURN
+				IF (
+					nbVentes >= [Seuil ventes],
+					CALCULATE (
+						MEDIAN ( fct_ventes[valeur_fonciere] ),
+						REMOVEFILTERS ( dim_type_bien ),
+						dim_type_bien[code_type_bien] = 2,
+						fct_ventes[nb_pieces] = 3,
+						fct_ventes[est_population_prix] = TRUE ()
+					)
+				)
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: 44a72eba-0aa0-47d2-a850-9edcdab7ffdc
+
+	/// Prix médian de vente d'une maison de 4 ou 5 pièces, hors frais de notaire et hors valeurs aberrantes. Vide si moins de 10 ventes.
+	measure 'Prix médian maison 4-5 p.' =
+			VAR nbVentes = CALCULATE ( [Ventes avec prix], REMOVEFILTERS ( dim_type_bien ), dim_type_bien[code_type_bien] = 1, fct_ventes[nb_pieces] IN { 4, 5 } )
+			RETURN
+				IF (
+					nbVentes >= [Seuil ventes],
+					CALCULATE (
+						MEDIAN ( fct_ventes[valeur_fonciere] ),
+						REMOVEFILTERS ( dim_type_bien ),
+						dim_type_bien[code_type_bien] = 1,
+						fct_ventes[nb_pieces] IN { 4, 5 },
+						fct_ventes[est_population_prix] = TRUE ()
+					)
+				)
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: 6a8e0cd0-c6cd-4a4b-add8-4b71047aad94
+
+	/// Prix médian du bien type du type sélectionné : maison de 4 ou 5 pièces, ou appartement T3. Alimente les cartes KPI.
+	measure 'Prix médian bien type' =
+			SWITCH (
+				SELECTEDVALUE ( dim_type_bien[code_type_bien] ),
+				1, [Prix médian maison 4-5 p.],
+				2, [Prix médian T3]
+			)
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: ef3e53dc-b71a-4008-9863-2a03d3d49e3a
+
+	/// Prix médian au m² de l'ensemble du ou des départements des communes du contexte, même type de bien et même période. Ignore la sélection de communes.
+	measure 'Prix médian m² département' =
+			VAR departements = VALUES ( dim_commune[code_departement] )
+			RETURN
+				CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_commune ), departements )
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: 3f49b4e4-e0e0-40d7-a827-4ecbc0b28497
+
+	/// Variation du nombre de ventes par rapport à la même période de l'année précédente. Vide si moins de 10 ventes l'année précédente.
+	measure 'Évol. ventes %' =
+			VAR ventesN1 = [Ventes N-1]
+			RETURN
+				IF ( ventesN1 >= [Seuil ventes], DIVIDE ( [Ventes] - ventesN1, ventesN1 ) )
+		formatString: ▲ +0.0 %;▼ -0.0 %;0.0 %
+		displayFolder: Évolutions
+		lineageTag: dbed3c72-5774-4b01-ae0d-18893e856a8c
+
+	/// Variation du prix médian au m² par rapport à la même période de l'année précédente. Vide si moins de 10 ventes sur l'une des deux périodes.
+	measure 'Évol. prix m² %' =
+			VAR prixN = [Prix médian m²]
+			VAR prixN1 = [Prix médian m² N-1]
+			RETURN
+				IF ( NOT ISBLANK ( prixN ) && NOT ISBLANK ( prixN1 ), DIVIDE ( prixN - prixN1, prixN1 ) )
+		formatString: ▲ +0.0 %;▼ -0.0 %;0.0 %
+		displayFolder: Évolutions
+		lineageTag: 0af77035-8b36-47d2-82c9-40577a5f747a
+
+	/// Écart du prix médian au m² de la commune par rapport à la médiane de son département, même type de bien et même période. Vide si moins de 10 ventes dans la commune.
+	measure 'Écart vs département %' =
+			VAR prixCommune = [Prix médian m²]
+			VAR prixDepartement = [Prix médian m² département]
+			RETURN
+				IF (
+					HASONEVALUE ( dim_commune[code_commune_insee] ) && NOT ISBLANK ( prixCommune ),
+					DIVIDE ( prixCommune - prixDepartement, prixDepartement )
+				)
+		formatString: +0 %;-0 %;0 %
+		displayFolder: Évolutions
+		lineageTag: 3e854cd0-071c-4e81-9c1c-16d62063764c
+
+	/// Vaut 1 si la commune compte au moins 20 ventes avec prix l'année sélectionnée et l'année précédente, sinon vide.
+	measure 'Commune éligible top' =
+			VAR ventesN = [Ventes avec prix]
+			VAR ventesN1 = CALCULATE ( [Ventes avec prix], SAMEPERIODLASTYEAR ( dim_date[date_jour] ) )
+			RETURN
+				IF ( HASONEVALUE ( dim_commune[code_commune_insee] ) && ventesN >= [Seuil top] && ventesN1 >= [Seuil top], 1 )
+		formatString: 0
+		displayFolder: Évolutions
+		lineageTag: b039ec3a-1419-4223-9823-e589177a3ac3
+
+	/// Rang de la commune parmi les communes éligibles, de la plus forte hausse du prix médian au m² (rang 1) à la plus forte baisse. Filtrer le visuel sur un rang inférieur ou égal à 10.
+	measure 'Rang hausse prix' =
+			IF (
+				[Commune éligible top] = 1,
+				VAR evolCommune = [Évol. prix m² %]
+				VAR communesEligibles = FILTER ( ALLSELECTED ( dim_commune ), [Commune éligible top] = 1 )
+				RETURN
+					RANKX ( communesEligibles, [Évol. prix m² %], evolCommune, DESC, SKIP )
+			)
+		formatString: 0
+		displayFolder: Évolutions
+		lineageTag: 50c1d160-4b3a-442e-a107-bbb21c25fe30
+
+	/// Rang de la commune parmi les communes éligibles, de la plus forte baisse du prix médian au m² (rang 1) à la plus forte hausse. Filtrer le visuel sur un rang inférieur ou égal à 10.
+	measure 'Rang baisse prix' =
+			IF (
+				[Commune éligible top] = 1,
+				VAR evolCommune = [Évol. prix m² %]
+				VAR communesEligibles = FILTER ( ALLSELECTED ( dim_commune ), [Commune éligible top] = 1 )
+				RETURN
+					RANKX ( communesEligibles, [Évol. prix m² %], evolCommune, ASC, SKIP )
+			)
+		formatString: 0
+		displayFolder: Évolutions
+		lineageTag: 8222b81e-3c27-4952-b511-779d4fe2d751
+
+	/// Libellé du bien type du type sélectionné, affiché sous la carte « Prix médian bien type ».
+	measure 'Libellé bien type' =
+			SWITCH (
+				SELECTEDVALUE ( dim_type_bien[code_type_bien] ),
+				1, "Maison de 4 ou 5 pièces",
+				2, "Appartement T3"
+			)
+		displayFolder: Titres
+		lineageTag: 5e05963f-95a2-4921-b9c9-168fd53e908b
+
+	/// Mention affichée quand un prix repose sur moins de ventes que le seuil, à la place du chiffre.
+	measure 'Mention volume' = IF ( [Ventes avec prix] < [Seuil ventes], "Moins de " & [Seuil ventes] & " ventes : prix non affiché" )
+		displayFolder: Titres
+		lineageTag: 2453b889-5e0b-41fd-9371-65765c999e95
+
+	/// Pied de page : source et dates des données, lues dans mart_metadonnees.
+	measure 'Texte source' =
+			"Source : DVF géolocalisées (DGFiP, Etalab) · données publiées le "
+				& FORMAT ( MAX ( mart_metadonnees[date_publication_donnees] ), "dd/mm/yyyy", "fr-FR" )
+				& " · ventes du "
+				& FORMAT ( MAX ( mart_metadonnees[date_premiere_vente] ), "dd/mm/yyyy", "fr-FR" )
+				& " au "
+				& FORMAT ( MAX ( mart_metadonnees[date_derniere_vente] ), "dd/mm/yyyy", "fr-FR" )
+		displayFolder: Titres
+		lineageTag: 82c93744-740e-4df3-b0cf-51ea3d0c8fc8
+
+	/// Titre de la page Vue d'ensemble : sens des évolutions des ventes et des prix par rapport à l'année précédente.
+	measure 'Titre vue d''ensemble' =
+			VAR typeBien = SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "Logements" )
+			VAR annee = SELECTEDVALUE ( dim_date[annee] )
+			VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+			VAR evolVentes = [Évol. ventes %]
+			VAR evolPrix = [Évol. prix m² %]
+			VAR texteVentes =
+				IF (
+					NOT ISBLANK ( evolVentes ),
+					SWITCH ( TRUE (), evolVentes > 0.01, "ventes en hausse", evolVentes < -0.01, "ventes en baisse", "ventes stables" )
+						& " (" & FORMAT ( evolVentes, "+0.0 %;-0.0 %;0.0 %", "fr-FR" ) & ")"
+				)
+			VAR textePrix =
+				IF (
+					NOT ISBLANK ( evolPrix ),
+					SWITCH ( TRUE (), evolPrix > 0.01, "prix en hausse", evolPrix < -0.01, "prix en baisse", "prix stables" )
+						& " (" & FORMAT ( evolPrix, "+0.0 %;-0.0 %;0.0 %", "fr-FR" ) & ")"
+				)
+			VAR constat =
+				SWITCH (
+					TRUE (),
+					NOT ISBLANK ( texteVentes ) && NOT ISBLANK ( textePrix ), texteVentes & ", " & textePrix,
+					NOT ISBLANK ( texteVentes ), texteVentes,
+					NOT ISBLANK ( textePrix ), textePrix,
+					FORMAT ( [Ventes], "#,0", "fr-FR" ) & " ventes"
+				)
+			RETURN
+				typeBien & " " & periode & " : " & constat
+		displayFolder: Titres
+		lineageTag: 1385dc7d-5bb3-4b18-921e-8ee73ef2968e
+
+	/// Titre de la page Géographie : commune au prix médian au m² le plus élevé (parmi celles qui atteignent le seuil de volume).
+	measure 'Titre géographie' =
+			VAR typeBien = SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "Logements" )
+			VAR annee = SELECTEDVALUE ( dim_date[annee] )
+			VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+			VAR communesAvecPrix = FILTER ( VALUES ( dim_commune[libelle_commune] ), NOT ISBLANK ( [Prix médian m²] ) )
+			VAR plusChere = TOPN ( 1, communesAvecPrix, [Prix médian m²], DESC )
+			VAR nomCommune = MAXX ( plusChere, dim_commune[libelle_commune] )
+			VAR prixCommune = MAXX ( plusChere, [Prix médian m²] )
+			RETURN
+				IF (
+					ISBLANK ( nomCommune ),
+					typeBien & " " & periode & " : volumes insuffisants pour comparer les communes",
+					typeBien & " " & periode & " : le prix au m² le plus élevé est à " & nomCommune
+						& " (" & FORMAT ( prixCommune, "#,0", "fr-FR" ) & " €/m²)"
+				)
+		displayFolder: Titres
+		lineageTag: c0da714c-49f3-40c1-b5c6-8cd6577efd01
+
+	/// Titre de la page Typologie : intervalle des prix au m² dans lequel se situe la moitié centrale des ventes (1er et 3e quartiles).
+	measure 'Titre typologie' =
+			VAR typeBien = SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "Logements" )
+			VAR annee = SELECTEDVALUE ( dim_date[annee] )
+			VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+			VAR quartileBas = CALCULATE ( PERCENTILE.INC ( fct_ventes[prix_m2], 0.25 ), fct_ventes[est_population_prix] = TRUE () )
+			VAR quartileHaut = CALCULATE ( PERCENTILE.INC ( fct_ventes[prix_m2], 0.75 ), fct_ventes[est_population_prix] = TRUE () )
+			RETURN
+				IF (
+					ISBLANK ( [Prix médian m²] ),
+					typeBien & " " & periode & " : volumes insuffisants",
+					typeBien & " " & periode & " : la moitié des ventes se fait entre "
+						& FORMAT ( ROUND ( quartileBas, -1 ), "#,0", "fr-FR" ) & " et "
+						& FORMAT ( ROUND ( quartileHaut, -1 ), "#,0", "fr-FR" ) & " €/m²"
+				)
+		displayFolder: Titres
+		lineageTag: 70ef689b-ac01-4694-9285-8001da347435
+
+	/// Titre de la page Fiche commune : prix médian au m² de la commune et écart à son département.
+	measure 'Titre fiche commune' =
+			VAR commune = SELECTEDVALUE ( dim_commune[nom_commune] )
+			VAR departement = SELECTEDVALUE ( dim_commune[libelle_du_departement] )
+			VAR typeBien = LOWER ( SELECTEDVALUE ( dim_type_bien[libelle_type_bien_pluriel], "logements" ) )
+			VAR annee = SELECTEDVALUE ( dim_date[annee] )
+			VAR periode = IF ( ISBLANK ( annee ), "sur la période", "en " & annee )
+			VAR prix = [Prix médian m²]
+			VAR ecart = [Écart vs département %]
+			RETURN
+				SWITCH (
+					TRUE (),
+					ISBLANK ( commune ), "Sélectionnez une commune",
+					ISBLANK ( prix ), commune & ", " & typeBien & " " & periode & " : moins de " & [Seuil ventes] & " ventes, prix non publié",
+					commune & ", " & typeBien & " " & periode & " : "
+						& FORMAT ( prix, "#,0", "fr-FR" ) & " €/m², "
+						& FORMAT ( ABS ( ecart ), "0 %", "fr-FR" )
+						& IF ( ecart >= 0, " au-dessus ", " en dessous " ) & departement
+				)
+		displayFolder: Titres
+		lineageTag: c5418b7f-dbe8-4bda-9571-ffa0378efc90
+
+	/// Couleur de mise en forme conditionnelle de l'évolution des ventes : vermillon en hausse, bleu en baisse, gris si vide.
+	measure 'Couleur évol. ventes' =
+			VAR evolution = [Évol. ventes %]
+			RETURN
+				SWITCH ( TRUE (), ISBLANK ( evolution ), "#616E7C", evolution > 0, "#B5401A", evolution < 0, "#1565A8", "#616E7C" )
+		displayFolder: Mise en forme
+		lineageTag: 655bf7ca-575d-4817-82bc-49695d49d796
+
+	/// Couleur de mise en forme conditionnelle de l'évolution du prix au m² : vermillon en hausse, bleu en baisse, gris si vide.
+	measure 'Couleur évol. prix' =
+			VAR evolution = [Évol. prix m² %]
+			RETURN
+				SWITCH ( TRUE (), ISBLANK ( evolution ), "#616E7C", evolution > 0, "#B5401A", evolution < 0, "#1565A8", "#616E7C" )
+		displayFolder: Mise en forme
+		lineageTag: 88c44948-5bde-4d4a-bec5-578623f6773d
+
+	/// Couleur de mise en forme conditionnelle de l'écart au département : vermillon au-dessus, bleu en dessous, gris si vide.
+	measure 'Couleur écart département' =
+			VAR ecart = [Écart vs département %]
+			RETURN
+				SWITCH ( TRUE (), ISBLANK ( ecart ), "#616E7C", ecart > 0, "#B5401A", ecart < 0, "#1565A8", "#616E7C" )
+		displayFolder: Mise en forme
+		lineageTag: f21d149c-d908-4c89-a661-8d3316dc3496
+
+	/// Prix médian au m² de l'ensemble de la Bretagne, même type de bien et même période. Ignore les filtres de département et de commune. Sert de ligne de référence.
+	measure 'Prix médian m² Bretagne' = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( dim_commune ) )
+		formatString: #,0 €
+		displayFolder: Prix
+		lineageTag: 6667521d-e099-40c2-b407-18648e766f57
+
+	/// Couleur des colonnes de la distribution des prix au m² : la tranche qui contient le prix médian est foncée, les autres claires.
+	measure 'Couleur tranche médiane' =
+			VAR mediane = CALCULATE ( [Prix médian m²], REMOVEFILTERS ( fct_ventes[tranche_prix_m2], fct_ventes[tranche_prix_m2_ordre] ) )
+			VAR debutTranche = SELECTEDVALUE ( fct_ventes[tranche_prix_m2_ordre] )
+			RETURN
+				IF (
+					NOT ISBLANK ( mediane ) && mediane >= debutTranche && ( mediane < debutTranche + 250 || debutTranche = 8000 ),
+					"#12464C",
+					"#6FA8A6"
+				)
+		displayFolder: Mise en forme
+		lineageTag: 4682d800-2e1b-4b01-b2ec-f7fbf45a207f
+
+	column 'Colonne 1'
+		dataType: string
+		isHidden
+		lineageTag: cb1eb9e3-7d54-47f9-adf5-b9db6f68cc88
+		summarizeBy: none
+		sourceColumn: Colonne 1
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Mesures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Colonne 1" = _t]),
+				    #"Type modifié" = Table.TransformColumnTypes(Source,{{"Colonne 1", type text}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_ResultType = Table
+

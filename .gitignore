@@ -23,9 +23,13 @@ dbt/logs/
 dbt/dbt_packages/
 dbt/.user.yml
 
+# Power BI : le projet est versionné au format PBIP (texte) ; un .pbix embarque les données
+*.pbix
 # Power BI : cache local et paramètres utilisateur du format PBIP
 powerbi/**/.pbi/localSettings.json
 powerbi/**/.pbi/cache.abf
+# Onglets de script de la vue TMDL : copies de travail, la référence est le modèle
+powerbi/**/TMDLScripts/
 
 # Environnement et éditeurs
 .env

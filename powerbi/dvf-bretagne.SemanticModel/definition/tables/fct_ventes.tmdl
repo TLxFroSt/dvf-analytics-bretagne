@@ -239,8 +239,6 @@ table fct_ventes
 				in
 				    Source
 
-	changedProperty = Name
-
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
